@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>League Sign-Up</title>
+  <meta name="description" content="Sign up your doubles team for the pool league.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23111%22/><circle cx=%2250%22 cy=%2250%22 r=%2224%22 fill=%22%23fff%22/><text x=%2250%22 y=%2260%22 font-size=%2232%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-weight=%22700%22>8</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="felt">
+    <div class="rack" aria-hidden="true">
+      <span class="ball b1">1</span>
+      <span class="ball b9">9</span><span class="ball b3">3</span>
+      <span class="ball b8">8</span><span class="ball b5">5</span><span class="ball b6">6</span>
+    </div>
+    <h1 id="league-name">Doubles Pool League</h1>
+    <p id="league-details">Doubles teams. Sign up below.</p>
+  </header>
+
+  <main>
+    <form id="signup" novalidate>
+      <!-- spam trap: real people never see this -->
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+      <fieldset>
+        <legend>Team</legend>
+        <label>Team name
+          <input name="Team name" required autocomplete="off" maxlength="60">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Player 1</legend>
+        <div class="row">
+          <label>First name
+            <input name="Player 1 first name" required autocomplete="given-name">
+          </label>
+          <label>Last name
+            <input name="Player 1 last name" required autocomplete="family-name">
+          </label>
+        </div>
+        <label>Phone
+          <input name="Player 1 phone" type="tel" inputmode="tel" required autocomplete="tel" placeholder="555-123-4567">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Player 2 (partner)</legend>
+        <div class="row">
+          <label>First name
+            <input name="Player 2 first name" required autocomplete="off">
+          </label>
+          <label>Last name
+            <input name="Player 2 last name" required autocomplete="off">
+          </label>
+        </div>
+        <label>Phone
+          <input name="Player 2 phone" type="tel" inputmode="tel" required autocomplete="off" placeholder="555-123-4567">
+        </label>
+      </fieldset>
+
+      <fieldset class="pay">
+        <legend>Entry fee</legend>
+        <p class="fee-line"><strong id="fee-total">$20</strong> per team <span id="fee-each" class="muted"></span></p>
+        <a id="venmo-btn" class="btn venmo" href="#" target="_blank" rel="noopener">Pay on Venmo</a>
+        <label class="check">
+          <input type="checkbox" name="Venmo payment sent" value="Yes" required>
+          <span>I sent the entry fee on Venmo.</span>
+        </label>
+      </fieldset>
+
+      <p id="error" class="error" role="alert" hidden></p>
+      <button id="submit" class="btn go" type="submit">Sign up my team</button>
+    </form>
+
+    <section id="done" class="done" hidden>
+      <h2>You're in!</h2>
+      <p>Your team is signed up. Haven't paid yet? Tap below.</p>
+      <a id="venmo-btn-2" class="btn venmo" href="#" target="_blank" rel="noopener">Pay on Venmo</a>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
