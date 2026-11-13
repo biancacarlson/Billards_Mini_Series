@@ -5,9 +5,11 @@
 
   document.title = L.name + " Sign-Up";
   $("league-name").textContent = L.name;
-  $("league-details").textContent = L.details;
-  $("fee-total").textContent = "$" + total;
-  $("fee-each").textContent = "($" + L.feePerPerson + " per player)";
+  $("fee-each").textContent = "$" + L.feePerPerson + " per person";
+  $("fee-total").textContent = "$" + total + " total";
+  $("venmo-btn").textContent = "Pay $" + total + " on Venmo";
+  $("venmo-btn-2").textContent = "Pay $" + total + " on Venmo";
+  $("check-text").textContent = "I sent $" + total + " on Venmo.";
 
   function venmoLink(team) {
     var note = L.name + " - " + (team || "team entry");
@@ -44,7 +46,7 @@
     });
     if (firstBad) {
       showError(firstBad.type === "checkbox"
-        ? "Send the entry fee on Venmo, then check the box."
+        ? "Send $" + total + " on Venmo, then check the box."
         : "Fill in every box.");
       firstBad.focus();
       return;

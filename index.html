@@ -14,12 +14,11 @@
 <body>
   <header class="felt">
     <div class="rack" aria-hidden="true">
-      <span class="ball b1">1</span>
-      <span class="ball b9">9</span><span class="ball b3">3</span>
-      <span class="ball b8">8</span><span class="ball b5">5</span><span class="ball b6">6</span>
+      <div class="rk"><span class="ball b1">1</span></div>
+      <div class="rk"><span class="ball b3">3</span><span class="ball b9">9</span></div>
+      <div class="rk"><span class="ball b5">5</span><span class="ball b8">8</span><span class="ball b6">6</span></div>
     </div>
     <h1 id="league-name">Doubles Pool League</h1>
-    <p id="league-details">Doubles teams. Sign up below.</p>
   </header>
 
   <main>
@@ -28,7 +27,6 @@
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
       <fieldset>
-        <legend>Team</legend>
         <label>Team name
           <input name="Team name" required autocomplete="off" maxlength="60">
         </label>
@@ -66,11 +64,11 @@
 
       <fieldset class="pay">
         <legend>Entry fee</legend>
-        <p class="fee-line"><strong id="fee-total">$20</strong> per team <span id="fee-each" class="muted"></span></p>
-        <a id="venmo-btn" class="btn venmo" href="#" target="_blank" rel="noopener">Pay on Venmo</a>
+        <p class="fee-line"><strong id="fee-each">$10 per person</strong><span id="fee-total" class="total">$20 total</span></p>
+        <a id="venmo-btn" class="btn venmo" href="#" target="_blank" rel="noopener">Pay $20 on Venmo</a>
         <label class="check">
           <input type="checkbox" name="Venmo payment sent" value="Yes" required>
-          <span>I sent the entry fee on Venmo.</span>
+          <span id="check-text">I sent $20 on Venmo.</span>
         </label>
       </fieldset>
 
@@ -81,7 +79,7 @@
     <section id="done" class="done" hidden>
       <h2>You're in!</h2>
       <p>Your team is signed up. Haven't paid yet? Tap below.</p>
-      <a id="venmo-btn-2" class="btn venmo" href="#" target="_blank" rel="noopener">Pay on Venmo</a>
+      <a id="venmo-btn-2" class="btn venmo" href="#" target="_blank" rel="noopener">Pay $20 on Venmo</a>
     </section>
   </main>
 
