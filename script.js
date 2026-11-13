@@ -1,26 +1,25 @@
 (function () {
   var L = window.LEAGUE;
-  var perPerson = Math.round(L.feePerPerson * (1 + L.processingFeePct / 100) * 100) / 100;
-  var total = Math.round(perPerson * 2 * 100) / 100;
+  var perPlayer = Math.round(L.feePerPerson * (1 + L.processingFeePct / 100) * 100) / 100;
+  var total = Math.round(perPlayer * 2 * 100) / 100;
   function money(n) { return "$" + (n % 1 === 0 ? n : n.toFixed(2)); }
   var $ = function (id) { return document.getElementById(id); };
 
   document.title = L.name;
-  $("league-name").textContent = L.name;
-  $("fee-each").textContent = money(perPerson);
+  $("fee-each").textContent = money(perPlayer);
   $("fee-total").textContent = money(total);
   $("venmo-btn").textContent = "Pay " + money(total) + " on Venmo";
   $("venmo-btn-2").textContent = "Pay " + money(total) + " on Venmo";
   $("check-text").textContent = "I sent " + money(total) + " on Venmo.";
 
   function venmoLink(team) {
-    var note = L.name + " - " + (team || "team entry");
+    var note = "Billiards League - " + (team || "Team Entry");
     return "https://venmo.com/" + encodeURIComponent(L.venmoUsername) +
       "?txn=pay&amount=" + total + "&note=" + encodeURIComponent(note);
   }
 
   var form = $("signup");
-  var teamInput = form.elements["Team name"];
+  var teamInput = form.elements["Team Name"];
   function refreshLinks() {
     var link = venmoLink(teamInput.value.trim());
     $("venmo-btn").href = link;
@@ -39,7 +38,6 @@
     ev.preventDefault();
     showError("");
 
-    // check required fields
     var firstBad = null;
     Array.prototype.forEach.call(form.querySelectorAll("input[required]"), function (el) {
       var bad = el.type === "checkbox" ? !el.checked : !el.value.trim();
@@ -54,8 +52,7 @@
       return;
     }
 
-    // phone sanity check (10+ digits)
-    var phones = ["Player 1 phone", "Player 2 phone"];
+    var phones = ["Player 1 Phone", "Player 2 Phone"];
     for (var i = 0; i < phones.length; i++) {
       var f = form.elements[phones[i]];
       if (f.value.replace(/\D/g, "").length < 10) {
@@ -68,14 +65,14 @@
 
     var data = {
       access_key: L.web3formsKey,
-      subject: "New league team: " + teamInput.value.trim(),
+      subject: "New League Team: " + teamInput.value.trim(),
       from_name: "League Sign-Up",
       botcheck: form.elements["botcheck"].checked
     };
     Array.prototype.forEach.call(form.elements, function (el) {
       if (el.name && el.name !== "botcheck" && el.type !== "checkbox") data[el.name] = el.value.trim();
     });
-    data["Venmo payment sent"] = "Yes (team says they paid " + money(total) + " - verify in Venmo)";
+    data["Venmo Payment Sent"] = "Yes (team says they paid " + money(total) + " - verify in Venmo)";
 
     var btn = $("submit");
     btn.disabled = true;
@@ -94,9 +91,9 @@
         window.scrollTo(0, 0);
       })
       .catch(function () {
-        showError("Didn't send. Check your connection and tap again.");
+        showError("Didn’t send. Check your connection and tap again.");
         btn.disabled = false;
-        btn.textContent = "Sign up my team";
+        btn.textContent = "Sign Up My Team";
       });
   });
 
@@ -116,9 +113,6 @@
   }
   Array.prototype.forEach.call(tabs, function (t) {
     t.addEventListener("click", function () { showTab(t.getAttribute("data-tab"), true); });
-  });
-  Array.prototype.forEach.call(document.querySelectorAll(".to-signup"), function (b) {
-    b.addEventListener("click", function () { showTab("signup", true); });
   });
   window.addEventListener("hashchange", function () { showTab(location.hash.slice(1), false); });
   showTab(location.hash.slice(1), false);

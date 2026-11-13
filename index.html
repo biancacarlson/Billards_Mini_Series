@@ -2,18 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Billiards Sign Up Sheet</title>
-  <meta name="description" content="Sign up your doubles team for the pool league.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Billiards Sign-Up Sheet</title>
+  <meta name="description" content="Sign up your doubles team for the 8-ball league.">
+  <meta name="theme-color" content="#5a3a22">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23111%22/><circle cx=%2250%22 cy=%2250%22 r=%2224%22 fill=%22%23fff%22/><text x=%2250%22 y=%2260%22 font-size=%2232%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-weight=%22700%22>8</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=6">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
-  <header class="felt">
-    <h1 id="league-name">Billiards Sign Up Sheet</h1>
+  <div class="rail"></div>
+
+  <header class="top">
+    <h1 id="league-name">Billiards <span class="nb">Sign-Up Sheet</span></h1>
     <nav class="tabs" role="tablist">
       <button class="tab on" role="tab" id="t-signup" data-tab="signup" aria-selected="true">Sign Up</button>
       <button class="tab" role="tab" id="t-info" data-tab="info" aria-selected="false">League Info</button>
@@ -22,197 +25,191 @@
   </header>
 
   <main>
-    
-
+    <!-- SIGN UP -->
     <div id="tab-signup" role="tabpanel" aria-labelledby="t-signup">
-    <form id="signup" novalidate>
-      <!-- spam trap: real people never see this -->
-      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+      <form id="signup" class="card" novalidate>
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
-      <fieldset>
-        <label>Team name
-          <input name="Team name" required autocomplete="off" maxlength="60">
-        </label>
-      </fieldset>
-
-      <fieldset>
-        <legend>Player 1</legend>
-        <div class="row">
-          <label>First name
-            <input name="Player 1 first name" required autocomplete="given-name">
-          </label>
-          <label>Last name
-            <input name="Player 1 last name" required autocomplete="family-name">
+        <div class="group">
+          <label>Team Name
+            <input name="Team Name" required autocomplete="off" maxlength="60">
           </label>
         </div>
-        <label>Phone
-          <input name="Player 1 phone" type="tel" inputmode="tel" required autocomplete="tel" placeholder="555-123-4567">
-        </label>
-      </fieldset>
 
-      <fieldset>
-        <legend>Player 2 (partner)</legend>
-        <div class="row">
-          <label>First name
-            <input name="Player 2 first name" required autocomplete="off">
-          </label>
-          <label>Last name
-            <input name="Player 2 last name" required autocomplete="off">
+        <div class="group" role="group" aria-labelledby="g1">
+          <h3 id="g1">Player 1</h3>
+          <div class="row">
+            <label>First Name
+              <input name="Player 1 First Name" required autocomplete="given-name">
+            </label>
+            <label>Last Name
+              <input name="Player 1 Last Name" required autocomplete="family-name">
+            </label>
+          </div>
+          <label>Phone
+            <input name="Player 1 Phone" type="tel" inputmode="tel" required autocomplete="tel" placeholder="555-123-4567">
           </label>
         </div>
-        <label>Phone
-          <input name="Player 2 phone" type="tel" inputmode="tel" required autocomplete="off" placeholder="555-123-4567">
-        </label>
-      </fieldset>
 
-      <fieldset class="pay">
-        <legend>Entry fee</legend>
-        <div class="fee-box">
-          <div class="fee-row"><span>Per person <small>($10 + 5% fee)</small></span><span id="fee-each">$10.50</span></div>
-          <div class="fee-row fee-sum"><span>Team total</span><span id="fee-total">$21</span></div>
+        <div class="group" role="group" aria-labelledby="g2">
+          <h3 id="g2">Player 2 (Partner)</h3>
+          <div class="row">
+            <label>First Name
+              <input name="Player 2 First Name" required autocomplete="off">
+            </label>
+            <label>Last Name
+              <input name="Player 2 Last Name" required autocomplete="off">
+            </label>
+          </div>
+          <label>Phone
+            <input name="Player 2 Phone" type="tel" inputmode="tel" required autocomplete="off" placeholder="555-123-4567">
+          </label>
         </div>
-        <a id="venmo-btn" class="btn venmo" href="#" target="_blank" rel="noopener">Pay $21 on Venmo</a>
-        <p class="warn"><strong>Important:</strong> turn Venmo Purchase Protection (Goods &amp; Services) <strong>OFF</strong> when you pay.</p>
-        <label class="check">
-          <input type="checkbox" name="Venmo payment sent" value="Yes" required>
-          <span id="check-text">I sent $21 on Venmo.</span>
-        </label>
-      </fieldset>
 
-      <p id="error" class="error" role="alert" hidden></p>
-      <button id="submit" class="btn go" type="submit">Sign up my team</button>
-    </form>
+        <div class="group" role="group" aria-labelledby="g3">
+          <h3 id="g3">Entry Fee</h3>
+          <div class="fee">
+            <div class="fee-row"><span>Per Player</span><span id="fee-each">$10.50</span></div>
+            <div class="fee-row fee-sum"><span>Team Total</span><span id="fee-total">$21</span></div>
+          </div>
+          <p class="note">Includes a 5% processing fee.</p>
+          <a id="venmo-btn" class="btn venmo" href="#" target="_blank" rel="noopener">Pay $21 on Venmo</a>
+          <p class="warn"><strong>Important:</strong> turn Venmo Purchase Protection (Goods &amp; Services) <strong>off</strong> when you pay.</p>
+          <label class="check">
+            <input type="checkbox" name="Venmo Payment Sent" value="Yes" required>
+            <span id="check-text">I sent $21 on Venmo.</span>
+          </label>
+        </div>
 
-    <section id="done" class="done" hidden>
-      <h2>You're in!</h2>
-      <p>Your team is signed up. Haven't paid yet? Tap below.</p>
-      <a id="venmo-btn-2" class="btn venmo" href="#" target="_blank" rel="noopener">Pay $21 on Venmo</a>
-    </section>
+        <p id="error" class="error" role="alert" hidden></p>
+        <button id="submit" class="btn go" type="submit">Sign Up My Team</button>
+      </form>
+
+      <section id="done" class="card done" hidden>
+        <h2>You’re In!</h2>
+        <p>Your team is signed up. Haven’t paid yet?</p>
+        <a id="venmo-btn-2" class="btn venmo" href="#" target="_blank" rel="noopener">Pay $21 on Venmo</a>
+      </section>
     </div>
 
+    <!-- LEAGUE INFO -->
     <div id="tab-info" role="tabpanel" aria-labelledby="t-info" hidden>
-    <section class="card info">
-      <h2>8-Ball Doubles Series</h2>
-      <p class="tag">The money you pay to play is the money you play to win.</p>
-      <dl>
-        <div><dt>Format</dt><dd>Doubles, 2 players per team</dd></div>
-        <div><dt>Max teams</dt><dd>12</dd></div>
-        <div><dt>When</dt><dd>Tuesdays, 6&ndash;8 PM</dd></div>
-        <div><dt>Season</dt><dd>Dec 1&ndash;22</dd></div>
-        <div><dt>Championship</dt><dd>Dec 29</dd></div>
-        <div><dt>Entry</dt><dd>$10 + 5% fee, per player</dd></div>
-        <div><dt>Playoffs</dt><dd>Top 8 teams</dd></div>
-        <div><dt>Prizes</dt><dd>50% / 30% / 20%</dd></div>
-      </dl>
-      <p class="small">Teams register as a pair and play together the entire series.</p>
-    </section>
+      <section class="card">
+        <h2>8-Ball Doubles Series</h2>
+        <p class="tagline">The money you pay to play is the money you play to win.</p>
+        <dl class="glance">
+          <div><dt>Format</dt><dd>Doubles, 2 players per team</dd></div>
+          <div><dt>Max Teams</dt><dd>12</dd></div>
+          <div><dt>Time</dt><dd>Tuesdays, 6:00&ndash;8:00 PM</dd></div>
+        </dl>
+      </section>
 
-    <section class="more" aria-label="League details">
+      <section class="card">
+        <h2>Schedule</h2>
+        <ul class="timeline">
+          <li><span class="wk">Week 1</span><span class="dt">December 1</span><span class="ds">Regular season begins.</span></li>
+          <li><span class="wk">Week 2</span><span class="dt">December 8</span></li>
+          <li><span class="wk">Week 3</span><span class="dt">December 15</span></li>
+          <li><span class="wk">Week 4</span><span class="dt">December 22</span><span class="ds">Last chance to earn a playoff spot.</span></li>
+          <li class="final"><span class="wk">Week 5</span><span class="dt">December 29</span><span class="ds">Championship Night.</span></li>
+        </ul>
+      </section>
+
       <details>
-        <summary>Schedule</summary>
+        <summary>Match Format</summary>
         <ul>
-          <li><b>Week 1 &middot; Dec 1</b> First week of regular matchups.</li>
-          <li><b>Week 2 &middot; Dec 8</b> Regular matchups continue.</li>
-          <li><b>Week 3 &middot; Dec 15</b> Regular matchups continue.</li>
-          <li><b>Week 4 &middot; Dec 22</b> Final chance to secure a playoff spot.</li>
-          <li><b>Week 5 &middot; Dec 29</b> Championship Night.</li>
+          <li>Each team plays one best-of-three matchup per week. The first team to win two games wins the matchup.</li>
+          <li>Every matchup ends with one winner and one loser.</li>
+          <li>If a team wins the first two games, the third is not played.</li>
+          <li>Example: Team A wins Game 1, Team B wins Game 2, Team A wins Game 3. Team A wins the matchup 2&ndash;1.</li>
         </ul>
       </details>
+
       <details>
-        <summary>Match format</summary>
+        <summary>Arrival Times</summary>
         <ul>
-          <li>One head-to-head matchup per team each week.</li>
-          <li>Best of three. First team to win two games wins the matchup.</li>
-          <li>Every matchup has one winner and one loss.</li>
-          <li>If a team wins the first two games, the matchup is over.</li>
-          <li>Example: Game 1 Team A, Game 2 Team B, Game 3 Team A. Team A wins 2&ndash;1.</li>
-        </ul>
-      </details>
-      <details>
-        <summary>Arrival times</summary>
-        <ul>
-          <li>All matchups are played between 6:00 and 8:00 PM.</li>
-          <li>More than 10 minutes late: forfeit Game 1.</li>
-          <li>Not here within 20 minutes: forfeit Games 1 and 2, a loss for the matchup.</li>
+          <li>A team that arrives more than 10 minutes after its scheduled start forfeits Game 1.</li>
+          <li>A team that has not arrived within 20 minutes forfeits Games 1 and 2, which is a loss for the matchup.</li>
           <li>Tell Bianca or Emily about any delay as early as you can.</li>
         </ul>
       </details>
+
       <details>
         <summary>Rankings</summary>
         <ol>
-          <li><b>Match wins:</b> total weekly matchups won.</li>
-          <li><b>Head-to-head:</b> if tied and they played each other, that winner ranks higher.</li>
-          <li><b>Point differential:</b> points scored minus points allowed in regular-season games.</li>
-          <li><b>Points scored:</b> total points earned in the regular season.</li>
+          <li><b>Match Wins:</b> total weekly matchups won.</li>
+          <li><b>Head-to-Head Record:</b> if two teams are tied and have played each other, the winner of that matchup ranks higher.</li>
+          <li><b>Point Differential:</b> points scored minus points allowed in regular-season games.</li>
+          <li><b>Points Scored:</b> total points earned in the regular season.</li>
         </ol>
-        <p>Regular-season performance decides playoff seeding.</p>
+        <p>Regular-season performance determines playoff seeding.</p>
       </details>
+
       <details>
         <summary>Playoffs</summary>
         <ul>
           <li>After Week 4, the top 8 teams in the standings qualify.</li>
-          <li>Single elimination. Lose once and you&rsquo;re out.</li>
-          <li>Every playoff matchup is best 2 out of 3.</li>
-          <li>The top 8 teams compete for the three cash prizes.</li>
+          <li>Single elimination: one loss and a team is out.</li>
+          <li>Every playoff matchup is best two out of three.</li>
         </ul>
       </details>
-      <details>
-        <summary>Championship bracket &middot; Dec 29</summary>
-        <p><b>Round 1 &middot; Quarterfinals</b></p>
-        <ul>
-          <li>Match 1: #1 seed vs. #8 seed</li>
-          <li>Match 2: #4 seed vs. #5 seed</li>
-          <li>Match 3: #2 seed vs. #7 seed</li>
-          <li>Match 4: #3 seed vs. #6 seed</li>
-        </ul>
-        <p><b>Round 2 &middot; Semifinals</b></p>
-        <ul>
-          <li>Match 5: winner of Match 1 vs. winner of Match 2</li>
-          <li>Match 6: winner of Match 3 vs. winner of Match 4</li>
-        </ul>
-        <p><b>Final placements</b></p>
-        <ul>
-          <li>The two semifinal winners play the championship final for 1st and 2nd.</li>
-          <li>The two semifinal losers play the 3rd place match.</li>
-        </ul>
-      </details>
-      <details>
-        <summary>Prize money</summary>
-        <p>The prize pool is split among the top 3 finishing teams.</p>
-        <ul class="plain">
-          <li>&#129351; 1st place: 50%</li>
-          <li>&#129352; 2nd place: 30%</li>
-          <li>&#129353; 3rd place: 20%</li>
-        </ul>
-      </details>
-    </section>
-    <button type="button" class="btn go to-signup">Sign up my team</button>
-    </div>
-  
-    
 
-    <div id="tab-rules" role="tabpanel" aria-labelledby="t-rules" hidden>
-      <section class="card rules">
-        <h2>8-Ball Doubles Rules</h2>
-        <p class="tag">Each game follows 8-ball rules with the league clarifications below. Teammates alternate turns during doubles play.</p>
-        <div class="rule"><h3>Object of the game</h3><p>Each team is assigned solids (1&ndash;7) or stripes (9&ndash;15). A team wins by legally pocketing all balls in its group and then legally pocketing the 8-ball in a properly called pocket.</p></div>
-        <div class="rule"><h3>Racking</h3><p>Rack all 15 object balls as tightly as possible, with the front ball on the foot spot and the 8-ball in the center.</p></div>
-        <div class="rule"><h3>Break</h3><p>The first breaking team is decided by a coin toss or rock-paper-scissors. In later games of the same matchup, the team that won the previous game chooses which team breaks. The break must be taken from behind the head string and the rack must be struck first. If four object balls do not contact a rail, re-rack and the same player gets another attempt. If the second attempt is also illegal, the opposing team breaks.</p></div>
-        <div class="rule"><h3>8-ball on the break</h3><p>Pocketing the 8-ball on the break is an automatic win for the breaking team, unless the cue ball is also pocketed. Then the opposing team wins.</p></div>
-        <div class="rule"><h3>Open table</h3><p>The table stays open until a player legally pockets a ball that establishes solids or stripes. On an open table, either group may be hit first, but the 8-ball may not be hit first.</p></div>
-        <div class="rule"><h3>Slop</h3><p>Slop rules apply. Players do not need to call every shot or pocket in advance. The pocket must be called for the 8-ball.</p></div>
-        <div class="rule"><h3>Fouls and ball-in-hand</h3><p>A scratch, failing to hit the correct object ball first, failing to drive any ball to a rail after legal contact (unless a ball is pocketed), cue-ball movement, or a double hit gives the opposing team ball-in-hand. On a break scratch, the opposing team gets ball-in-hand behind the head string. On other fouls, ball-in-hand may be placed anywhere on the table.</p></div>
-        <div class="rule"><h3>8-ball loss conditions</h3><p>A team loses if it pockets the 8-ball before clearing its group, pockets it in the wrong pocket, fails to properly call the pocket and makes the shot, or pockets the 8-ball on the same shot as a cue-ball scratch.</p></div>
-        <div class="rule"><h3>Jump and masse shots</h3><p>Jump shots and masse shots <b>are allowed</b>.</p></div>
-        <div class="rule"><h3>Balls leaving the table</h3><p>Pocketed balls must stay in the pocket to count. If an object ball leaves the playing surface, it is spotted as close as possible to the foot spot. Knocking the 8-ball off the table is a loss of game. A cue ball leaving the table is a scratch.</p></div>
-        <div class="rule"><h3>Coaching</h3><p>Coaching is limited to the two players currently playing. Only the two players at the table may mark or point to a location on the table. After a warning, improper coaching gives the opposing team ball-in-hand.</p></div>
-        <div class="rule"><h3>Shooting position and table care</h3><p>At least one foot must stay on the floor while shooting. Players may not sit on the table or mark, wet, or otherwise alter the cloth.</p></div>
+      <details>
+        <summary>Championship Bracket</summary>
+        <p><b>Quarterfinals</b></p>
+        <ul>
+          <li>Match 1: #1 Seed vs. #8 Seed</li>
+          <li>Match 2: #4 Seed vs. #5 Seed</li>
+          <li>Match 3: #2 Seed vs. #7 Seed</li>
+          <li>Match 4: #3 Seed vs. #6 Seed</li>
+        </ul>
+        <p><b>Semifinals</b></p>
+        <ul>
+          <li>Match 5: Winner of Match 1 vs. Winner of Match 2</li>
+          <li>Match 6: Winner of Match 3 vs. Winner of Match 4</li>
+        </ul>
+        <p><b>Finals</b></p>
+        <ul>
+          <li>The two semifinal winners play for 1st and 2nd place.</li>
+          <li>The two semifinal losers play for 3rd place.</li>
+        </ul>
+      </details>
+
+      <section class="card">
+        <h2>Prize Money</h2>
+        <div class="podium">
+          <div class="tile first"><span class="medal">&#129351;</span><span class="pl">1st Place</span><span class="pct">50%</span></div>
+          <div class="tile"><span class="medal">&#129352;</span><span class="pl">2nd Place</span><span class="pct">30%</span></div>
+          <div class="tile"><span class="medal">&#129353;</span><span class="pl">3rd Place</span><span class="pct">20%</span></div>
+        </div>
+        <p class="note">Split of the prize pool, based on final team placements.</p>
       </section>
-      <button type="button" class="btn go to-signup">Sign up my team</button>
+    </div>
+
+    <!-- RULES -->
+    <div id="tab-rules" role="tabpanel" aria-labelledby="t-rules" hidden>
+      <section class="card">
+        <h2>Rules</h2>
+        <p class="tagline">Standard 8-ball with the league clarifications below. Teammates alternate turns during doubles play.</p>
+        <ol class="rule-list">
+          <li><h3>Object of the Game</h3><p>Each team is assigned solids (1&ndash;7) or stripes (9&ndash;15). A team wins by legally pocketing all balls in its group and then legally pocketing the 8-ball in a properly called pocket.</p></li>
+          <li><h3>Racking</h3><p>Rack all 15 object balls as tightly as possible, with the front ball on the foot spot and the 8-ball in the center.</p></li>
+          <li><h3>Break</h3><p>The first breaking team is decided by a coin toss or rock-paper-scissors. In later games of the same matchup, the team that won the previous game chooses which team breaks. The break must be taken from behind the head string, and the rack must be struck first. If four object balls do not contact a rail, re-rack and the same player gets another attempt. If the second attempt is also illegal, the opposing team breaks.</p></li>
+          <li><h3>8-Ball on the Break</h3><p>Pocketing the 8-ball on the break is an automatic win for the breaking team, unless the cue ball is also pocketed. Then the opposing team wins.</p></li>
+          <li><h3>Open Table</h3><p>The table stays open until a player legally pockets a ball that establishes solids or stripes. On an open table, either group may be hit first, but the 8-ball may not be hit first.</p></li>
+          <li><h3>Slop</h3><p>Slop rules apply. Players do not need to call every shot or pocket in advance. The pocket must be called for the 8-ball.</p></li>
+          <li><h3>Fouls and Ball-in-Hand</h3><p>A scratch, failing to hit the correct object ball first, failing to drive any ball to a rail after legal contact (unless a ball is pocketed), cue-ball movement, or a double hit gives the opposing team ball-in-hand. On a break scratch, the opposing team gets ball-in-hand behind the head string. On other fouls, ball-in-hand may be placed anywhere on the table.</p></li>
+          <li><h3>8-Ball Loss Conditions</h3><p>A team loses if it pockets the 8-ball before clearing its group, pockets it in the wrong pocket, fails to properly call the pocket and makes the shot, or pockets the 8-ball on the same shot as a cue-ball scratch.</p></li>
+          <li><h3>Jump and Masse Shots</h3><p>Jump shots and masse shots <b>are allowed</b>.</p></li>
+          <li><h3>Balls Leaving the Table</h3><p>Pocketed balls must stay in the pocket to count. If an object ball leaves the playing surface, it is spotted as close as possible to the foot spot. Knocking the 8-ball off the table is a loss of game. A cue ball leaving the table is a scratch.</p></li>
+          <li><h3>Coaching</h3><p>Coaching is limited to the two teammates of the team currently shooting. Only those two players may mark or point to a location on the table. After a warning, improper coaching gives the opposing team ball-in-hand.</p></li>
+          <li><h3>Shooting Position and Table Care</h3><p>At least one foot must stay on the floor while shooting. Players may not sit on the table or mark, wet, or otherwise alter the cloth.</p></li>
+        </ol>
+      </section>
     </div>
   </main>
 
-  <script src="config.js?v=6"></script>
-  <script src="script.js?v=6"></script>
+  <script src="config.js?v=8"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
