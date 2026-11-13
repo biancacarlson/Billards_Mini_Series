@@ -100,7 +100,7 @@
   // tabs
   var tabs = document.querySelectorAll(".tab");
   function showTab(name, push) {
-    if (name !== "info" && name !== "rules") name = "signup";
+    if (["info", "schedule", "bracket", "rules"].indexOf(name) < 0) name = "signup";
     Array.prototype.forEach.call(tabs, function (t) {
       var on = t.getAttribute("data-tab") === name;
       t.classList.toggle("on", on);
@@ -108,6 +108,8 @@
     });
     $("tab-signup").hidden = name !== "signup";
     $("tab-info").hidden = name !== "info";
+    $("tab-schedule").hidden = name !== "schedule";
+    $("tab-bracket").hidden = name !== "bracket";
     $("tab-rules").hidden = name !== "rules";
     if (push) { history.replaceState(null, "", "#" + name); window.scrollTo(0, 0); }
   }
