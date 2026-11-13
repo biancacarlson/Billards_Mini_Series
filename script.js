@@ -1,15 +1,17 @@
 (function () {
   var L = window.LEAGUE;
-  var total = L.feePerPerson * 2;
+  var perPerson = Math.round(L.feePerPerson * (1 + L.processingFeePct / 100) * 100) / 100;
+  var total = Math.round(perPerson * 2 * 100) / 100;
+  function money(n) { return "$" + (n % 1 === 0 ? n : n.toFixed(2)); }
   var $ = function (id) { return document.getElementById(id); };
 
-  document.title = L.name + " Sign-Up";
+  document.title = L.name;
   $("league-name").textContent = L.name;
-  $("fee-each").textContent = "$" + L.feePerPerson + " per person";
-  $("fee-total").textContent = "$" + total + " total";
-  $("venmo-btn").textContent = "Pay $" + total + " on Venmo";
-  $("venmo-btn-2").textContent = "Pay $" + total + " on Venmo";
-  $("check-text").textContent = "I sent $" + total + " on Venmo.";
+  $("fee-each").textContent = money(perPerson);
+  $("fee-total").textContent = money(total);
+  $("venmo-btn").textContent = "Pay " + money(total) + " on Venmo";
+  $("venmo-btn-2").textContent = "Pay " + money(total) + " on Venmo";
+  $("check-text").textContent = "I sent " + money(total) + " on Venmo.";
 
   function venmoLink(team) {
     var note = L.name + " - " + (team || "team entry");
@@ -46,7 +48,7 @@
     });
     if (firstBad) {
       showError(firstBad.type === "checkbox"
-        ? "Send $" + total + " on Venmo, then check the box."
+        ? "Send " + money(total) + " on Venmo, then check the box."
         : "Fill in every box.");
       firstBad.focus();
       return;
@@ -73,7 +75,7 @@
     Array.prototype.forEach.call(form.elements, function (el) {
       if (el.name && el.name !== "botcheck" && el.type !== "checkbox") data[el.name] = el.value.trim();
     });
-    data["Venmo payment sent"] = "Yes (team says they paid $" + total + " - verify in Venmo)";
+    data["Venmo payment sent"] = "Yes (team says they paid " + money(total) + " - verify in Venmo)";
 
     var btn = $("submit");
     btn.disabled = true;
@@ -97,4 +99,27 @@
         btn.textContent = "Sign up my team";
       });
   });
+
+  // tabs
+  var tabs = document.querySelectorAll(".tab");
+  function showTab(name, push) {
+    if (name !== "info" && name !== "rules") name = "signup";
+    Array.prototype.forEach.call(tabs, function (t) {
+      var on = t.getAttribute("data-tab") === name;
+      t.classList.toggle("on", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    $("tab-signup").hidden = name !== "signup";
+    $("tab-info").hidden = name !== "info";
+    $("tab-rules").hidden = name !== "rules";
+    if (push) { history.replaceState(null, "", "#" + name); window.scrollTo(0, 0); }
+  }
+  Array.prototype.forEach.call(tabs, function (t) {
+    t.addEventListener("click", function () { showTab(t.getAttribute("data-tab"), true); });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".to-signup"), function (b) {
+    b.addEventListener("click", function () { showTab("signup", true); });
+  });
+  window.addEventListener("hashchange", function () { showTab(location.hash.slice(1), false); });
+  showTab(location.hash.slice(1), false);
 })();
