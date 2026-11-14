@@ -234,3 +234,21 @@ h2,h3,.tagline{text-wrap:balance}
 #tab-info .tagline.big .kick{color:var(--ivory);margin-bottom:4px}
 #tab-info .tagline.big .punch{color:var(--brass)}
 #tab-info .tagline.big .punch em{color:var(--brass)}
+
+/* ---- Smaller headline fonts (less scrolling) ---- */
+h2{font-size:21px}
+h3{font-size:17px}
+.group > h3{font-size:18px}
+.wt{font-size:19px}
+.rule-head h3{font-size:clamp(13px,4.2vw,17px)}
+.round{font-size:18px}
+.btn{font-size:17px}
+.go{font-size:20px;padding:14px}
+.fee-row{font-size:15px}
+.fee-sum{font-size:34px}
+.fee-sum span:first-child{font-size:17px}
+.tile .pct{font-size:28px}
+.tile:nth-child(1) .pct{font-size:34px}
+.tile .medal{font-size:22px}
+.champ span{font-size:28px}
+#tab-info .tagline.big .punch{font-size:clamp(20px,6vw,25px)}
