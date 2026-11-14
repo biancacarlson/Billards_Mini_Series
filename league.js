@@ -130,6 +130,18 @@
   }
 
   /* ---------- schedule ---------- */
+  function resPanel(an, bn, aNo, bNo, win, score) {
+    var body;
+    if (win) {
+      var wn = win === aNo ? an : bn, ln = win === aNo ? bn : an;
+      body = '<div class="rline w"><b>Winner</b><span>' + wn + "</span></div>" +
+        '<div class="rline l"><b>Loser</b><span>' + ln + "</span></div>" +
+        (score ? '<div class="rline s"><b>Score</b><span>' + esc(score) + "</span></div>" : "");
+    } else {
+      body = '<div class="rline n">Not played yet</div>';
+    }
+    return '<div class="mres">' + body + "</div>";
+  }
   function teamLine(no, win) {
     var cls = win ? (win === no ? "win" : "lose") : "";
     return '<div class="tl ' + cls + '"><span class="tn">' + esc(nm(no)) + "</span>" + (win && win === no ? '<span class="ck">&#10003;</span>' : "") + "</div>";
@@ -142,9 +154,10 @@
     });
     return slots.map(function (s) {
       return '<div class="slot"><h3 class="time">' + s.t + "</h3>" + s.items.map(function (m) {
-        return '<div class="mrow"><span class="tb">Table ' + m.table + "</span><div class=\"vs\">" +
+        return '<div class="mrow tap" role="button" tabindex="0" aria-expanded="false"><span class="tb">Table ' + m.table + "</span><div class=\"vs\">" +
           teamLine(m.a, m.win) + '<div class="vsl">vs.</div>' + teamLine(m.b, m.win) + "</div>" +
-          (m.score ? '<span class="rs">' + esc(m.score) + "</span>" : "") + "</div>";
+          (m.score ? '<span class="rs">' + esc(m.score) + "</span>" : "") +
+          resPanel(esc(nm(m.a)), esc(nm(m.b)), m.a, m.b, m.win, m.score) + "</div>";
       }).join("") + "</div>";
     }).join("");
   }
@@ -156,9 +169,11 @@
       var nameTxt = t.name === null ? "#" + t.seed + " Seed" : esc(t.name);
       return '<div class="tl ' + cls + '"><span class="tn">' + nameTxt + "</span>" + (win && win === t.no ? '<span class="ck">&#10003;</span>' : "") + "</div>";
     }
-    return '<div class="mrow"><span class="tb">Table ' + table + '</span><div class="vs"><div class="lbl">' + label + "</div>" +
+    function tname(t, ph) { return !t ? esc(ph) : (t.name === null ? "#" + t.seed + " Seed" : esc(t.name)); }
+    return '<div class="mrow tap" role="button" tabindex="0" aria-expanded="false"><span class="tb">Table ' + table + '</span><div class="vs"><div class="lbl">' + label + "</div>" +
       line(x.a, x.aPh) + '<div class="vsl">vs.</div>' + line(x.b, x.bPh) + "</div>" +
-      (x.res && x.res.score ? '<span class="rs">' + esc(x.res.score) + "</span>" : "") + "</div>";
+      (x.res && x.res.score ? '<span class="rs">' + esc(x.res.score) + "</span>" : "") +
+      resPanel(tname(x.a, x.aPh), tname(x.b, x.bPh), x.a && x.a.no, x.b && x.b.no, win, x.res && x.res.score) + "</div>";
   }
   function champWeek() {
     var m = B.m;
@@ -194,6 +209,20 @@
     $("week-title").textContent = "Championship Night";
     $("week-title").hidden = cur !== chipWeeks.length - 1;
     $("week-body").innerHTML = cur === chipWeeks.length - 1 ? champWeek() : regularWeek(D.weeks[cur]);
+    bindRows();
+  }
+  function toggleRow(row) {
+    var open = row.classList.toggle("open");
+    row.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function bindRows() {
+    var rows = $("week-body").querySelectorAll(".mrow.tap");
+    Array.prototype.forEach.call(rows, function (row) {
+      row.addEventListener("click", function () { toggleRow(row); });
+      row.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleRow(row); }
+      });
+    });
   }
   $("week-chips").addEventListener("click", function (e) {
     var b = e.target.closest(".chip");

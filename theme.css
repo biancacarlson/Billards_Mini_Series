@@ -195,3 +195,35 @@ h2,h3,.tagline{text-wrap:balance}
   .tab{font-size:12px;letter-spacing:.02em;padding:0 2px}
   .fee-sum{font-size:40px}
 }
+
+/* info intro tagline: one centered, same-case statement */
+#tab-info .tagline.big{text-align:center;margin-bottom:18px}
+#tab-info .tagline.big .kick{justify-content:center;gap:10px;margin:0 0 10px;font:500 clamp(14px,4.4vw,17px)/1.2 var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--ivory)}
+#tab-info .tagline.big .kick::before,#tab-info .tagline.big .kick::after{display:none}
+#tab-info .tagline.big .punch{text-transform:uppercase;font-size:clamp(25px,7.6vw,32px);letter-spacing:.015em}
+
+/* tap-to-reveal matchup results */
+.hint{margin:10px 0 4px;font:500 13px/1.3 var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--chalk-dark)}
+.mrow{flex-wrap:wrap}
+.mrow.tap{cursor:pointer;-webkit-tap-highlight-color:transparent;transition:box-shadow .15s}
+.mrow.tap:hover{box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.mrow.tap:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.mrow.open{border-left-color:var(--brass)}
+.mres{display:none;flex:0 0 100%;margin-top:4px;padding-top:10px;border-top:1px dashed var(--rule)}
+.mrow.open .mres{display:block}
+.rline{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:16px}
+.rline b{flex:none;min-width:70px;padding:4px 0;text-align:center;border-radius:3px;font:600 13px/1 var(--cond);letter-spacing:.12em;text-transform:uppercase}
+.rline.w b{background:linear-gradient(#f3d98a,#c9a24a);color:#1b1608}
+.rline.l b{background:#d9d2bd;color:#5b5a45}
+.rline.s b{background:linear-gradient(var(--felt),var(--felt-deep));color:var(--brass)}
+.rline.w span{font-weight:700;color:var(--felt)}
+.rline.l span{color:var(--muted)}
+.rline.n{color:var(--muted);font-style:italic}
+
+/* chevron affordance on tappable matchups */
+.mrow.tap{position:relative;padding-bottom:20px}
+.mrow.tap::after{content:"";position:absolute;right:12px;bottom:7px;width:7px;height:7px;border-right:2px solid var(--chalk-dark);border-bottom:2px solid var(--chalk-dark);transform:rotate(45deg);transition:transform .15s}
+.mrow.tap.open::after{transform:rotate(225deg);bottom:5px}
+/* quiet version badge */
+.ver{display:block;text-align:center;padding:4px 0 calc(22px + env(safe-area-inset-bottom,0px));font:500 11px/1 var(--cond);letter-spacing:.18em;color:rgba(247,241,225,.35)}
+.ver::before,.ver::after{display:none}
