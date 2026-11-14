@@ -2,7 +2,7 @@
 //  WEEKLY UPDATE FILE  -  edit this file each week, then commit.
 //
 //  1. TEAMS:  replace "Team 1" ... with real team names.
-//     pf / pa = total game points scored / allowed (for tiebreakers).
+//     (pf / pa are no longer used; standings use wins, then head-to-head.)
 //  2. REGULAR SEASON: each line is ONE GAME. After a game, change
 //     win: null  to the winning team's NUMBER (the position in the
 //     TEAMS list, 1-12). The score is optional, like:  win: 5, score: "8-5"

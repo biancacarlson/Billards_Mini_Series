@@ -33,7 +33,7 @@
         }
       });
     });
-    // Tie-breakers: 1) game wins, 2) head-to-head record among the tied teams, 3) points scored.
+    // Tie-breakers: 1) game wins, 2) head-to-head record among the tied teams (still tied: team number).
     function h2hNet(t, grp) {
       var n = 0;
       grp.forEach(function (o) {
@@ -50,7 +50,7 @@
         var j = i;
         while (j < g.length && g[j].net === g[i].net) j++;
         var sub = g.slice(i, j);
-        if (sub.length === g.length) sub.sort(function (x, y) { return y.pf - x.pf || x.no - y.no; });
+        if (sub.length === g.length) sub.sort(function (x, y) { return x.no - y.no; });
         else sub = rankTied(sub);
         res = res.concat(sub);
         i = j;
@@ -72,11 +72,11 @@
 
   function renderStandings() {
     // Before any games are played, ranks are meaningless: hide them, the cutoff and the top-8 shading.
-    var cols = ready ? 5 : 4;
-    var h = '<table class="stand"><thead><tr>' + (ready ? "<th>#</th>" : "") + '<th class="l">Team</th><th>W</th><th>L</th><th>Pts</th></tr></thead><tbody>';
+    var cols = ready ? 4 : 3;
+    var h = '<table class="stand"><thead><tr>' + (ready ? "<th>#</th>" : "") + '<th class="l">Team</th><th>W</th><th>L</th></tr></thead><tbody>';
     S.rows.forEach(function (r, i) {
       h += '<tr class="' + (ready && i < 8 ? "in" : "") + '">' + (ready ? '<td class="rk">' + (i + 1) + "</td>" : "") + '<td class="l tn">' + esc(r.name) +
-        '</td><td>' + r.w + '</td><td>' + r.l + '</td><td>' + r.pf + '</td></tr>';
+        '</td><td>' + r.w + '</td><td>' + r.l + '</td></tr>';
       if (ready && i === 7) h += '<tr class="cut"><td colspan="' + cols + '"><span>Playoff Cutoff</span></td></tr>';
     });
     h += "</tbody></table>";
