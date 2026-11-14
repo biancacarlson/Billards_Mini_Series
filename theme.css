@@ -227,3 +227,10 @@ h2,h3,.tagline{text-wrap:balance}
 /* quiet version badge */
 .ver{display:block;text-align:center;padding:4px 0 calc(22px + env(safe-area-inset-bottom,0px));font:500 11px/1 var(--cond);letter-spacing:.18em;color:rgba(247,241,225,.35)}
 .ver::before,.ver::after{display:none}
+
+/* intro statement: one matched two-line sign */
+#tab-info .tagline.big{margin-bottom:14px}
+#tab-info .tagline.big .kick,#tab-info .tagline.big .punch{font:500 clamp(14px,4.3vw,18px)/1.25 var(--cond);letter-spacing:.08em;text-transform:uppercase;margin:0}
+#tab-info .tagline.big .kick{color:var(--ivory);margin-bottom:4px}
+#tab-info .tagline.big .punch{color:var(--brass)}
+#tab-info .tagline.big .punch em{color:var(--brass)}
