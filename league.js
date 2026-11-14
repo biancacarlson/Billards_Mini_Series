@@ -33,18 +33,35 @@
         }
       });
     });
+    // Tie-breakers: 1) game wins, 2) head-to-head record among the tied teams, 3) points scored.
+    function h2hNet(t, grp) {
+      var n = 0;
+      grp.forEach(function (o) {
+        if (o !== t) n += (t.beat[o.no] || 0) - (o.beat[t.no] || 0);
+      });
+      return n;
+    }
+    function rankTied(g) {
+      if (g.length < 2) return g;
+      g.forEach(function (t) { t.net = h2hNet(t, g); });
+      g.sort(function (x, y) { return y.net - x.net; });
+      var res = [], i = 0;
+      while (i < g.length) {
+        var j = i;
+        while (j < g.length && g[j].net === g[i].net) j++;
+        var sub = g.slice(i, j);
+        if (sub.length === g.length) sub.sort(function (x, y) { return y.pf - x.pf || x.no - y.no; });
+        else sub = rankTied(sub);
+        res = res.concat(sub);
+        i = j;
+      }
+      return res;
+    }
     var byWins = {};
     rows.forEach(function (r) { (byWins[r.w] = byWins[r.w] || []).push(r); });
     var out = [];
     Object.keys(byWins).map(Number).sort(function (a, b) { return b - a; }).forEach(function (w) {
-      var g = byWins[w];
-      // Rankings order: head-to-head (two-team ties), points scored
-      g.sort(function (x, y) { return y.pf - x.pf || x.no - y.no; });
-      if (g.length === 2) {
-        var ab = g[0].beat[g[1].no] || 0, ba = g[1].beat[g[0].no] || 0;
-        if (ba > ab) g = [g[1], g[0]];
-      }
-      out = out.concat(g);
+      out = out.concat(rankTied(byWins[w]));
     });
     return { rows: out, played: played, total: total };
   }
