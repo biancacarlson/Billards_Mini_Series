@@ -4,5 +4,6 @@ window.LEAGUE = {
   feePerPerson: 10,                      // dollars per player
   processingFeePct: 5,                   // % added on top
   venmoUsername: "Bianca_carlson",  // no @ sign
+  zelleContact: "",                    // optional: Zelle phone or email. Leave blank to hide the Zelle option
   web3formsKey: "dd92bfe8-3032-408a-bcb7-b2cfc4036c09" // see README, step 1
 };

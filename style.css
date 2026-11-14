@@ -92,6 +92,9 @@ input.bad{border-bottom-color:var(--error)}
 .go[disabled]{opacity:.6}
 .btn:focus-visible,.check input:focus-visible{outline:3px solid var(--felt);outline-offset:2px}
 .warn{margin:12px 0 0;padding:10px 12px;background:#fff3c4;border-left:5px solid #e0b400;border-radius:6px;font-size:16px;line-height:1.35}
+.alt-pay{margin:10px 0 0;font-size:14px;color:var(--muted)}
+.alt-pay summary{cursor:pointer;padding:6px 0;text-decoration:underline;text-underline-offset:3px}
+.alt-pay p{margin:4px 0 0;line-height:1.4}
 .check{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0}
 .check input{width:24px;height:24px;margin:1px 0 0;flex:none;accent-color:var(--felt)}
 .error{margin:16px 0 0;color:var(--error);font-weight:600}
@@ -105,13 +108,13 @@ input.bad{border-bottom-color:var(--error)}
 .glance dd{margin:0;font-weight:600;text-align:right}
 
 
-.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-.tile{display:flex;flex-direction:column;align-items:center;gap:2px;padding:14px 4px;background:var(--well);border-radius:10px;text-align:center}
-.tile.first{background:var(--chalk)}
+.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:12px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;text-align:center}
+.tile + .tile{border-left:2px dashed var(--rule)}
 .tile .medal{font-size:26px;line-height:1.1}
 .tile .pl{font-weight:600;font-size:15px}
 .tile .pct{font:700 34px/1 var(--head);color:var(--felt)}
-.tile.first .pct{color:var(--ink)}
+.tile.first .pct{color:var(--chalk-dark)}
 
 /* rules */
 .rule{padding:16px 16px 12px;position:relative;overflow:hidden}
@@ -246,3 +249,6 @@ input.bad{border-bottom-color:var(--error)}
 .champ span{font-size:34px;display:block;line-height:1.1}
 .champ b{display:block;font:700 30px/1.1 var(--head);color:var(--ink)}
 .champ small{font-weight:600}
+
+/* version tag */
+.ver{text-align:center;padding:4px 0 calc(18px + env(safe-area-inset-bottom,0px));font:500 12px/1 var(--body);color:rgba(255,255,255,.32);letter-spacing:.08em}

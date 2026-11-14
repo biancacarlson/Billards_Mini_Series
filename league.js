@@ -186,7 +186,8 @@
       return '<button type="button" class="chip' + (i === cur ? " on" : "") + '" data-w="' + i + '"><b>Week ' + (i + 1) + "</b><span>" + w.label + "</span></button>";
     }).join("");
     $("week-chips").innerHTML = chips;
-    $("week-title").textContent = cur === chipWeeks.length - 1 ? "Championship Night" : "Week " + (cur + 1) + " Matchups";
+    $("week-title").textContent = "Championship Night";
+    $("week-title").hidden = cur !== chipWeeks.length - 1;
     $("week-body").innerHTML = cur === chipWeeks.length - 1 ? champWeek() : regularWeek(D.weeks[cur]);
   }
   $("week-chips").addEventListener("click", function (e) {

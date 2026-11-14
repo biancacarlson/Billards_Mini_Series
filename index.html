@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=17">
+  <link rel="stylesheet" href="style.css?v=1">
 </head>
 <body>
   <div class="rail"></div>
@@ -49,7 +49,7 @@
             </label>
           </div>
           <label>Phone
-            <input name="Player 1 Phone" type="tel" inputmode="tel" required autocomplete="tel" placeholder="555-123-4567">
+            <input name="Player 1 Phone" type="tel" inputmode="tel" required autocomplete="tel">
           </label>
         </div>
 
@@ -64,7 +64,7 @@
             </label>
           </div>
           <label>Phone
-            <input name="Player 2 Phone" type="tel" inputmode="tel" required autocomplete="off" placeholder="555-123-4567">
+            <input name="Player 2 Phone" type="tel" inputmode="tel" required autocomplete="off">
           </label>
         </div>
 
@@ -75,11 +75,15 @@
             <div class="fee-row fee-sum"><span>Team Total</span><span id="fee-total">$21</span></div>
           </div>
           <p class="note">Includes a 5% processing fee.</p>
-          <a id="venmo-btn" class="btn venmo" href="#" target="_blank" rel="noopener">Pay $21 on Venmo</a>
+          <a id="venmo-btn" class="btn venmo" href="#" target="_blank" rel="noopener">Pay on Venmo</a>
           <p class="warn"><strong>Important:</strong> turn Venmo Purchase Protection (Goods &amp; Services) <strong>off</strong> when you pay.</p>
+          <details id="alt-pay" class="alt-pay" hidden>
+            <summary>Can&rsquo;t use Venmo?</summary>
+            <p>Send the team total with Zelle to <b id="zelle-to"></b>. Put your team name in the memo.</p>
+          </details>
           <label class="check">
-            <input type="checkbox" name="Venmo Payment Sent" value="Yes" required>
-            <span id="check-text">I sent $21 on Venmo.</span>
+            <input type="checkbox" name="Payment Sent" value="Yes" required>
+            <span id="check-text">I sent my team&rsquo;s payment.</span>
           </label>
         </div>
 
@@ -90,16 +94,16 @@
       <section id="done" class="card done" hidden>
         <h2>You’re In!</h2>
         <p>Your team is signed up. Haven’t paid yet?</p>
-        <a id="venmo-btn-2" class="btn venmo" href="#" target="_blank" rel="noopener">Pay $21 on Venmo</a>
+        <a id="venmo-btn-2" class="btn venmo" href="#" target="_blank" rel="noopener">Pay on Venmo</a>
       </section>
     </div>
 
     <!-- LEAGUE INFO -->
     <div id="tab-info" role="tabpanel" aria-labelledby="t-info" hidden>
       <section class="card">
-        <p class="tagline big"><span class="kick">The money you pay to play is</span><span class="punch">the money you <em>play to win.</em></span></p>
+        <p class="tagline big"><span class="kick">The $ you pay to play is</span><span class="punch"><em>the $ you play to win.</em></span></p>
         <dl class="glance">
-          <div><dt>Format</dt><dd>Teams of Two (Doubles)</dd></div>
+          <div><dt>Teams of</dt><dd>Two (Doubles)</dd></div>
           <div><dt>When</dt><dd>Every Tuesday in December<br>6&ndash;9 PM</dd></div>
         </dl>
       </section>
@@ -107,18 +111,17 @@
       <section class="card sec">
         <h2>Match Format</h2>
         <ul class="pts">
-          <li>You play a different team each week, one matchup per night.</li>
-          <li>Each matchup is 3 games, and all 3 are always played.</li>
-          <li>The team that wins more games (2&ndash;1 or 3&ndash;0) wins the match.</li>
-          <li><b class="lead">Example:</b> Team A wins Game 1, Team B wins Game 2, Team A wins Game 3. Team A wins 2&ndash;1.</li>
+          <li>Each night, every team plays 3 games against 3 different teams (one game per opponent).</li>
+          <li>You play once each hour, so there&rsquo;s time to rest between games.</li>
+          <li><b class="lead">Example:</b> Your team plays Team A at 6:00, Team B at 7:20 and Team C at 8:40. Win two of those and your night is 2&ndash;1.</li>
         </ul>
       </section>
 
       <section class="card sec">
         <h2>Arrival Times</h2>
         <ul class="pts">
-          <li><b class="lead">10+ Minutes Late:</b> Forfeit Game 1.</li>
-          <li><b class="lead">20+ Minutes Late:</b> Forfeit Games 1 and 2 (match loss).</li>
+          <li>Be at your table when your game is scheduled to start.</li>
+          <li><b class="lead">10+ Minutes Late:</b> Forfeit that game.</li>
           <li>Notify Bianca or Emily as early as possible about any delay.</li>
         </ul>
       </section>
@@ -127,8 +130,8 @@
         <h2>Rankings</h2>
         <p class="rule-intro">Regular-season standings determine playoff seeding in this order:</p>
         <ol class="rank">
-          <li><b class="lead">Match Wins:</b> Total weekly matchups won.</li>
-          <li><b class="lead">Head-to-Head:</b> Winner of the matchup between two tied teams.</li>
+          <li><b class="lead">Game Wins:</b> Total games won.</li>
+          <li><b class="lead">Head-to-Head:</b> Result of the game(s) between two tied teams.</li>
           <li><b class="lead">Point Differential:</b> Points scored minus points allowed in regular-season games.</li>
           <li><b class="lead">Points Scored:</b> Total points earned in the regular season.</li>
         </ol>
@@ -182,7 +185,7 @@
     <div id="tab-rules" role="tabpanel" aria-labelledby="t-rules" hidden>
       <section class="card">
         <h2>Rules</h2>
-        <p class="tagline">Standard <span class="nb">8-ball</span> with the league clarifications below. Teammates alternate turns during doubles play.</p>
+        <p class="tagline">Standard <span class="nb">8-ball</span> with the league clarifications below.</p>
       </section>
 
       <article class="card rule ">
@@ -198,23 +201,24 @@
         <ul class="pts">
           <li>Rack all 15 balls tightly.</li>
           <li>Front ball goes on the foot spot; the <span class="nb">8-ball</span> goes in the center.</li>
+          <li>The two balls in the back corners of the rack must be one solid and one stripe.</li>
         </ul>
       </article>
 
       <article class="card rule ">
         <div class="rule-head"><span class="num b3">3</span><h3>Break</h3></div>
         <ul class="pts">
-          <li><b class="lead">Order:</b> Coin toss or <span class="nb">rock-paper-scissors</span> decides the first break. After Game 1, the previous game&rsquo;s winner chooses who breaks.</li>
-          <li><b class="lead">Requirements:</b> Break from behind the head string, hit the rack first, and drive at least 4 object balls to a rail.</li>
-          <li><b class="lead">Illegal Break:</b> Re-rack and the same player tries again. If the second try is also illegal, the opposing team breaks.</li>
+          <li><b class="lead">Order:</b> <span class="nb">Rock-paper-scissors</span> decides the break.</li>
+          <li><b class="lead">Requirements:</b> Break from behind the head string (the kitchen), hit the rack first, and drive at least 4 object balls to a rail.</li>
+          <li><b class="lead">Illegal Break:</b> If the requirements aren&rsquo;t met, re-rack and break again.</li>
+          <li><b class="lead">Break Scratch:</b> The opponent places the <span class="nb">cue ball</span> behind the kitchen.</li>
         </ul>
       </article>
 
       <article class="card rule ">
         <div class="rule-head"><span class="num b4">4</span><h3>8-Ball on the Break</h3></div>
         <ul class="pts">
-          <li>Pocketing the <span class="nb">8-ball</span> on the break is an automatic win.</li>
-          <li>If you also pocket the cue ball, the opposing team wins.</li>
+          <li>Pocketing the <span class="nb">8-ball</span> on the break is an automatic win, unless you also scratch.</li>
         </ul>
       </article>
 
@@ -229,17 +233,20 @@
       <article class="card rule ">
         <div class="rule-head"><span class="num b6">6</span><h3>Slop</h3></div>
         <ul class="pts">
-          <li>Slop rules apply&mdash;no need to call regular shots or pockets.</li>
-          <li>You must call the pocket for the <span class="nb">8-ball</span>.</li>
+          <li>Slop rules apply&mdash;no need to call regular shots or pockets, except for the <span class="nb">8-ball</span>.</li>
         </ul>
       </article>
 
       <article class="card rule ">
         <div class="rule-head"><span class="num b7">7</span><h3>Fouls and Ball-in-Hand</h3></div>
         <ul class="pts">
-          <li><b class="lead">Fouls:</b> Scratching, failing to hit your object ball first, failing to drive a ball to a rail after legal contact (if nothing is pocketed), <span class="nb">cue-ball</span> movement, or double hits.</li>
-          <li><b class="lead">Break Scratch:</b> Opposing team gets <span class="nb">ball-in-hand</span> behind the head string.</li>
-          <li><b class="lead">Other Fouls:</b> Opposing team gets <span class="nb">ball-in-hand</span> anywhere on the table.</li>
+          <li><b class="lead">Fouls:</b> Any of these is a foul.</li>
+          <li>Scratching (pocketing the <span class="nb">cue ball</span>).</li>
+          <li>Not hitting your object ball first.</li>
+          <li>Nothing pocketed and no ball driven to a rail after legal contact.</li>
+          <li>Moving the <span class="nb">cue ball</span> (other than by shooting it).</li>
+          <li>Double hits.</li>
+          <li><b class="lead">Ball-in-Hand:</b> After any foul, the opposing team places the <span class="nb">cue ball</span> anywhere on the table. A scratch on the break is the exception (see Break).</li>
         </ul>
       </article>
 
@@ -248,8 +255,7 @@
         <p class="rule-intro">You lose immediately if you:</p>
         <ul class="pts">
           <li>Pocket the <span class="nb">8-ball</span> before clearing your group.</li>
-          <li>Pocket the <span class="nb">8-ball</span> in the wrong pocket.</li>
-          <li>Pocket the <span class="nb">8-ball</span> without properly calling the pocket.</li>
+          <li>Pocket the <span class="nb">8-ball</span> in the wrong pocket or without calling it.</li>
           <li>Scratch on the same shot as pocketing the <span class="nb">8-ball</span>.</li>
         </ul>
       </article>
@@ -257,7 +263,7 @@
       <article class="card rule good">
         <div class="rule-head"><span class="num b9 stripe">9</span><h3>Jump and Masse Shots</h3></div>
         <ul class="pts">
-          <li>Jump shots and masse shots <b class="yes">are allowed</b>.</li>
+          <li>Both <b class="yes">are allowed</b>.</li>
         </ul>
       </article>
 
@@ -289,9 +295,11 @@
     </div>
   </main>
 
-  <script src="config.js?v=17"></script>
-  <script src="league-data.js?v=17"></script>
-  <script src="league.js?v=17"></script>
-  <script src="script.js?v=17"></script>
+  <footer class="ver">v1</footer>
+
+  <script src="config.js?v=1"></script>
+  <script src="league-data.js?v=1"></script>
+  <script src="league.js?v=1"></script>
+  <script src="script.js?v=1"></script>
 </body>
 </html>

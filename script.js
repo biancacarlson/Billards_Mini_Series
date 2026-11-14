@@ -8,9 +8,10 @@
   document.title = L.name;
   $("fee-each").textContent = money(perPlayer);
   $("fee-total").textContent = money(total);
-  $("venmo-btn").textContent = "Pay " + money(total) + " on Venmo";
-  $("venmo-btn-2").textContent = "Pay " + money(total) + " on Venmo";
-  $("check-text").textContent = "I sent " + money(total) + " on Venmo.";
+  if (L.zelleContact) {
+    $("zelle-to").textContent = L.zelleContact;
+    $("alt-pay").hidden = false;
+  }
 
   function venmoLink(team) {
     var note = "Billiards League - " + (team || "Team Entry");
@@ -46,7 +47,7 @@
     });
     if (firstBad) {
       showError(firstBad.type === "checkbox"
-        ? "Send " + money(total) + " on Venmo, then check the box."
+        ? "Send your payment, then check the box."
         : "Fill in every box.");
       firstBad.focus();
       return;
@@ -72,7 +73,7 @@
     Array.prototype.forEach.call(form.elements, function (el) {
       if (el.name && el.name !== "botcheck" && el.type !== "checkbox") data[el.name] = el.value.trim();
     });
-    data["Venmo Payment Sent"] = "Yes (team says they paid " + money(total) + " - verify in Venmo)";
+    data["Payment Sent"] = "Yes (team says they paid " + money(total) + " - verify in Venmo or Zelle)";
 
     var btn = $("submit");
     btn.disabled = true;
