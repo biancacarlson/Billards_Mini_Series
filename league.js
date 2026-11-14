@@ -38,8 +38,8 @@
     var out = [];
     Object.keys(byWins).map(Number).sort(function (a, b) { return b - a; }).forEach(function (w) {
       var g = byWins[w];
-      // Rankings order: head-to-head (two-team ties), point differential, points scored
-      g.sort(function (x, y) { return (y.pf - y.pa) - (x.pf - x.pa) || y.pf - x.pf || x.no - y.no; });
+      // Rankings order: head-to-head (two-team ties), points scored
+      g.sort(function (x, y) { return y.pf - x.pf || x.no - y.no; });
       if (g.length === 2) {
         var ab = g[0].beat[g[1].no] || 0, ba = g[1].beat[g[0].no] || 0;
         if (ba > ab) g = [g[1], g[0]];
@@ -55,12 +55,11 @@
 
   function renderStandings() {
     // Before any games are played, ranks are meaningless: hide them, the cutoff and the top-8 shading.
-    var cols = ready ? 6 : 5;
-    var h = '<table class="stand"><thead><tr>' + (ready ? "<th>#</th>" : "") + '<th class="l">Team</th><th>W</th><th>L</th><th>Diff</th><th>Pts</th></tr></thead><tbody>';
+    var cols = ready ? 5 : 4;
+    var h = '<table class="stand"><thead><tr>' + (ready ? "<th>#</th>" : "") + '<th class="l">Team</th><th>W</th><th>L</th><th>Pts</th></tr></thead><tbody>';
     S.rows.forEach(function (r, i) {
-      var d = r.pf - r.pa;
       h += '<tr class="' + (ready && i < 8 ? "in" : "") + '">' + (ready ? '<td class="rk">' + (i + 1) + "</td>" : "") + '<td class="l tn">' + esc(r.name) +
-        '</td><td>' + r.w + '</td><td>' + r.l + '</td><td>' + (d > 0 ? "+" + d : d) + '</td><td>' + r.pf + '</td></tr>';
+        '</td><td>' + r.w + '</td><td>' + r.l + '</td><td>' + r.pf + '</td></tr>';
       if (ready && i === 7) h += '<tr class="cut"><td colspan="' + cols + '"><span>Playoff Cutoff</span></td></tr>';
     });
     h += "</tbody></table>";
