@@ -8,7 +8,10 @@
   document.title = L.name;
   $("fee-each").textContent = money(perPlayer);
   $("fee-total").textContent = money(total);
+  $("venmo-btn").textContent = "Pay " + money(total) + " on Venmo";
+  $("venmo-btn-2").textContent = "Pay " + money(total) + " on Venmo";
   if (L.zelleContact) {
+    $("zelle-amt").textContent = money(total);
     $("zelle-to").textContent = L.zelleContact;
     $("alt-pay").hidden = false;
   }

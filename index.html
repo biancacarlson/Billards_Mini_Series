@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <div class="rail"></div>
@@ -49,7 +49,7 @@
             </label>
           </div>
           <label>Phone
-            <input name="Player 1 Phone" type="tel" inputmode="tel" required autocomplete="tel">
+            <input name="Player 1 Phone" type="tel" inputmode="tel" required autocomplete="off">
           </label>
         </div>
 
@@ -79,7 +79,7 @@
           <p class="warn"><strong>Important:</strong> turn Venmo Purchase Protection (Goods &amp; Services) <strong>off</strong> when you pay.</p>
           <details id="alt-pay" class="alt-pay" hidden>
             <summary>Can&rsquo;t use Venmo?</summary>
-            <p>Send the team total with Zelle to <b id="zelle-to"></b>. Put your team name in the memo.</p>
+            <p>Send <span id="zelle-amt"></span> with Zelle to <b id="zelle-to"></b>. Put your team name in the memo.</p>
           </details>
           <label class="check">
             <input type="checkbox" name="Payment Sent" value="Yes" required>
@@ -113,15 +113,15 @@
         <ul class="pts">
           <li>Each night, every team plays 3 games against 3 different teams (one game per opponent).</li>
           <li>You play once each hour, so there&rsquo;s time to rest between games.</li>
-          <li><b class="lead">Example:</b> Your team plays Team A at 6:00, Team B at 7:20 and Team C at 8:40. Win two of those and your night is 2&ndash;1.</li>
+          <li>Every game counts as 1 win or 1 loss in the standings.</li>
         </ul>
       </section>
 
       <section class="card sec">
         <h2>Arrival Times</h2>
         <ul class="pts">
-          <li>Be at your table when your game is scheduled to start.</li>
-          <li><b class="lead">10+ Minutes Late:</b> Forfeit that game.</li>
+          <li><b class="lead">10+ Minutes Late:</b> Forfeit your first game.</li>
+          <li><b class="lead">20+ Minutes Late:</b> Forfeit your first two games.</li>
           <li>Notify Bianca or Emily as early as possible about any delay.</li>
         </ul>
       </section>
@@ -147,8 +147,8 @@
       </section>
 
       <section class="card sec">
-        <h2>Prize Money</h2>
-        <p class="rule-intro">Prize pool split based on final placement:</p>
+        <h2>Prize Pool</h2>
+        <p class="rule-intro">Split by final placement:</p>
         <div class="podium">
           <div class="tile first"><span class="medal">&#129351;</span><span class="pl">1st Place</span><span class="pct">50%</span></div>
           <div class="tile"><span class="medal">&#129352;</span><span class="pl">2nd Place</span><span class="pct">30%</span></div>
@@ -183,16 +183,15 @@
 
     <!-- RULES -->
     <div id="tab-rules" role="tabpanel" aria-labelledby="t-rules" hidden>
-      <section class="card">
-        <h2>Rules</h2>
-        <p class="tagline">Standard <span class="nb">8-ball</span> with the league clarifications below.</p>
+      <section class="card rules-intro">
+        <p class="tagline">Standard APA rules apply with the some clarifications below.</p>
       </section>
 
       <article class="card rule ">
         <div class="rule-head"><span class="num b1">1</span><h3>Object of the Game</h3></div>
         <ul class="pts">
           <li>Teams take solids <span class="nb">(1&ndash;7)</span> or stripes <span class="nb">(9&ndash;15)</span>.</li>
-          <li>Win by pocketing your entire group, then legally pocketing the <span class="nb">8-ball</span> in a called pocket.</li>
+          <li>Win by pocketing your entire group, then legally pocketing the <span class="nb">8-ball</span>.</li>
         </ul>
       </article>
 
@@ -218,7 +217,8 @@
       <article class="card rule ">
         <div class="rule-head"><span class="num b4">4</span><h3>8-Ball on the Break</h3></div>
         <ul class="pts">
-          <li>Pocketing the <span class="nb">8-ball</span> on the break is an automatic win, unless you also scratch.</li>
+          <li>Pocketing the <span class="nb">8-ball</span> on the break is an automatic win.</li>
+          <li>If you also pocket the cue ball, the opposing team wins.</li>
         </ul>
       </article>
 
@@ -246,7 +246,7 @@
           <li>Nothing pocketed and no ball driven to a rail after legal contact.</li>
           <li>Moving the <span class="nb">cue ball</span> (other than by shooting it).</li>
           <li>Double hits.</li>
-          <li><b class="lead">Ball-in-Hand:</b> After any foul, the opposing team places the <span class="nb">cue ball</span> anywhere on the table. A scratch on the break is the exception (see Break).</li>
+          <li><b class="lead">Ball-in-Hand:</b> After any foul except a break scratch, the opposing team places the <span class="nb">cue ball</span> anywhere on the table.</li>
         </ul>
       </article>
 
@@ -295,11 +295,11 @@
     </div>
   </main>
 
-  <footer class="ver">v1</footer>
+  <footer class="ver">v4</footer>
 
-  <script src="config.js?v=1"></script>
-  <script src="league-data.js?v=1"></script>
-  <script src="league.js?v=1"></script>
-  <script src="script.js?v=1"></script>
+  <script src="config.js?v=4"></script>
+  <script src="league-data.js?v=4"></script>
+  <script src="league.js?v=4"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

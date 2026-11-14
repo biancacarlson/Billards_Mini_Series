@@ -54,12 +54,14 @@
   var seeds = S.rows.slice(0, 8).map(function (r) { return r.no; });
 
   function renderStandings() {
-    var h = '<table class="stand"><thead><tr><th>#</th><th class="l">Team</th><th>W</th><th>L</th><th>Diff</th><th>Pts</th></tr></thead><tbody>';
+    // Before any games are played, ranks are meaningless: hide them, the cutoff and the top-8 shading.
+    var cols = ready ? 6 : 5;
+    var h = '<table class="stand"><thead><tr>' + (ready ? "<th>#</th>" : "") + '<th class="l">Team</th><th>W</th><th>L</th><th>Diff</th><th>Pts</th></tr></thead><tbody>';
     S.rows.forEach(function (r, i) {
       var d = r.pf - r.pa;
-      h += '<tr class="' + (i < 8 ? "in" : "") + '"><td class="rk">' + (i + 1) + '</td><td class="l tn">' + esc(r.name) +
+      h += '<tr class="' + (ready && i < 8 ? "in" : "") + '">' + (ready ? '<td class="rk">' + (i + 1) + "</td>" : "") + '<td class="l tn">' + esc(r.name) +
         '</td><td>' + r.w + '</td><td>' + r.l + '</td><td>' + (d > 0 ? "+" + d : d) + '</td><td>' + r.pf + '</td></tr>';
-      if (i === 7) h += '<tr class="cut"><td colspan="6"><span>Playoff Cutoff</span></td></tr>';
+      if (ready && i === 7) h += '<tr class="cut"><td colspan="' + cols + '"><span>Playoff Cutoff</span></td></tr>';
     });
     h += "</tbody></table>";
     $("standings").innerHTML = h;
@@ -87,13 +89,13 @@
       var a = m[p[0]].out.w, b = m[p[1]].out.w;
       m.push({
         n: 5 + i, round: "Semifinal", a: a, b: b, res: P.sf[i], out: pick(P.sf[i], a, b),
-        aPh: "Winner of Match " + (p[0] + 1), bPh: "Winner of Match " + (p[1] + 1)
+        aPh: "Winner M" + (p[0] + 1), bPh: "Winner M" + (p[1] + 1)
       });
     });
     var ta = m[4].out.l, tb = m[5].out.l;
-    var third = { n: 7, round: "3rd Place", a: ta, b: tb, res: P.third, out: pick(P.third, ta, tb), aPh: "Loser of Match 5", bPh: "Loser of Match 6" };
+    var third = { n: 7, round: "3rd Place", a: ta, b: tb, res: P.third, out: pick(P.third, ta, tb), aPh: "Loser M5", bPh: "Loser M6" };
     var fa = m[4].out.w, fb = m[5].out.w;
-    var fin = { n: 8, round: "Championship", a: fa, b: fb, res: P.final, out: pick(P.final, fa, fb), aPh: "Winner of Match 5", bPh: "Winner of Match 6" };
+    var fin = { n: 8, round: "Championship", a: fa, b: fb, res: P.final, out: pick(P.final, fa, fb), aPh: "Winner M5", bPh: "Winner M6" };
     return { m: m, third: third, fin: fin };
   }
   var B = bracket();
@@ -105,20 +107,25 @@
     return '<div class="side ' + cls + (t.name === null ? " ph" : "") + '"><span class="seed">#' + t.seed + '</span><span class="tn">' + name + "</span>" +
       (win && win === t.no ? '<span class="ck">&#10003;</span>' : "") + "</div>";
   }
-  function card(x, label) {
+  function card(x, label, cls) {
     var win = x.res && x.res.win;
-    return '<div class="bm"><div class="bh"><b>' + (label || "Match " + x.n) + "</b>" +
+    return '<div class="bm ' + (cls || "") + '"><div class="bh"><b>' + (label || "Match " + x.n) + "</b>" +
       (x.res && x.res.score ? "<span>" + esc(x.res.score) + "</span>" : "") + "</div>" +
       side(x.a, x.aPh, win) + side(x.b, x.bPh, win) + "</div>";
   }
+  function slot(inner) { return '<div class="slot">' + inner + "</div>"; }
+  function col(title, cls, inner) {
+    return '<div class="rcol ' + cls + '"><div class="rh">' + title + '</div><div class="rbody">' + inner + "</div></div>";
+  }
   function renderBracket() {
-    var h = '<h3 class="round">Quarterfinals</h3>';
-    B.m.slice(0, 4).forEach(function (x) { h += card(x); });
-    h += '<h3 class="round">Semifinals</h3>';
-    B.m.slice(4).forEach(function (x) { h += card(x); });
-    h += '<h3 class="round">Finals</h3>';
-    h += card(B.fin, "Championship");
-    h += card(B.third, "3rd Place");
+    var m = B.m;
+    var h = '<div class="brk-scroll"><div class="brk">' +
+      col("Quarterfinals", "c1", slot(card(m[0]) + card(m[1])) + slot(card(m[2]) + card(m[3]))) +
+      col("Semifinals", "c2", slot(card(m[4])) + slot(card(m[5]))) +
+      col("Final", "c3", slot(card(B.fin, "&#127942; Championship", "fin"))) +
+      "</div></div>" +
+      '<p class="swipe">Swipe sideways to see the full bracket &rarr;</p>' +
+      '<div class="third">' + card(B.third, "3rd Place Match") + "</div>";
     var champ = B.fin.out.w;
     if (champ) h = '<div class="champ"><span>&#127942;</span><b>' + esc(champ.name) + "</b><small>Champions</small></div>" + h;
     $("bracket").innerHTML = h;
