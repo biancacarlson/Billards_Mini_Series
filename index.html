@@ -9,14 +9,26 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%23111%22/><circle cx=%2250%22 cy=%2250%22 r=%2224%22 fill=%22%23fff%22/><text x=%2250%22 y=%2260%22 font-size=%2232%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-weight=%22700%22>8</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="theme.css?v=5">
 </head>
 <body>
   <div class="rail"></div>
 
   <header class="top">
-    <h1 id="league-name">Billiards <span class="nb">Mini Series</span></h1>
+    <div class="brand">
+      <svg class="emblem" viewBox="0 0 100 100" role="img" aria-label="8-ball emblem">
+        <defs><radialGradient id="eb" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#4a4a4a"/><stop offset=".45" stop-color="#151515"/><stop offset="1" stop-color="#000"/></radialGradient></defs>
+        <circle cx="50" cy="50" r="48" fill="#0b3d2c" stroke="#c9a24a" stroke-width="3"/>
+        <circle cx="50" cy="50" r="40" fill="url(#eb)"/>
+        <circle cx="50" cy="50" r="17" fill="#f7f1e1"/>
+        <text x="50" y="59" font-size="26" text-anchor="middle" font-family="Oswald,Arial,sans-serif" font-weight="700" fill="#111">8</text>
+        <ellipse cx="36" cy="30" rx="10" ry="5" fill="#fff" opacity=".28" transform="rotate(-35 36 30)"/>
+      </svg>
+      <h1 id="league-name">Billiards <span class="nb">Mini Series</span></h1>
+      <div class="sub">8-Ball Doubles</div>
+    </div>
     <nav class="tabs" role="tablist">
       <button class="tab on" role="tab" id="t-signup" data-tab="signup" aria-selected="true">Sign Up</button>
       <button class="tab" role="tab" id="t-info" data-tab="info" aria-selected="false">Info</button>
@@ -24,6 +36,7 @@
       <button class="tab" role="tab" id="t-bracket" data-tab="bracket" aria-selected="false">Bracket</button>
       <button class="tab" role="tab" id="t-rules" data-tab="rules" aria-selected="false">Rules</button>
     </nav>
+    <div class="cue" aria-hidden="true"></div>
   </header>
 
   <main>
@@ -32,7 +45,8 @@
       <form id="signup" class="card" novalidate>
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
 
-        <div class="group">
+        <div class="group" role="group" aria-labelledby="g0">
+          <h3 id="g0">Team</h3>
           <label>Team Name
             <input name="Team Name" required autocomplete="off" maxlength="60">
           </label>
@@ -290,11 +304,11 @@
     </div>
   </main>
 
-  <footer class="ver">v4</footer>
+  <footer class="ver">v5</footer>
 
-  <script src="config.js?v=4"></script>
-  <script src="league-data.js?v=4"></script>
-  <script src="league.js?v=4"></script>
-  <script src="script.js?v=4"></script>
+  <script src="config.js?v=5"></script>
+  <script src="league-data.js?v=5"></script>
+  <script src="league.js?v=5"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
