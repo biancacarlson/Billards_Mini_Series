@@ -136,11 +136,11 @@
   function renderBracket() {
     var m = B.m;
     var h = '<div class="brk-wrap"><div class="brk">' +
-      col("Quarters", "c1", slot(card(m[0]) + card(m[1])) + slot(card(m[2]) + card(m[3]))) +
-      col("Semis", "c2", slot(card(m[4])) + slot(card(m[5]))) +
-      col("Final", "c3", slot(card(B.fin, "&#127942; Final", "fin"))) +
+      col("Quarters<small>1 game</small>", "c1", slot(card(m[0]) + card(m[1])) + slot(card(m[2]) + card(m[3]))) +
+      col("Semis<small>Best of 3</small>", "c2", slot(card(m[4])) + slot(card(m[5]))) +
+      col("Final<small>Best of 3</small>", "c3", slot(card(B.fin, "&#127942; Final", "fin"))) +
       "</div></div>" +
-      '<div class="third">' + card(B.third, "3rd Place Match") + "</div>";
+      '<div class="third">' + card(B.third, "3rd Place &middot; 1 game") + "</div>";
     var champ = B.fin.out.w;
     if (champ) h = '<div class="champ"><span>&#127942;</span><b>' + esc(champ.name) + "</b><small>Champions</small></div>" + h;
     $("bracket").innerHTML = h;
@@ -195,10 +195,10 @@
   function champWeek() {
     var m = B.m;
     var slots = [
-      { t: "6:00 PM", rows: [[m[0], 1, "Quarterfinal, Match 1"], [m[1], 2, "Quarterfinal, Match 2"]] },
-      { t: "6:45 PM", rows: [[m[2], 1, "Quarterfinal, Match 3"], [m[3], 2, "Quarterfinal, Match 4"]] },
-      { t: "7:30 PM", rows: [[m[4], 1, "Semifinal, Match 5"], [m[5], 2, "Semifinal, Match 6"]] },
-      { t: "8:15 PM", rows: [[B.fin, 1, "Championship"], [B.third, 2, "3rd Place"]] }
+      { t: "6:00 PM", rows: [[m[0], 1, "Quarterfinal, Match 1 (1 game)"], [m[1], 2, "Quarterfinal, Match 2 (1 game)"]] },
+      { t: "6:20 PM", rows: [[m[2], 1, "Quarterfinal, Match 3 (1 game)"], [m[3], 2, "Quarterfinal, Match 4 (1 game)"]] },
+      { t: "6:40 PM", rows: [[m[4], 1, "Semifinal, Match 5 (best of 3)"], [m[5], 2, "Semifinal, Match 6 (best of 3)"]] },
+      { t: "7:40 PM", rows: [[B.fin, 1, "Championship (best of 3)"], [B.third, 2, "3rd Place (1 game)"]] }
     ];
     return slots.map(function (s) {
       return '<div class="slot"><h3 class="time">' + s.t + "</h3>" + s.rows.map(function (r) { return champRow(r[0], r[1], r[2]); }).join("") + "</div>";
