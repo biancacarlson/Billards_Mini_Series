@@ -31,8 +31,8 @@ h1{
 }
 .sub{display:flex;align-items:center;gap:10px;font:500 14px/1 var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
 .sub::before,.sub::after{content:"";width:34px;height:14px;background:var(--sep)}
-.cue{position:relative;height:16px;margin:0 0 14px}
-.cue::before,.cue::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;clip-path:polygon(0 40%,100% 0,100% 100%,0 60%)}
+.cue{position:relative;height:12px;margin:0 0 14px}
+.cue::before,.cue::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;clip-path:polygon(0 42%,100% 22%,100% 78%,0 58%)}
 .cue::before{transform:translateY(3px);background:rgba(0,0,0,.5);filter:blur(2px)}
 .cue::after{
   background:
