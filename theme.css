@@ -239,3 +239,7 @@ h3{font-size:17px}
 .hint{margin-top:12px}
 .stand .tn{font-size:17px}
 #tab-info .glance div:first-child{border-top:0}
+
+/* entry deadline */
+.deadline{margin:0 0 12px;padding:10px 14px;text-align:center;border:1px solid var(--brass);border-radius:4px;background:linear-gradient(var(--walnut-hi),var(--walnut));color:var(--ivory);font:500 17px/1.2 var(--cond);letter-spacing:.08em;text-transform:uppercase}
+.deadline b{color:var(--brass);font-weight:600}
