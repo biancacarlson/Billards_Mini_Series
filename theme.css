@@ -51,7 +51,7 @@ h1{
 /* chalk cubes instead of numbered balls */
 #g0::before,#g1::before,#g2::before{
   content:"";width:32px;height:32px;border-radius:0;box-shadow:none;
-  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,5 28,11 16,17 4,11' fill='%238cc3ee'/><polygon points='4,11 16,17 16,29 4,23' fill='%233b7bbd'/><polygon points='16,17 28,11 28,23 16,29' fill='%232b629e'/><ellipse cx='16' cy='11' rx='5.5' ry='2.6' fill='%23245a94'/><ellipse cx='16' cy='10.4' rx='5.5' ry='2.4' fill='%23b9dcf7' opacity='.55'/><polyline points='4,11 16,17 28,11' fill='none' stroke='%23fff' stroke-opacity='.5' stroke-width='.8'/></svg>") center/contain no-repeat;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='4.5,13 16,19 16,30 4.5,24' fill='%23414a5c'/><polygon points='16,19 27.5,13 27.5,24 16,30' fill='%232a303d'/><polygon points='3,9.5 16,16 16,19.5 3,13' fill='%231b46bd'/><polygon points='16,16 29,9.5 29,13 16,19.5' fill='%23143390'/><polygon points='16,3 29,9.5 16,16 3,9.5' fill='%232358e0'/><ellipse cx='16' cy='9.7' rx='6.2' ry='3' fill='%231c48c2'/><path d='M10.2 10.6 Q16 14 21.8 10.6' fill='none' stroke='%236b95f5' stroke-opacity='.7' stroke-width='.9'/></svg>") center/contain no-repeat;
   filter:drop-shadow(0 2px 2px rgba(0,0,0,.35));
 }
 input:not([type=checkbox]){background:var(--well);border:1px solid var(--rule);border-bottom:3px solid var(--walnut-hi);border-radius:4px}
