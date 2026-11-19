@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=22">
-  <link rel="stylesheet" href="theme.css?v=22">
+  <link rel="stylesheet" href="style.css?v=23">
+  <link rel="stylesheet" href="theme.css?v=23">
 </head>
 <body>
   <div class="rail"></div>
@@ -196,31 +196,98 @@
     <!-- RULES -->
     <div id="tab-rules" role="tabpanel" aria-labelledby="t-rules" hidden>
       <section class="card rules-intro">
-        <p class="tagline">Standard APA 8-ball rules apply. These are the league&rsquo;s clarifications.</p>
+        <p class="tagline">Standard APA rules apply with some clarifications below.</p>
       </section>
 
       <article class="card rule ">
-        <div class="rule-head"><span class="num b1">1</span><h3>Break</h3></div>
+        <div class="rule-head"><span class="num b1">1</span><h3>Object of the Game</h3></div>
+        <ul class="pts">
+          <li>Teams take solids <span class="nb">(1&ndash;7)</span> or stripes <span class="nb">(9&ndash;15)</span>.</li>
+          <li>Win by pocketing your entire group, then legally pocketing the <span class="nb">8-ball</span>.</li>
+        </ul>
+      </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b2">2</span><h3>Racking</h3></div>
+        <ul class="pts">
+          <li>Rack all 15 balls tightly.</li>
+          <li>Front ball goes on the foot spot; the <span class="nb">8-ball</span> goes in the center.</li>
+          <li>The two balls in the back corners of the rack must be one solid and one stripe.</li>
+        </ul>
+      </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b3">3</span><h3>Break</h3></div>
         <ul class="pts">
           <li><b class="lead">Order:</b> <span class="nb">Rock-paper-scissors</span> decides who breaks.</li>
           <li><b class="lead">Requirements:</b> Break from behind the kitchen line, drive at least 4 object balls to a rail.</li>
           <li><b class="lead">Illegal Break:</b> If the requirements aren&rsquo;t met, re-rack and break again.</li>
           <li><b class="lead">Break Scratch:</b> Opponent places <span class="nb">cue ball</span> in the kitchen.</li>
-          <li><b class="lead">8-Ball on the Break:</b> Automatic win, unless you also pocket the <span class="nb">cue ball</span>, in which case the opposing team wins.</li>
         </ul>
       </article>
 
       <article class="card rule ">
-        <div class="rule-head"><span class="num b2">2</span><h3>Balls Leaving the Table</h3></div>
+        <div class="rule-head"><span class="num b4">4</span><h3>8-Ball on the Break</h3></div>
         <ul class="pts">
-          <li><b class="lead">Object ball:</b> Spotted as close as possible to the foot spot.</li>
-          <li><b class="lead">8-ball:</b> Loss of game.</li>
-          <li><b class="lead">Cue ball:</b> Counts as a scratch.</li>
+          <li>Pocketing the <span class="nb">8-ball</span> on the break is an automatic win.</li>
+          <li>If you also pocket the cue ball, the opposing team wins.</li>
         </ul>
       </article>
 
       <article class="card rule ">
-        <div class="rule-head"><span class="num b3">3</span><h3>Coaching</h3></div>
+        <div class="rule-head"><span class="num b5">5</span><h3>Open Table</h3></div>
+        <ul class="pts">
+          <li>The table stays open until a player legally pockets a solid or stripe.</li>
+          <li>While open, you can hit either group first, but never the <span class="nb">8-ball</span>.</li>
+        </ul>
+      </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b6">6</span><h3>Slop</h3></div>
+        <ul class="pts">
+          <li>Slop rules apply (no need to call regular shots or pockets, except for the <span class="nb">8-ball</span>).</li>
+        </ul>
+      </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b7">7</span><h3>Fouls and Ball-in-Hand</h3></div>
+        <ul class="pts">
+          <li>Scratching (pocketing the <span class="nb">cue ball</span>).</li>
+          <li>Not hitting your object ball first.</li>
+          <li>Nothing pocketed and no ball driven to a rail after legal contact.</li>
+          <li>Double taps.</li>
+          <li><b class="lead">Ball-in-Hand:</b> After any foul besides a break scratch, the opposing team places the <span class="nb">cue ball</span> anywhere on the table.</li>
+        </ul>
+      </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b8">8</span><h3>8-Ball Loss Conditions</h3></div>
+        <p class="rule-intro">You lose immediately if you:</p>
+        <ul class="pts">
+          <li>Pocket the <span class="nb">8-ball</span> before clearing your group.</li>
+          <li>Pocket the <span class="nb">8-ball</span> in the wrong pocket or without calling it.</li>
+          <li>Scratch on the same shot as pocketing the <span class="nb">8-ball</span>.</li>
+        </ul>
+      </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b9 stripe">9</span><h3>Jump and Masse Shots</h3></div>
+        <ul class="pts">
+          <li>Both <b class="yes">are allowed</b>.</li>
+        </ul>
+      </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b10 stripe">10</span><h3>Balls Leaving the Table</h3></div>
+        <ul class="pts">
+          <li><b class="lead">Object ball off the table:</b> Spotted as close as possible to the foot spot.</li>
+          <li><b class="lead">8-ball off the table:</b> Loss of game.</li>
+          <li><b class="lead">Cue ball off the table:</b> Counts as a scratch.</li>
+        </ul>
+      </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b11 stripe">11</span><h3>Coaching</h3></div>
         <ul class="pts">
           <li>Only the two teammates currently shooting may coach/ provide suggestions.</li>
           <li><b class="lead">Penalty:</b> Warning first, then opposing team gets <span class="nb">ball-in-hand</span>.</li>
@@ -228,7 +295,7 @@
       </article>
 
       <article class="card rule ">
-        <div class="rule-head"><span class="num b4">4</span><h3>Positioning &amp; Table Care</h3></div>
+        <div class="rule-head"><span class="num b12 stripe">12</span><h3>Positioning &amp; Table Care</h3></div>
         <ul class="pts">
           <li>Keep at least one foot on the floor while shooting.</li>
           <li>Do not sit on the table, or mark, wet, or alter the cloth.</li>
@@ -237,11 +304,11 @@
     </div>
   </main>
 
-  <footer class="ver">v22</footer>
+  <footer class="ver">v23</footer>
 
-  <script src="config.js?v=22"></script>
-  <script src="league-data.js?v=22"></script>
-  <script src="league.js?v=22"></script>
-  <script src="script.js?v=22"></script>
+  <script src="config.js?v=23"></script>
+  <script src="league-data.js?v=23"></script>
+  <script src="league.js?v=23"></script>
+  <script src="script.js?v=23"></script>
 </body>
 </html>

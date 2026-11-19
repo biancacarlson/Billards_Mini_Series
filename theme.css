@@ -89,7 +89,7 @@ input:not([type=checkbox]):focus{background:#fff;border-bottom-color:var(--felt)
   flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
   font:700 17px/1 var(--cond);color:#fff;background:var(--c,#e0ac1c);
   box-shadow:inset -3px -4px 7px rgba(0,0,0,.35),inset 3px 3px 5px rgba(255,255,255,.35),0 2px 3px rgba(0,0,0,.35)}
-.num.b1,#tab-info .sec:nth-of-type(2) h2::before{color:#111}
+.num.b1,.num.b9,#tab-info .sec:nth-of-type(2) h2::before{color:#111}
 #tab-info .sec:nth-of-type(2) h2::before{background:#e0ac1c;color:#111}
 #tab-info .sec:nth-of-type(3) h2::before{background:#1f4fa3}
 #tab-info .sec:nth-of-type(4) h2::before{background:#b3261e}
@@ -156,6 +156,9 @@ input:not([type=checkbox]):focus{background:#fff;border-bottom-color:var(--felt)
 .rule-head h3{margin:0;min-width:0;font-size:21px}
 .rule-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--sep)}
 .rule .lead,.rule b.lead{color:var(--felt);font-family:var(--cond);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+
+.num.stripe{background:linear-gradient(#efebdf 0 22%,var(--c) 22% 78%,#efebdf 78% 100%);font-size:15px}
+.num.b9{color:#111}
 
 /* ===== 9. type polish ===== */
 h2,h3,.tagline{text-wrap:balance}

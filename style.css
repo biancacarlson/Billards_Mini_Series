@@ -125,6 +125,14 @@ input.bad{border-bottom-color:var(--error)}
 .b2{--c:#1f4fa3}
 .b3{--c:#b3261e}
 .b4{--c:#5b2a86}
+.b5{--c:#d9661a}
+.b6{--c:#1f8a4c}
+.b7{--c:#7a1f1f}
+.b8{--c:#111}
+.b9{--c:#e0ac1c}
+.b10{--c:#1f4fa3}
+.b11{--c:#b3261e}
+.b12{--c:#5b2a86}
 .rule-intro{margin:8px 0 0;font-weight:600}
 .pts{list-style:none;margin:6px 0 0;padding:0}
 .pts li{position:relative;padding:6px 0 6px 20px}
