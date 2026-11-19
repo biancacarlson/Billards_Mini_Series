@@ -79,17 +79,11 @@ input:not([type=checkbox]):focus{background:#fff;border-bottom-color:var(--felt)
 #tab-info .glance dd{color:var(--ivory)}
 .sec h2{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:14px;position:relative}
 .sec h2::after{content:"";position:absolute;left:0;right:0;bottom:0;width:auto;height:14px;margin:0;border-radius:0;background:var(--sep)}
-#tab-info .sec h2::before{counter-increment:s;content:counter(s);background:#e0ac1c}
+#tab-info .sec h2::before{counter-increment:s;content:counter(s)}
 #tab-info .sec h2::before,.num{
   flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
   font:700 17px/1 var(--cond);color:#fff;background:var(--c,#e0ac1c);
   box-shadow:inset -3px -4px 7px rgba(0,0,0,.35),inset 3px 3px 5px rgba(255,255,255,.35),0 2px 3px rgba(0,0,0,.35)}
-.num.b1,.num.b9,#tab-info .sec:nth-of-type(2) h2::before{color:#111}
-#tab-info .sec:nth-of-type(2) h2::before{background:#e0ac1c;color:#111}
-#tab-info .sec:nth-of-type(3) h2::before{background:#1f4fa3}
-#tab-info .sec:nth-of-type(4) h2::before{background:#b3261e}
-#tab-info .sec:nth-of-type(5) h2::before{background:#5b2a86}
-#tab-info .sec:nth-of-type(6) h2::before{background:#d9661a}
 .pts li::before{border-radius:0;transform:rotate(45deg);width:7px;height:7px;background:var(--brass);left:4px;top:15px}
 .rank li::before{background:var(--felt);box-shadow:inset 0 0 0 2px var(--brass);color:var(--ivory)}
 
@@ -153,8 +147,6 @@ input:not([type=checkbox]):focus{background:#fff;border-bottom-color:var(--felt)
 .rule-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--sep)}
 .rule .lead,.rule b.lead{color:var(--felt);font-family:var(--cond);font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 
-.num.stripe{background:linear-gradient(#efebdf 0 22%,var(--c) 22% 78%,#efebdf 78% 100%);font-size:15px}
-.num.b9{color:#111}
 
 /* ===== 9. type polish ===== */
 h2,h3,.tagline{text-wrap:balance}
@@ -248,3 +240,31 @@ h3{font-size:17px}
 .deadline b,.deadline span{display:block}
 .deadline b{color:var(--brass);font-weight:600;font-size:15px;letter-spacing:.14em;margin-bottom:4px}
 .deadline span{font-size:21px;letter-spacing:.06em}
+
+/* ===== realistic billiard balls (Info numbers + Rules numbers) ===== */
+#tab-info .sec:nth-of-type(2) h2{--c:#f2c200}
+#tab-info .sec:nth-of-type(3) h2{--c:#1f4fa3}
+#tab-info .sec:nth-of-type(4) h2{--c:#cf2a1e}
+#tab-info .sec:nth-of-type(5) h2{--c:#5b2a86}
+#tab-info .sec:nth-of-type(6) h2{--c:#ee7a14}
+.b1,.b9{--c:#f2c200}.b2,.b10{--c:#1f4fa3}.b3,.b11{--c:#cf2a1e}.b4,.b12{--c:#5b2a86}
+.b5{--c:#ee7a14}.b6{--c:#13803f}.b7{--c:#7a1a22}.b8{--c:#0d0d0d}
+#tab-info .sec h2::before,.num{
+  width:38px;height:38px;border-radius:50%;color:#111;font:700 13px/1 var(--cond);letter-spacing:0;
+  background:
+    radial-gradient(circle at 31% 25%,rgba(255,255,255,.95) 0 5%,rgba(255,255,255,.35) 11%,rgba(255,255,255,0) 22%),
+    radial-gradient(circle 10.5px at 50% 50%,#f7f4ea 0 9.8px,rgba(247,244,234,0) 10.5px),
+    radial-gradient(circle at 36% 30%,rgba(255,255,255,.22) 0,rgba(255,255,255,0) 42%,rgba(0,0,0,.5) 100%),
+    var(--c,#f2c200);
+  box-shadow:inset -2px -3px 5px rgba(0,0,0,.35),0 3px 4px rgba(0,0,0,.45);
+  text-shadow:none;
+}
+.num.stripe{
+  font-size:11px;letter-spacing:-.02em;
+  background:
+    radial-gradient(circle at 31% 25%,rgba(255,255,255,.95) 0 5%,rgba(255,255,255,.35) 11%,rgba(255,255,255,0) 22%),
+    radial-gradient(circle 10.5px at 50% 50%,#f7f4ea 0 9.8px,rgba(247,244,234,0) 10.5px),
+    radial-gradient(circle at 36% 30%,rgba(255,255,255,.18) 0,rgba(255,255,255,0) 42%,rgba(0,0,0,.4) 100%),
+    linear-gradient(#f4f0e4 0 22%,var(--c) 22% 78%,#f4f0e4 78% 100%);
+}
+.b8,.b8.num{color:#111}
