@@ -215,13 +215,13 @@ h2,h3,.tagline{text-wrap:balance}
 /* version badge */
 .ver{display:block;text-align:center;padding:4px 0 calc(22px + env(safe-area-inset-bottom,0px));font:500 11px/1 var(--cond);letter-spacing:.18em;color:rgba(247,241,225,.35)}
 
-/* info intro: one matched two-line sign */
-#tab-info .tagline.big{text-align:center;margin:0 0 14px}
-#tab-info .tagline.big .kick,#tab-info .tagline.big .punch{font:500 clamp(14px,4.3vw,18px)/1.25 var(--cond);letter-spacing:.08em;text-transform:uppercase;margin:0}
-#tab-info .tagline.big .kick{justify-content:center;color:var(--ivory);margin-bottom:4px}
-#tab-info .tagline.big .kick::before,#tab-info .tagline.big .kick::after{display:none}
-#tab-info .tagline.big .punch{color:var(--brass);font-size:clamp(20px,6vw,25px)}
-#tab-info .tagline.big .punch em{background:none;color:var(--brass);padding:0;margin:0}
+/* two-line sign (Entry Fee) */
+.tagline.big{text-align:center;margin:0 0 14px}
+.tagline.big .kick,.tagline.big .punch{font:500 clamp(14px,4.3vw,18px)/1.25 var(--cond);letter-spacing:.08em;text-transform:uppercase;margin:0}
+.tagline.big .kick{justify-content:center;color:var(--felt);margin-bottom:4px}
+.tagline.big .kick::before,.tagline.big .kick::after{display:none}
+.tagline.big .punch{color:var(--chalk-dark);font-size:clamp(20px,6vw,25px)}
+.tagline.big .punch em{background:none;color:var(--chalk-dark);padding:0;margin:0}
 
 /* ---- Smaller headline fonts (less scrolling) ---- */
 h2{font-size:21px}
@@ -243,3 +243,4 @@ h3{font-size:17px}
 .tile .pl{white-space:nowrap;font-size:13px;letter-spacing:.06em}
 .hint{margin-top:12px}
 .stand .tn{font-size:17px}
+#tab-info .glance div:first-child{border-top:0}
