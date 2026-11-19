@@ -7,7 +7,7 @@
   --display:"Alfa Slab One","Barlow Condensed",Georgia,serif;
   --cond:"Oswald","Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --dia:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M7 1l5 6-5 6-5-6z' fill='%23c9a24a'/%3E%3C/svg%3E");
-  --sep:var(--dia) no-repeat center/12px 12px,linear-gradient(90deg,transparent,#c9a24a 18%,#c9a24a 82%,transparent) center/100% 1px no-repeat;
+  --sep:linear-gradient(90deg,transparent,#c9a24a 18%,#c9a24a 82%,transparent) center/100% 1px no-repeat;
 }
 body{
   background-color:var(--felt);
