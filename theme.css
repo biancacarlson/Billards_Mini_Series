@@ -48,11 +48,11 @@ h1{
   content:"";flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
   font:700 15px/1 var(--cond);color:#fff;box-shadow:inset -3px -4px 6px rgba(0,0,0,.35),inset 3px 3px 5px rgba(255,255,255,.35),0 2px 3px rgba(0,0,0,.35);
 }
-/* chalk cubes instead of numbered balls */
+/* chalk cube icon (cut out of the supplied photo) */
 #g0::before,#g1::before,#g2::before{
-  content:"";width:32px;height:32px;border-radius:0;box-shadow:none;
-  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='4.5,13 16,19 16,30 4.5,24' fill='%23414a5c'/><polygon points='16,19 27.5,13 27.5,24 16,30' fill='%232a303d'/><polygon points='3,9.5 16,16 16,19.5 3,13' fill='%231b46bd'/><polygon points='16,16 29,9.5 29,13 16,19.5' fill='%23143390'/><polygon points='16,3 29,9.5 16,16 3,9.5' fill='%232358e0'/><ellipse cx='16' cy='9.7' rx='6.2' ry='3' fill='%231c48c2'/><path d='M10.2 10.6 Q16 14 21.8 10.6' fill='none' stroke='%236b95f5' stroke-opacity='.7' stroke-width='.9'/></svg>") center/contain no-repeat;
-  filter:drop-shadow(0 2px 2px rgba(0,0,0,.35));
+  content:"";width:34px;height:38px;border-radius:0;box-shadow:none;
+  background:url("chalk.png?v=45") center/contain no-repeat;
+  filter:drop-shadow(0 2px 2px rgba(0,0,0,.25));
 }
 input:not([type=checkbox]){background:var(--well);border:1px solid var(--rule);border-bottom:3px solid var(--walnut-hi);border-radius:4px}
 input:not([type=checkbox]):focus{background:#fff;border-bottom-color:var(--felt);box-shadow:0 0 0 2px rgba(201,162,74,.6)}
@@ -245,4 +245,6 @@ h3{font-size:17px}
 
 /* entry deadline */
 .deadline{margin:0 0 12px;padding:10px 14px;text-align:center;border:1px solid var(--brass);border-radius:4px;background:linear-gradient(var(--walnut-hi),var(--walnut));color:var(--ivory);font:500 17px/1.2 var(--cond);letter-spacing:.08em;text-transform:uppercase}
-.deadline b{color:var(--brass);font-weight:600}
+.deadline b,.deadline span{display:block}
+.deadline b{color:var(--brass);font-weight:600;font-size:15px;letter-spacing:.14em;margin-bottom:4px}
+.deadline span{font-size:21px;letter-spacing:.06em}
