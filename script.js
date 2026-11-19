@@ -22,6 +22,7 @@
       "?txn=pay&amount=" + total + "&note=" + encodeURIComponent(note);
   }
 
+  var signedUp = false;
   var form = $("signup");
   var teamInput = form.elements["Team Name"];
   function refreshLinks() {
@@ -32,6 +33,31 @@
   teamInput.addEventListener("input", refreshLinks);
   refreshLinks();
 
+  // pay-only section (for teams that signed up but have not paid)
+  var payTeam = $("pay-team");
+  Array.prototype.forEach.call(document.querySelectorAll(".pay-each"), function (e) { e.textContent = money(perPlayer); });
+  Array.prototype.forEach.call(document.querySelectorAll(".pay-total"), function (e) { e.textContent = money(total); });
+  if (L.zelleContact) {
+    $("zelle-amt-2").textContent = money(total);
+    $("zelle-to-2").textContent = L.zelleContact;
+    $("alt-pay-2").hidden = false;
+  }
+  function refreshPay() {
+    $("venmo-btn-3").href = venmoLink(payTeam.value.trim());
+    if (payTeam.value.trim()) $("pay-error").hidden = true;
+  }
+  payTeam.addEventListener("input", refreshPay);
+  refreshPay();
+  $("venmo-btn-3").addEventListener("click", function (ev) {
+    if (!payTeam.value.trim()) {
+      ev.preventDefault();
+      $("pay-error").hidden = false;
+      payTeam.classList.add("bad");
+      payTeam.focus();
+    } else {
+      payTeam.classList.remove("bad");
+    }
+  });
   function showError(msg) {
     var e = $("error");
     e.textContent = msg;
@@ -90,6 +116,7 @@
       .then(function (r) { return r.json(); })
       .then(function (res) {
         if (!res.success) throw new Error(res.message || "Failed");
+        signedUp = true;
         form.hidden = true;
         $("done").hidden = false;
         window.scrollTo(0, 0);
@@ -104,6 +131,8 @@
   // tabs
   var tabs = document.querySelectorAll(".tab");
   function showTab(name, push) {
+    // Hidden backup: the pay-only card shows only at the private link ending in #pay.
+    var payMode = name === "pay";
     if (["info", "schedule", "bracket", "rules"].indexOf(name) < 0) name = "signup";
     Array.prototype.forEach.call(tabs, function (t) {
       var on = t.getAttribute("data-tab") === name;
@@ -111,6 +140,10 @@
       t.setAttribute("aria-selected", on ? "true" : "false");
     });
     $("tab-signup").hidden = name !== "signup";
+    $("pay-only").hidden = !payMode;
+    form.hidden = payMode || signedUp;
+    $("done").hidden = payMode || !signedUp;
+    document.querySelector(".deadline").hidden = payMode;
     $("tab-info").hidden = name !== "info";
     $("tab-schedule").hidden = name !== "schedule";
     $("tab-bracket").hidden = name !== "bracket";

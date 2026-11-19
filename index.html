@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=47">
-  <link rel="stylesheet" href="theme.css?v=47">
+  <link rel="stylesheet" href="style.css?v=50">
+  <link rel="stylesheet" href="theme.css?v=50">
 </head>
 <body>
   <header class="top">
@@ -108,6 +108,26 @@
         <h2>You’re In!</h2>
         <p>Your team is signed up. Haven’t paid yet?</p>
         <a id="venmo-btn-2" class="btn venmo" href="#" target="_blank" rel="noopener">Pay on Venmo</a>
+      </section>
+
+      <section id="pay-only" class="card sec" hidden>
+        <h2>Pay for Your Team</h2>
+        <p class="rule-intro">Already signed up and haven&rsquo;t paid yet? Type your team name exactly as you entered it, then pay here.</p>
+        <label>Team Name
+          <input id="pay-team" autocomplete="off" maxlength="60" aria-label="Team name for payment">
+        </label>
+        <div class="fee">
+          <div class="fee-row"><span>Per Player</span><span class="pay-each"></span></div>
+          <div class="fee-row fee-sum"><span>Team Total</span><span class="pay-total"></span></div>
+        </div>
+        <p class="note">Includes a 5% processing fee.</p>
+        <p id="pay-error" class="error" role="alert" hidden>Type your team name first so we can match your payment.</p>
+        <a id="venmo-btn-3" class="btn venmo" href="#" target="_blank" rel="noopener">Pay on Venmo</a>
+        <p class="warn"><strong>Important:</strong> turn Venmo Purchase Protection (Goods &amp; Services) <strong>off</strong> when you pay.</p>
+        <details id="alt-pay-2" class="alt-pay" hidden>
+          <summary>Can&rsquo;t use Venmo?</summary>
+          <p>Send <span id="zelle-amt-2"></span> with Zelle to <b id="zelle-to-2"></b>. Put your team name in the memo.</p>
+        </details>
       </section>
     </div>
 
@@ -305,11 +325,11 @@
     </div>
   </main>
 
-  <footer class="ver">v47</footer>
+  <footer class="ver">v50</footer>
 
-  <script src="config.js?v=47"></script>
-  <script src="league-data.js?v=47"></script>
-  <script src="league.js?v=47"></script>
-  <script src="script.js?v=47"></script>
+  <script src="config.js?v=50"></script>
+  <script src="league-data.js?v=50"></script>
+  <script src="league.js?v=50"></script>
+  <script src="script.js?v=50"></script>
 </body>
 </html>

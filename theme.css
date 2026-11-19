@@ -31,8 +31,26 @@ h1{
 }
 .sub{display:flex;align-items:center;gap:10px;font:500 14px/1 var(--cond);letter-spacing:.22em;text-transform:uppercase;color:var(--brass)}
 .sub::before,.sub::after{content:"";width:34px;height:14px;background:var(--sep)}
-.cue{height:7px;margin:0 0 14px;border-radius:4px;box-shadow:0 2px 3px rgba(0,0,0,.45);
-  background:linear-gradient(90deg,#e9dcc0 0 5%,#2b7fb0 5% 6%,#d9b878 6% 40%,#7a4c2a 40% 78%,#c9a24a 78% 80%,#1d120a 80%)}
+.cue{position:relative;height:16px;margin:0 0 14px}
+.cue::before,.cue::after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;clip-path:polygon(0 40%,100% 0,100% 100%,0 60%)}
+.cue::before{transform:translateY(3px);background:rgba(0,0,0,.5);filter:blur(2px)}
+.cue::after{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.55) 0,rgba(255,255,255,.1) 28%,rgba(0,0,0,0) 50%,rgba(0,0,0,.5) 100%),
+    repeating-linear-gradient(115deg,rgba(255,255,255,.10) 0 2px,rgba(0,0,0,.18) 2px 4px) 80.2% 0/26.7% 100% no-repeat,
+    linear-gradient(90deg,
+      #3d86cc 0 1.2%,
+      #f4f0e6 1.2% 3.4%,
+      #ecd7a6 3.4% 49.5%,
+      #c9a24a 49.5% 51%,
+      #6b3d1c 51% 58%,
+      #f1e6c8 58% 58.8%,
+      #1c1a19 58.8% 61.5%,
+      #232120 61.5% 85.5%,
+      #c9a24a 85.5% 87%,
+      #4a2814 87% 98%,
+      #0e0e0e 98% 100%)
+}
 .tabs{background:linear-gradient(var(--walnut-hi),var(--walnut));border:1px solid #1f1209;border-radius:6px;padding:4px;gap:2px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 3px 8px rgba(0,0,0,.35)}
 .tab{flex:1 1 auto;min-width:0;font:500 13px/1 var(--cond);letter-spacing:.04em;text-transform:uppercase;padding:0 3px;border-radius:4px;color:rgba(247,241,225,.85);transition:background .15s,color .15s}
 .tab:hover{background:rgba(255,255,255,.1);color:#fff}
@@ -268,3 +286,11 @@ h3{font-size:17px}
     linear-gradient(#f4f0e4 0 22%,var(--c) 22% 78%,#f4f0e4 78% 100%);
 }
 .b8,.b8.num{color:#111}
+
+/* pay-only link + section */
+.paylink{display:block;margin:0 auto 12px;min-height:44px;padding:6px 10px;background:none;border:0;color:var(--brass);font:500 15px/1.2 var(--cond);letter-spacing:.05em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.paylink:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+#pay-only{margin-top:16px}
+#pay-only .fee{margin-top:14px}
+#pay-only .venmo{margin-top:12px}
+#pay-error{margin:12px 0 0}
