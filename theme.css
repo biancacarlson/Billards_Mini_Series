@@ -461,3 +461,11 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 .pts li{line-height:1.4}
 .rank li{line-height:1.4}
 .brk-hint{text-wrap:balance}
+
+/* ===== v66: fixes to v65 ================================================
+   - Venmo warning: max two lines on every phone width. Plain wrapping (no
+     balance, no forced no-break span), tighter padding, slightly smaller type.
+   - Rules header: max two lines on small phones. */
+.warn{text-wrap:pretty;padding:10px 12px;border-left-width:5px;font-size:clamp(14px,3.9vw,16px);line-height:1.35}
+.rules-intro .tagline{font-size:clamp(16px,5vw,19px);letter-spacing:.05em;text-wrap:balance}
+@media (max-width:340px){.warn{font-size:13.5px;padding:8px 10px}}
