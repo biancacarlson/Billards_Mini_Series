@@ -496,7 +496,7 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
    on one line even if the web font is slow to load or a wider fallback font
    is used. */
 @media (max-width:600px){
-  #tab-info .pts li,#tab-rules .pts li,#tab-info .rule-intro,#tab-rules .rule-intro{font-size:clamp(11.5px,3.15vw,13.5px);letter-spacing:-.005em}
+  #tab-info .pts li,#tab-rules .pts li,#tab-info .rule-intro,#tab-rules .rule-intro{font-size:clamp(12.5px,3.4vw,14px);letter-spacing:-.005em}
   #tab-info .pts li,#tab-rules .pts li{padding-left:15px;text-wrap:pretty}
   #tab-info .pts li::before,#tab-rules .pts li::before{left:1px}
   #tab-info .card,#tab-rules .card{padding-left:12px;padding-right:12px}
