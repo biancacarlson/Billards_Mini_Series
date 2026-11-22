@@ -429,3 +429,35 @@ h3{font-size:17px}
 .third .rh{height:30px;padding-bottom:4px}
 .brk-hint{margin:10px 0 0;text-align:center;font:500 12px/1.2 var(--cond);letter-spacing:.1em;text-transform:uppercase;color:#6b6a52}
 @media (min-width:760px){.brk-hint{display:none}}
+
+/* ===== v65: typography + wrapping, one rule set =====================
+   Wrapping is handled by the browser, not by manual breaks:
+   - short text (headings, labels, notes, bullets, values) is balanced so
+     lines come out even and nothing is left alone on a last line
+   - fluid sizes use clamp(), so text scales with the phone instead of
+     being shrunk to fit                                              */
+h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
+.warn,.note,.hint,.alt-pay,.alt-pay p,.rule-intro,.sec .rule-intro,
+.done p,.error,.stand-note,.pts li,.rank li,.txt,.btn,.glance dd,.rule-head h3{
+  text-wrap:balance;
+}
+/* a phrase that must stay together uses the existing .nb helper */
+.nb{white-space:nowrap}
+
+/* notes & warnings: comfortable measure, even padding, centred notes stay centred */
+.warn{padding:12px 14px;line-height:1.4;font-size:clamp(15px,4.2vw,16.5px)}
+.note,.alt-pay{line-height:1.4}
+.error{line-height:1.35}
+
+/* at-a-glance rows: label and value share a baseline; value scales with the screen */
+.glance div{align-items:baseline}
+.glance dt{flex:none}
+.glance dd{min-width:0;font-size:clamp(15px,4.4vw,17px);line-height:1.35}
+
+/* buttons: one height, label centred, same radius everywhere */
+.btn{display:flex;align-items:center;justify-content:center;min-height:56px;padding:12px 16px;line-height:1.1}
+
+/* bullet lists: even rhythm */
+.pts li{line-height:1.4}
+.rank li{line-height:1.4}
+.brk-hint{text-wrap:balance}
