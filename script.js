@@ -156,6 +156,13 @@
     var els = document.querySelectorAll("#tab-info .pts li, #tab-rules .pts li, #tab-info .rule-intro, #tab-rules .rule-intro");
     var root = document.documentElement, best = 14, i, s;
     for (i = 0; i < els.length; i++) els[i].style.whiteSpace = "nowrap";
+    // order each list shortest to longest by rendered width
+    Array.prototype.forEach.call(document.querySelectorAll("#tab-info ul.pts, #tab-rules ul.pts"), function (ul) {
+      var items = Array.prototype.slice.call(ul.children);
+      var w = items.map(function (li) { var r = document.createRange(); r.selectNodeContents(li); return r.getBoundingClientRect().width; });
+      var order = items.map(function (_, k) { return k; }).sort(function (a, b) { return (w[a] - w[b]) || (a - b); });
+      order.forEach(function (k) { ul.appendChild(items[k]); });
+    });
     for (s = 17; s >= 14; s -= 0.25) {
       root.style.setProperty("--bsz", s + "px");
       var ok = true;
