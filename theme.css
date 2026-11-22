@@ -501,3 +501,18 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
   #tab-info .pts li::before,#tab-rules .pts li::before{left:1px}
   #tab-info .card,#tab-rules .card{padding-left:12px;padding-right:12px}
 }
+
+/* ===== v73: Info + Rules - one line per bullet, as big as fits ===========
+   Same body font as the rest of the site. script.js sets --bsz to the
+   largest size (14-17px) at which the longest bullet on Info and Rules
+   still fits on one line on this phone. Corner dots removed. */
+#tab-info .pts li,#tab-rules .pts li,#tab-info .rule-intro,#tab-rules .rule-intro{
+  font-family:var(--body);font-weight:400;letter-spacing:0;
+  font-size:var(--bsz,15px);line-height:1.4;
+}
+#tab-info .pts li,#tab-rules .pts li{padding:8px 0 8px 18px}
+#tab-info .pts li::before,#tab-rules .pts li::before{left:2px;top:16px;width:7px;height:7px}
+@media (max-width:600px){
+  #tab-info .card,#tab-rules .card{padding-left:14px;padding-right:14px}
+}
+#tab-info .card::before,#tab-rules .card::before{display:none}

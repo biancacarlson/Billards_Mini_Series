@@ -147,4 +147,34 @@
   });
   window.addEventListener("hashchange", function () { showTab(location.hash.slice(1), false); });
   showTab(location.hash.slice(1), false);
+
+  // Info + Rules: one font size for every bullet = largest (14-17px) that keeps the longest bullet on one line
+  function fitBullets() {
+    var info = $("tab-info"), rules = $("tab-rules");
+    var hi = info.hidden, hr = rules.hidden;
+    info.hidden = false; rules.hidden = false;
+    var els = document.querySelectorAll("#tab-info .pts li, #tab-rules .pts li, #tab-info .rule-intro, #tab-rules .rule-intro");
+    var root = document.documentElement, best = 14, i, s;
+    for (i = 0; i < els.length; i++) els[i].style.whiteSpace = "nowrap";
+    for (s = 17; s >= 14; s -= 0.25) {
+      root.style.setProperty("--bsz", s + "px");
+      var ok = true;
+      for (i = 0; i < els.length; i++) {
+        var cs = getComputedStyle(els[i]), rg = document.createRange();
+        rg.selectNodeContents(els[i]);
+        var avail = els[i].clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        if (rg.getBoundingClientRect().width > avail - 3) { ok = false; break; }
+      }
+      if (ok) { best = s; break; }
+    }
+    root.style.setProperty("--bsz", best + "px");
+    for (i = 0; i < els.length; i++) els[i].style.whiteSpace = "";
+    info.hidden = hi; rules.hidden = hr;
+  }
+  var fitTimer;
+  function fitSoon() { clearTimeout(fitTimer); fitTimer = setTimeout(fitBullets, 80); }
+  window.addEventListener("resize", fitSoon);
+  window.addEventListener("load", fitBullets);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitBullets);
+  fitBullets();
 })();
