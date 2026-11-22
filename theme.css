@@ -363,3 +363,21 @@ h3{font-size:17px}
 .slot .rline{font-size:15px}
 .slot .rs{padding:5px 12px;font-size:16px}
 .slot .vs .tl.ph .tn{font-style:normal;font-weight:500;text-transform:uppercase}
+
+/* ===== v59: no one-word last lines ===== */
+.pts li,.rule-intro,.note,.warn,.hint,.alt-pay{text-wrap:pretty}
+.fee-row span:first-child{white-space:nowrap}
+
+/* ===== v60: schedule names stay on one line when they fit ===== */
+.slot .mrow{padding:12px 14px 14px}
+.slot .vs{column-gap:8px}
+.slot .vs .tl{display:block;font-size:15.5px;letter-spacing:.02em;line-height:1.25;text-wrap:balance}
+.slot .vs .vsl{padding:4px 7px}
+.slot .tb{padding-right:28px}
+
+/* ===== v61: wider match cells on phones ===== */
+.card.sched{padding-left:10px;padding-right:10px}
+.card.sched .wt{padding-left:6px}
+.slot .mrow{padding-left:12px;padding-right:12px}
+.slot .vs .tl{font-size:15px}
+@media (max-width:375px){.slot .vs .tl{font-size:14px;letter-spacing:.01em}.slot .vs{column-gap:6px}.slot .vs .vsl{font-size:10px;padding:4px 6px}}

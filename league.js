@@ -161,7 +161,7 @@
   }
   function teamLine(no, win) {
     var cls = win ? (win === no ? "win" : "lose") : "";
-    return '<div class="tl ' + cls + '"><span class="tn">' + esc(nm(no)) + "</span>" + (win && win === no ? '<span class="ck">&#10003;</span>' : "") + "</div>";
+    return '<div class="tl ' + cls + '"><span class="tn">' + esc(nm(no)) + (win && win === no ? '&nbsp;<span class="ck">&#10003;</span>' : "") + "</span></div>";
   }
   function regularWeek(wk) {
     var slots = [], map = {};
@@ -184,7 +184,7 @@
       if (!t) return '<div class="tl ph"><span class="tn">' + esc(ph) + "</span></div>";
       var cls = win ? (win === t.no ? "win" : "lose") : "";
       var nameTxt = t.name === null ? "#" + t.seed + " Seed" : esc(t.name);
-      return '<div class="tl ' + cls + '"><span class="tn">' + nameTxt + "</span>" + (win && win === t.no ? '<span class="ck">&#10003;</span>' : "") + "</div>";
+      return '<div class="tl ' + cls + '"><span class="tn">' + nameTxt + (win && win === t.no ? '&nbsp;<span class="ck">&#10003;</span>' : "") + "</span></div>";
     }
     function tname(t, ph) { return !t ? esc(ph) : (t.name === null ? "#" + t.seed + " Seed" : esc(t.name)); }
     return '<div class="mrow tap" role="button" tabindex="0" aria-expanded="false"><span class="tb">Table ' + table + '</span><div class="vs"><div class="lbl">' + label + "</div>" +
