@@ -328,3 +328,38 @@ h3{font-size:17px}
 .side .seed{min-width:28px}
 .side .tn{white-space:normal;overflow:visible;text-overflow:clip}
 .third{max-width:none;margin:16px 0 0}
+
+/* ===== v58: even type weight, tighter list spacing ===== */
+.rule-intro,.sec .rule-intro{font-weight:400;color:var(--ink)}
+.pts li{line-height:1.4;padding:8px 0 8px 22px}
+.pts li::before{top:16px}
+.rule{padding:18px 18px 12px}
+.rule-head{padding-bottom:12px;margin-bottom:2px}
+.rule .pts,.sec .pts{margin-top:0}
+.rule-head h3{font-size:19px;letter-spacing:.03em;text-wrap:pretty}
+.sec h2{margin-bottom:2px;padding-bottom:12px}
+.sec .rule-intro{margin:6px 0 8px}
+.rule .rule-intro{margin:8px 0 2px}
+
+/* ===== v58: schedule ===== */
+.slot{display:block;margin:0 0 14px;border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:#f6efdc}
+.slot + .slot{margin-top:0}
+.slot h3.time{display:block;margin:0;border:0;border-radius:0;padding:8px 14px;font:500 18px/1.2 var(--cond);letter-spacing:.14em;text-align:left}
+.slot .mrow{display:grid;grid-template-columns:minmax(0,1fr);row-gap:8px;margin:0;padding:12px 40px 14px 14px;border:0;border-top:1px dashed var(--rule);border-radius:0;background:none;box-shadow:none}
+.slot .mrow:first-of-type,.slot .time + .mrow{border-top:0}
+.slot .mrow.tap:hover{box-shadow:none}
+.slot .mrow.open{background:#efe5c6}
+.slot .tb{justify-self:start;width:auto;padding:0;border:0;border-radius:0;background:none;color:var(--chalk-dark);font:600 12px/1 var(--cond);letter-spacing:.2em;text-transform:uppercase}
+.slot .vs{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;column-gap:10px;row-gap:6px}
+.slot .vs .lbl{grid-column:1/-1;font:500 13px/1.2 var(--cond);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.slot .vs .tl{flex:none;justify-content:center;text-align:center;font:600 17px/1.2 var(--cond);letter-spacing:.04em;text-transform:uppercase}
+.slot .vs .tl.lose{font-weight:500}
+.slot .vs .vsl{flex:none;padding:4px 8px;border:1px solid var(--rule);border-radius:999px;font:600 11px/1 var(--cond);letter-spacing:.14em;color:var(--chalk-dark)}
+.slot .vs .tl.ph .tn{text-transform:none;font-style:italic}
+.slot .rs{justify-self:center}
+.slot .mres{grid-column:1/-1;margin-top:2px}
+.slot .mrow.tap::after{top:14px;bottom:auto;right:16px}
+.slot .mrow.tap.open::after{top:18px;bottom:auto}
+.slot .rline{font-size:15px}
+.slot .rs{padding:5px 12px;font-size:16px}
+.slot .vs .tl.ph .tn{font-style:normal;font-weight:500;text-transform:uppercase}
