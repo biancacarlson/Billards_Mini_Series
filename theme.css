@@ -143,14 +143,7 @@ input:not([type=checkbox]):focus{background:#fff;border-bottom-color:var(--felt)
 .stand tr.cut td{border:0;background:none}
 .stand tr.cut span{border:0;margin:6px 0;padding:6px 0;background:linear-gradient(var(--walnut-hi),var(--walnut));color:var(--brass);font:500 13px/1 var(--cond);letter-spacing:.3em;text-transform:uppercase;border-radius:3px}
 
-/* ===== 7. bracket ===== */
-.rh{font:500 13px/1 var(--cond);letter-spacing:.14em}
-.rh small{display:block;margin-top:5px;font:500 11px/1 var(--cond);letter-spacing:.12em;color:var(--brass);opacity:.9}
-.side .seed{box-shadow:inset 0 0 0 1.5px var(--brass)}
-.bm.fin{box-shadow:0 0 0 2px var(--brass),0 0 18px rgba(201,162,74,.55),0 6px 14px rgba(0,0,0,.45)}
-.bm.fin .bh{background:linear-gradient(#f3d98a,#c9a24a)}
-.bm.fin .side.win{background:#f7e7b0;box-shadow:inset 4px 0 0 var(--brass)}
-.bm.fin .side.win .ck{color:var(--chalk-dark)}
+/* ===== 7. bracket: see "bracket system" at end of file ===== */
 .champ{display:flex;flex-direction:column;align-items:center;gap:2px;margin:0 0 14px;padding:18px 12px;border-radius:6px;border:2px solid #f3d98a;color:#1b1608;
   background:linear-gradient(#f6e2a0,#c9a24a 55%,#a07c2a);box-shadow:0 0 22px rgba(201,162,74,.45),0 4px 0 rgba(0,0,0,.35),inset 0 0 0 3px rgba(255,255,255,.25)}
 .champ span{font-size:38px;line-height:1}
@@ -314,20 +307,6 @@ h3{font-size:17px}
 /* consistent team-name format */
 .tn,.rline.w span,.rline.l span{text-transform:uppercase;letter-spacing:.03em}
 
-/* bracket: stacked by round at every width, so nothing scrolls sideways */
-.brk{flex-direction:column;gap:20px}
-.rcol{display:block}
-.rh{text-align:left;padding:0 2px 8px;font-size:15px}
-.rh small{display:inline;margin:0 0 0 8px}
-.c1 .slot::after,.c1 .slot::before,.c2 .rbody::after,.c2 .rbody::before{display:none}
-.slot{display:block}
-.slot .bm{margin:0 0 10px}
-.rbody .slot:last-child .bm:last-child{margin-bottom:0}
-.bh{font-size:14px;padding:6px 10px}
-.side{font-size:15px;padding:9px 10px}
-.side .seed{min-width:28px}
-.side .tn{white-space:normal;overflow:visible;text-overflow:clip}
-.third{max-width:none;margin:16px 0 0}
 
 /* ===== v58: even type weight, tighter list spacing ===== */
 .rule-intro,.sec .rule-intro{font-weight:400;color:var(--ink)}
@@ -382,12 +361,71 @@ h3{font-size:17px}
 .slot .vs .tl{font-size:15px}
 @media (max-width:375px){.slot .vs .tl{font-size:14px;letter-spacing:.01em}.slot .vs{column-gap:6px}.slot .vs .vsl{font-size:10px;padding:4px 6px}}
 
-/* ===== v63: bracket slots must not inherit the schedule's boxed .slot look ===== */
-.brk .slot{margin:0 0 12px;padding:0;border:0;border-radius:0;background:none;overflow:visible}
-.brk .rbody .slot:last-child{margin-bottom:0}
-.brk .slot .bm{margin:0 0 12px}
-.brk .slot .bm:last-child{margin-bottom:0}
-.brk .bm{box-shadow:0 2px 0 rgba(0,0,0,.4),0 4px 10px rgba(0,0,0,.28)}
-.brk .bm.fin{box-shadow:0 0 0 2px var(--brass),0 0 18px rgba(201,162,74,.55),0 6px 14px rgba(0,0,0,.45)}
-.brk .bm,.third .bm{border-radius:6px;overflow:hidden}
-.third .bm{background:#fff;border:1px solid var(--rule);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+/* ===== bracket system (v64) =====================================
+   One geometry, defined once as variables. Every match box is the
+   same size; every round's slots are multiples of one slot height,
+   so each later-round box sits exactly at the midpoint of the two
+   boxes feeding it, and connectors are drawn from the same numbers. */
+.brk-wrap{
+  --bw:224px;      /* box width            */
+  --hh:30px;       /* header row height    */
+  --row:38px;      /* each team row height */
+  --bhgt:108px;    /* = hh + 2*row + 2px border */
+  --gy:20px;       /* vertical gap between first-round boxes */
+  --slot:calc(var(--bhgt) + var(--gy));
+  --gx:36px;       /* horizontal gap between rounds (connectors live here) */
+  --line:rgba(247,241,225,.6);
+  background-color:var(--felt);
+  background-image:radial-gradient(120% 60% at 50% 0%,var(--felt-hi) 0%,rgba(20,104,74,0) 75%);
+  border-radius:8px;box-shadow:inset 0 3px 12px rgba(0,0,0,.4);
+  padding:14px 14px 18px;overflow-x:auto;overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;scroll-padding:0 14px;
+}
+.brk{display:flex;align-items:flex-start;gap:var(--gx);width:max-content;margin:0 auto}
+.rcol{flex:none;width:var(--bw);scroll-snap-align:start}
+.rh{height:34px;display:flex;align-items:center;justify-content:center;gap:8px;font:500 14px/1 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--brass);text-align:center;white-space:nowrap}
+.rh small{display:inline;margin:0;font:500 11px/1 var(--cond);letter-spacing:.12em;color:var(--ivory);opacity:.7}
+.rbody{position:relative}
+
+/* each slot reserves the vertical room its round needs */
+.bslot{position:relative;height:var(--slot);display:flex;align-items:center}
+.c2 .bslot{height:calc(var(--slot)*2)}
+.c3 .bslot{height:calc(var(--slot)*4)}
+
+/* the match box: identical everywhere */
+.bm{position:relative;z-index:1;width:100%;height:var(--bhgt);box-sizing:border-box;display:flex;flex-direction:column;
+  border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:#fff;box-shadow:0 2px 0 rgba(0,0,0,.4),0 4px 10px rgba(0,0,0,.28)}
+.bh{flex:none;height:var(--hh);box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 10px;background:var(--well);
+  font:500 13px/1 var(--cond);letter-spacing:.1em;text-transform:uppercase;color:var(--felt);white-space:nowrap}
+.bh b{font-weight:600}
+.bh span{color:var(--ink);font-weight:600}
+.side{flex:none;height:var(--row);box-sizing:border-box;display:grid;grid-template-columns:24px minmax(0,1fr) 16px;align-items:center;column-gap:8px;
+  padding:0 10px;border-top:1px solid var(--rule);background:#fff;font:600 15px/1 var(--cond);letter-spacing:.03em}
+.side .seed{width:24px;height:24px;min-width:0;padding:0;display:grid;place-items:center;border-radius:50%;background:var(--felt);color:#fff;font:700 12px/1 var(--cond)}
+.side .tn{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.side .ck{text-align:center;color:var(--felt-hi);font:700 14px/1 var(--cond)}
+.side.win{background:#e3f3e7;box-shadow:inset 3px 0 0 var(--felt-hi)}
+.side.win .tn{font-weight:700;color:var(--felt)}
+.side.lose{color:var(--muted)}
+.side.lose .seed{background:#9aa59f}
+.side.lose .tn{font-weight:500}
+.side.ph .seed{background:#c9c0a6}
+.side.ph .tn{color:var(--muted);font-weight:500;font-style:italic}
+
+/* championship: same box, gold accents only (no size change) */
+.bm.fin{border-color:var(--brass);box-shadow:0 0 0 1px var(--brass),0 0 18px rgba(201,162,74,.5),0 4px 10px rgba(0,0,0,.3)}
+.bm.fin .bh{background:linear-gradient(#f3d98a,#c9a24a);color:#1b1608}
+.bm.fin .side.win{background:#f7e7b0;box-shadow:inset 3px 0 0 var(--brass)}
+.bm.fin .side.win .ck{color:var(--chalk-dark)}
+
+/* connectors: one right-hand piece per box, one left-hand piece per later-round box.
+   Upper box of a pair also draws the vertical joiner down to its partner's centre. */
+.c1 .bslot::after,.c2 .bslot::after{content:"";position:absolute;left:100%;top:50%;margin-top:-1px;width:calc(var(--gx)/2);box-sizing:border-box;border-top:2px solid var(--line)}
+.c1 .bslot:nth-child(odd)::after,.c2 .bslot:nth-child(odd)::after{height:calc(100% + 2px);border-right:2px solid var(--line)}
+.c2 .bslot::before,.c3 .bslot::before{content:"";position:absolute;right:100%;top:50%;margin-top:-1px;width:calc(var(--gx)/2);border-top:2px solid var(--line)}
+
+/* 3rd-place match: same box, parked in the empty space under the final, level with the last first-round box */
+.third{position:absolute;left:0;right:0;bottom:calc(var(--gy)/2)}
+.third .rh{height:30px;padding-bottom:4px}
+.brk-hint{margin:10px 0 0;text-align:center;font:500 12px/1.2 var(--cond);letter-spacing:.1em;text-transform:uppercase;color:#6b6a52}
+@media (min-width:760px){.brk-hint{display:none}}

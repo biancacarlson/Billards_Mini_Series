@@ -120,7 +120,7 @@
     if (!t) return '<div class="side ph"><span class="seed">?</span><span class="tn">' + esc(ph || "TBD") + "</span></div>";
     var cls = win ? (win === t.no ? "win" : "lose") : "";
     var name = t.name === null ? "TBD" : esc(t.name);
-    return '<div class="side ' + cls + (t.name === null ? " ph" : "") + '"><span class="seed">' + t.seed + '</span><span class="tn">' + name + "</span>" +
+    return '<div class="side ' + cls + (t.name === null ? " ph" : "") + '"><span class="seed">' + t.seed + '</span><span class="tn" title="' + name + '">' + name + "</span>" +
       (win && win === t.no ? '<span class="ck">&#10003;</span>' : "") + "</div>";
   }
   function card(x, label, cls) {
@@ -129,18 +129,18 @@
       (x.res && x.res.score ? "<span>" + esc(x.res.score) + "</span>" : "") + "</div>" +
       side(x.a, x.aPh, win) + side(x.b, x.bPh, win) + "</div>";
   }
-  function slot(inner) { return '<div class="slot">' + inner + "</div>"; }
+  function slot(inner) { return '<div class="bslot">' + inner + "</div>"; }
   function col(title, cls, inner) {
     return '<div class="rcol ' + cls + '"><div class="rh">' + title + '</div><div class="rbody">' + inner + "</div></div>";
   }
   function renderBracket() {
     var m = B.m;
+    var third = '<div class="third"><div class="rh">3rd Place<small>1 game</small></div>' + card(B.third) + "</div>";
     var h = '<div class="brk-wrap"><div class="brk">' +
-      col("Quarterfinals<small>1 game</small>", "c1", slot(card(m[0]) + card(m[1])) + slot(card(m[2]) + card(m[3]))) +
+      col("Quarterfinals<small>1 game</small>", "c1", slot(card(m[0])) + slot(card(m[1])) + slot(card(m[2])) + slot(card(m[3]))) +
       col("Semifinals<small>Best of 3</small>", "c2", slot(card(m[4])) + slot(card(m[5]))) +
-      col("Championship<small>Best of 3</small>", "c3", slot(card(B.fin, "&#127942; Championship", "fin"))) +
-      "</div></div>" +
-      '<div class="third">' + card(B.third, "3rd-Place Match &middot; 1 game") + "</div>";
+      col("Championship<small>Best of 3</small>", "c3", slot(card(B.fin, "&#127942; Championship", "fin")) + third) +
+      '</div></div><p class="brk-hint">Swipe sideways to see every round</p>';
     var champ = B.fin.out.w;
     if (champ) h = '<div class="champ"><span>&#127942;</span><b>' + esc(champ.name) + "</b><small>Champions</small></div>" + h;
     $("bracket").innerHTML = h;
