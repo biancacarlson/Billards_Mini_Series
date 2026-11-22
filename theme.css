@@ -294,3 +294,37 @@ h3{font-size:17px}
 #pay-only .fee{margin-top:14px}
 #pay-only .venmo{margin-top:12px}
 #pay-error{margin:12px 0 0}
+
+/* ===== v57: payment amounts, standings, stacked bracket ===== */
+/* amounts: clear at a glance, not oversized */
+.fee-row span:last-child{color:var(--brass);font-weight:600}
+.fee-row:not(.fee-sum){font-size:16px}
+.fee-row:not(.fee-sum) span:last-child{font-size:24px;line-height:1}
+.fee-sum{font-size:40px}
+.fee-sum span:first-child{font-size:17px}
+.fee-sum span:last-child{font-size:40px}
+.note{text-align:center}
+.alt-pay{margin:12px 0 0;font-size:15px;line-height:1.35;color:#5b5a45;text-align:center}
+
+/* standings */
+.stand .sw{color:var(--felt);font-weight:600}
+.stand .sl{color:#8a3a2e}
+.stand-note{margin-top:10px;text-align:left}
+
+/* consistent team-name format */
+.tn,.rline.w span,.rline.l span{text-transform:uppercase;letter-spacing:.03em}
+
+/* bracket: stacked by round at every width, so nothing scrolls sideways */
+.brk{flex-direction:column;gap:20px}
+.rcol{display:block}
+.rh{text-align:left;padding:0 2px 8px;font-size:15px}
+.rh small{display:inline;margin:0 0 0 8px}
+.c1 .slot::after,.c1 .slot::before,.c2 .rbody::after,.c2 .rbody::before{display:none}
+.slot{display:block}
+.slot .bm{margin:0 0 10px}
+.rbody .slot:last-child .bm:last-child{margin-bottom:0}
+.bh{font-size:14px;padding:6px 10px}
+.side{font-size:15px;padding:9px 10px}
+.side .seed{min-width:28px}
+.side .tn{white-space:normal;overflow:visible;text-overflow:clip}
+.third{max-width:none;margin:16px 0 0}

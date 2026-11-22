@@ -2,19 +2,16 @@
   var L = window.LEAGUE;
   var perPlayer = Math.round(L.feePerPerson * (1 + L.processingFeePct / 100) * 100) / 100;
   var total = Math.round(perPlayer * 2 * 100) / 100;
-  function money(n) { return "$" + (n % 1 === 0 ? n : n.toFixed(2)); }
+  function money(n) { return "$" + n.toFixed(2); }
   var $ = function (id) { return document.getElementById(id); };
 
   document.title = L.name;
   $("fee-each").textContent = money(perPlayer);
   $("fee-total").textContent = money(total);
-  $("venmo-btn").textContent = "Pay on Venmo";
-  $("venmo-btn-2").textContent = "Pay on Venmo";
-  if (L.zelleContact) {
-    $("zelle-amt").textContent = money(total);
-    $("zelle-to").textContent = L.zelleContact;
-    $("alt-pay").hidden = false;
-  }
+  var payLabel = "Pay " + money(total) + " on Venmo";
+  $("venmo-btn").textContent = payLabel;
+  $("venmo-btn-2").textContent = payLabel;
+  $("venmo-btn-3").textContent = payLabel;
 
   function venmoLink(team) {
     var note = "Billiards League - " + (team || "Team Entry");
@@ -37,11 +34,6 @@
   var payTeam = $("pay-team");
   Array.prototype.forEach.call(document.querySelectorAll(".pay-each"), function (e) { e.textContent = money(perPlayer); });
   Array.prototype.forEach.call(document.querySelectorAll(".pay-total"), function (e) { e.textContent = money(total); });
-  if (L.zelleContact) {
-    $("zelle-amt-2").textContent = money(total);
-    $("zelle-to-2").textContent = L.zelleContact;
-    $("alt-pay-2").hidden = false;
-  }
   function refreshPay() {
     $("venmo-btn-3").href = venmoLink(payTeam.value.trim());
     if (payTeam.value.trim()) $("pay-error").hidden = true;
@@ -77,7 +69,7 @@
     if (firstBad) {
       showError(firstBad.type === "checkbox"
         ? "Send your payment, then check the box."
-        : "Fill in every box.");
+        : "Complete all fields.");
       firstBad.focus();
       return;
     }
@@ -87,7 +79,7 @@
       var f = form.elements[phones[i]];
       if (f.value.replace(/\D/g, "").length < 10) {
         f.classList.add("bad");
-        showError("Enter a full 10-digit phone number.");
+        showError("Enter a 10-digit phone number.");
         f.focus();
         return;
       }
@@ -95,18 +87,18 @@
 
     var data = {
       access_key: L.web3formsKey,
-      subject: "New League Team: " + teamInput.value.trim(),
-      from_name: "League Sign-Up",
+      subject: "New Team Registration: " + teamInput.value.trim(),
+      from_name: "League Registration",
       botcheck: form.elements["botcheck"].checked
     };
     Array.prototype.forEach.call(form.elements, function (el) {
       if (el.name && el.name !== "botcheck" && el.type !== "checkbox") data[el.name] = el.value.trim();
     });
-    data["Payment Sent"] = "Yes (team says they paid " + money(total) + " - verify in Venmo or Zelle)";
+    data["Payment Sent"] = "Yes (team says they paid " + money(total) + " - verify in Venmo)";
 
     var btn = $("submit");
     btn.disabled = true;
-    btn.textContent = "Sending...";
+    btn.textContent = "Submitting...";
 
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -122,9 +114,9 @@
         window.scrollTo(0, 0);
       })
       .catch(function () {
-        showError("Didn’t send. Check your connection and tap again.");
+        showError("Registration failed. Check your connection and try again.");
         btn.disabled = false;
-        btn.textContent = "Sign Up My Team";
+        btn.textContent = "Register Team";
       });
   });
 

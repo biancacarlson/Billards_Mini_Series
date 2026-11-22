@@ -73,11 +73,11 @@
   function renderStandings() {
     // Before any games are played, ranks are meaningless: hide them, the cutoff and the top-8 shading.
     var cols = ready ? 4 : 3;
-    var h = '<table class="stand"><thead><tr>' + (ready ? "<th>#</th>" : "") + '<th class="l">Team</th><th>W</th><th>L</th></tr></thead><tbody>';
+    var h = '<table class="stand"><thead><tr>' + (ready ? "<th>Rank</th>" : "") + '<th class="l">Team</th><th>W</th><th>L</th></tr></thead><tbody>';
     S.rows.forEach(function (r, i) {
       h += '<tr class="' + (ready && i < 8 ? "in" : "") + '">' + (ready ? '<td class="rk">' + (i + 1) + "</td>" : "") + '<td class="l tn">' + esc(r.name) +
-        '</td><td>' + r.w + '</td><td>' + r.l + '</td></tr>';
-      if (ready && i === 7) h += '<tr class="cut"><td colspan="' + cols + '"><span>Playoff Cutoff</span></td></tr>';
+        '</td><td class="sw">' + r.w + '</td><td class="sl">' + r.l + '</td></tr>';
+      if (ready && i === 7) h += '<tr class="cut"><td colspan="' + cols + '"><span>Top 8 Advance</span></td></tr>';
     });
     h += "</tbody></table>";
     $("standings").innerHTML = h;
@@ -105,13 +105,13 @@
       var a = m[p[0]].out.w, b = m[p[1]].out.w;
       m.push({
         n: 5 + i, round: "Semifinal", a: a, b: b, res: P.sf[i], out: pick(P.sf[i], a, b),
-        aPh: "Win M" + (p[0] + 1), bPh: "Win M" + (p[1] + 1)
+        aPh: "Winner M" + (p[0] + 1), bPh: "Winner M" + (p[1] + 1)
       });
     });
     var ta = m[4].out.l, tb = m[5].out.l;
-    var third = { n: 7, round: "3rd Place", a: ta, b: tb, res: P.third, out: pick(P.third, ta, tb), aPh: "Loser M5", bPh: "Loser M6" };
+    var third = { n: 7, round: "3rd-Place Match", a: ta, b: tb, res: P.third, out: pick(P.third, ta, tb), aPh: "Loser M5", bPh: "Loser M6" };
     var fa = m[4].out.w, fb = m[5].out.w;
-    var fin = { n: 8, round: "Championship", a: fa, b: fb, res: P.final, out: pick(P.final, fa, fb), aPh: "Win M5", bPh: "Win M6" };
+    var fin = { n: 8, round: "Championship", a: fa, b: fb, res: P.final, out: pick(P.final, fa, fb), aPh: "Winner M5", bPh: "Winner M6" };
     return { m: m, third: third, fin: fin };
   }
   var B = bracket();
@@ -136,11 +136,11 @@
   function renderBracket() {
     var m = B.m;
     var h = '<div class="brk-wrap"><div class="brk">' +
-      col("Quarters<small>1 game</small>", "c1", slot(card(m[0]) + card(m[1])) + slot(card(m[2]) + card(m[3]))) +
-      col("Semis<small>Best of 3</small>", "c2", slot(card(m[4])) + slot(card(m[5]))) +
-      col("Final<small>Best of 3</small>", "c3", slot(card(B.fin, "&#127942; Final", "fin"))) +
+      col("Quarterfinals<small>1 game</small>", "c1", slot(card(m[0]) + card(m[1])) + slot(card(m[2]) + card(m[3]))) +
+      col("Semifinals<small>Best of 3</small>", "c2", slot(card(m[4])) + slot(card(m[5]))) +
+      col("Championship<small>Best of 3</small>", "c3", slot(card(B.fin, "&#127942; Championship", "fin"))) +
       "</div></div>" +
-      '<div class="third">' + card(B.third, "3rd Place &middot; 1 game") + "</div>";
+      '<div class="third">' + card(B.third, "3rd-Place Match &middot; 1 game") + "</div>";
     var champ = B.fin.out.w;
     if (champ) h = '<div class="champ"><span>&#127942;</span><b>' + esc(champ.name) + "</b><small>Champions</small></div>" + h;
     $("bracket").innerHTML = h;
@@ -155,7 +155,7 @@
         '<div class="rline l"><b>Loser</b><span>' + ln + "</span></div>" +
         (score ? '<div class="rline s"><b>Score</b><span>' + esc(score) + "</span></div>" : "");
     } else {
-      body = '<div class="rline n">Not played yet</div>';
+      body = '<div class="rline n">Not played</div>';
     }
     return '<div class="mres">' + body + "</div>";
   }
@@ -195,10 +195,10 @@
   function champWeek() {
     var m = B.m;
     var slots = [
-      { t: "6:00 PM", rows: [[m[0], 1, "Quarterfinal, Match 1 (1 game)"], [m[1], 2, "Quarterfinal, Match 2 (1 game)"]] },
-      { t: "6:20 PM", rows: [[m[2], 1, "Quarterfinal, Match 3 (1 game)"], [m[3], 2, "Quarterfinal, Match 4 (1 game)"]] },
-      { t: "6:40 PM", rows: [[m[4], 1, "Semifinal, Match 5 (best of 3)"], [m[5], 2, "Semifinal, Match 6 (best of 3)"]] },
-      { t: "7:40 PM", rows: [[B.fin, 1, "Championship (best of 3)"], [B.third, 2, "3rd Place (1 game)"]] }
+      { t: "6:00 PM", rows: [[m[0], 1, "Quarterfinal &middot; Match 1 &middot; 1 game"], [m[1], 2, "Quarterfinal &middot; Match 2 &middot; 1 game"]] },
+      { t: "6:20 PM", rows: [[m[2], 1, "Quarterfinal &middot; Match 3 &middot; 1 game"], [m[3], 2, "Quarterfinal &middot; Match 4 &middot; 1 game"]] },
+      { t: "6:40 PM", rows: [[m[4], 1, "Semifinal &middot; Match 5 &middot; Best of 3"], [m[5], 2, "Semifinal &middot; Match 6 &middot; Best of 3"]] },
+      { t: "7:40 PM", rows: [[B.fin, 1, "Championship &middot; Best of 3"], [B.third, 2, "3rd-Place Match &middot; 1 game"]] }
     ];
     return slots.map(function (s) {
       return '<div class="slot"><h3 class="time">' + s.t + "</h3>" + s.rows.map(function (r) { return champRow(r[0], r[1], r[2]); }).join("") + "</div>";
@@ -220,7 +220,7 @@
 
   function renderSchedule() {
     var chips = chipWeeks.map(function (w, i) {
-      return '<button type="button" class="chip' + (i === cur ? " on" : "") + '" data-w="' + i + '"><b>Week ' + (i + 1) + "</b><span>" + w.label + "</span></button>";
+      return '<button type="button" class="chip' + (i === cur ? " on" : "") + '" data-w="' + i + '"><b>' + (i === chipWeeks.length - 1 ? "Finals" : "Week " + (i + 1)) + "</b><span>" + w.label + "</span></button>";
     }).join("");
     $("week-chips").innerHTML = chips;
     $("week-title").textContent = "Championship Night";
