@@ -469,3 +469,77 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 .warn{text-wrap:pretty;padding:10px 12px;border-left-width:5px;font-size:clamp(14px,3.9vw,16px);line-height:1.35}
 .rules-intro .tagline{font-size:clamp(16px,5vw,19px);letter-spacing:.05em;text-wrap:balance}
 @media (max-width:340px){.warn{font-size:13.5px;padding:8px 10px}}
+
+/* ===== v67: Info + Rules bullets - fit in two lines on phones ============
+   Wording is unchanged; the type steps down a little and the bullet indent
+   tightens so long rules wrap to two lines instead of three. */
+@media (max-width:430px){
+  .pts li{font-size:16px;padding-left:20px;line-height:1.35}
+  .pts li::before{left:3px}
+}
+@media (max-width:370px){
+  .pts li{font-size:15.5px;padding-left:19px}
+}
+
+/* ===== v68: phone type scale - everything a step smaller ================
+   Matches the size of the Venmo "Important" note (the reference).
+   Inputs stay at 16px so iOS doesn't zoom the page when they're tapped.
+   The .warn note is deliberately NOT touched here. */
+@media (max-width:600px){
+  html body{font-size:16px}
+  body h1{font-size:clamp(28px,8.4vw,40px)}
+  body .sub{font-size:13px}
+  body h2{font-size:19px}
+  body h3{font-size:16px}
+  body .group > h3{font-size:17px}
+  body .rule-head h3{font-size:17px}
+  body .wt{font-size:17px}
+  body .round{font-size:16px}
+
+  body label{font-size:15px}
+  body input:not([type=checkbox]){font-size:16px}
+  body .pts li{font-size:15px}
+  body .rule-intro,body .sec .rule-intro{font-size:15px}
+  body .note,body .alt-pay{font-size:13.5px}
+  body .hint{font-size:12px}
+  body .done p{font-size:15px}
+
+  body .btn{font-size:16px}
+  body .go{font-size:18px}
+  body .paylink{font-size:14px}
+
+  body .deadline b{font-size:13.5px}
+  body .deadline span{font-size:19px}
+  body .tagline.big .kick{font-size:clamp(12.5px,3.6vw,15px)}
+  body .tagline.big .punch{font-size:clamp(18px,5.3vw,22px)}
+  body .rules-intro .tagline{font-size:clamp(14.5px,4.2vw,17px)}
+
+  body .fee-row,body .fee-row:not(.fee-sum){font-size:14px}
+  body .fee-row:not(.fee-sum) span:last-child{font-size:22px}
+  body #fee-each{font-size:22px}
+  body .fee-sum,body .fee-sum span:last-child{font-size:34px}
+  body .fee-sum span:first-child{font-size:15px}
+
+  body #tab-info .glance dt{font-size:13.5px}
+  body .glance dd{font-size:clamp(14px,3.9vw,15.5px)}
+  body .tile .pl{font-size:12px}
+  body .tile .pct{font-size:25px}
+  body .tile:nth-child(1) .pct{font-size:30px}
+  body .tile .medal{font-size:20px}
+
+  body .stand td{font-size:16px}
+  body .stand .tn{font-size:15.5px}
+  body .stand th{font-size:12.5px}
+  body .stand tbody tr:nth-child(-n+3) .rk{font-size:17px}
+
+  body .slot h3.time{font-size:16px}
+  body .slot .rline{font-size:14px}
+  body .slot .rs{font-size:15px}
+  body .slot .vs .lbl{font-size:12px}
+  body .champ b{font-size:26px}
+  body .champ span{font-size:24px}
+  body .champ small{font-size:13px}
+}
+@media (max-width:370px){
+  body .pts li{font-size:14.5px}
+}
