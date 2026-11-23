@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=90">
-  <link rel="stylesheet" href="theme.css?v=90">
+  <link rel="stylesheet" href="style.css?v=92">
+  <link rel="stylesheet" href="theme.css?v=92">
 </head>
 <body>
   <header class="top">
@@ -165,7 +165,7 @@
         <h2>Rankings</h2>
         <ul class="pts">
           <li>Game Wins: Cumulative <span class="nb">game total.</span></li>
-          <li><span class="nb">Ties go by head-to-head results.</span></li>
+          <li class="fit" data-keep>Ties are broken by head-to-head results.</li>
         </ul>
       </section>
 
@@ -199,7 +199,6 @@
       <section class="card sec">
         <h2>Standings</h2>
         <div id="standings" class="tablewrap"></div>
-        <p class="note stand-note">Ties are broken by head-to-head&nbsp;results.</p>
       </section>
       <section class="card sec">
         <h2>Championship Bracket</h2>
@@ -285,39 +284,39 @@
       </article>
 
       <article class="card rule ">
-        <div class="rule-head"><span class="num b9 stripe">9</span><h3>Balls Leaving the Table</h3></div>
-        <ul class="pts">
-          <li class="fit" data-keep>Object ball: Returned as near the foot<br>spot as possible.</li>
-          <li>8-ball: Results in an <span class="nb">automatic loss.</span></li>
-          <li>Cue ball: Counts as a scratch.</li>
-        </ul>
-      </article>
-
-      <article class="card rule ">
-        <div class="rule-head"><span class="num b10 stripe">10</span><h3>Coaching</h3></div>
+        <div class="rule-head"><span class="num b9 stripe">9</span><h3>Coaching</h3></div>
         <ul class="pts">
           <li>Only the teams playing <span class="nb">may coach/suggest.</span></li>
-          <li>First violation: Warning.</li>
+          <li>First violation: A warning.</li>
           <li>Repeat: Opponents <span class="nb">get ball-in-hand.</span></li>
         </ul>
       </article>
 
       <article class="card rule ">
-        <div class="rule-head"><span class="num b11 stripe">11</span><h3>Table Care</h3></div>
+        <div class="rule-head"><span class="num b10 stripe">10</span><h3>Table Care</h3></div>
         <ul class="pts">
           <li>At least one foot must be <span class="nb">touching the floor.</span></li>
           <li class="fit" data-keep>Do not mark, wet, or otherwise alter table.</li>
           <li>Jump shots are permitted, as long as <span class="nb">no damage is caused to the table.</span></li>
         </ul>
       </article>
+
+      <article class="card rule ">
+        <div class="rule-head"><span class="num b11 stripe">11</span><h3>Balls Leaving the Table</h3></div>
+        <ul class="pts">
+          <li class="fit" data-keep>Object ball: Returned as near the foot<br>spot as possible.</li>
+          <li>8-ball: Results in an <span class="nb">automatic loss.</span></li>
+          <li>Cue ball: Counts as a scratch.</li>
+        </ul>
+      </article>
     </div>
   </main>
 
-  <footer class="ver">v90</footer>
+  <footer class="ver">v92</footer>
 
-  <script src="config.js?v=90"></script>
-  <script src="league-data.js?v=90"></script>
-  <script src="league.js?v=90"></script>
-  <script src="script.js?v=90"></script>
+  <script src="config.js?v=92"></script>
+  <script src="league-data.js?v=92"></script>
+  <script src="league.js?v=92"></script>
+  <script src="script.js?v=92"></script>
 </body>
 </html>

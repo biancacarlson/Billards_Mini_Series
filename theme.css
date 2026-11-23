@@ -592,6 +592,6 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 
 /* ===== v90: podium bar heights proportional to prize share (50 : 30 : 20) ===== */
 .podium .tile{box-sizing:border-box;justify-content:flex-start;padding-top:10px;padding-bottom:8px}
-.podium .tile:nth-child(1){height:200px;padding-top:14px;padding-bottom:8px}
-.podium .tile:nth-child(2){height:120px}
-.podium .tile:nth-child(3){height:80px}
+.podium .tile:nth-child(1){height:180px;padding-top:14px;padding-bottom:8px}
+.podium .tile:nth-child(2){height:108px}
+.podium .tile:nth-child(3){height:72px;padding-top:6px;padding-bottom:4px}
