@@ -560,3 +560,7 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 .fee-sum span:last-child{font-size:30px}
 .btn.venmo{min-height:50px;font-size:17px}
 .warn{font-size:14.5px;padding:9px 12px;border-left-width:4px}
+
+/* ===== v84: no corner dots on cards; rules intro line not bold ===== */
+.card::before{display:none}
+#tab-rules .rule-intro{font-weight:400}
