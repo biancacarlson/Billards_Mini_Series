@@ -147,4 +147,63 @@
   });
   window.addEventListener("hashchange", function () { showTab(location.hash.slice(1), false); });
   showTab(location.hash.slice(1), false);
+
+  // Info + Rules: if a bullet's last line is only a couple of words, nudge the right edge in a little so the
+  // words spread evenly (same number of lines, no stranded words, only a small gap on the right)
+  function polishBullets() {
+    var info = $("tab-info"), rules = $("tab-rules");
+    var hi = info.hidden, hr = rules.hidden;
+    info.hidden = false; rules.hidden = false;
+    var els = document.querySelectorAll("#tab-info .pts li, #tab-rules .pts li");
+    var i, li;
+    function measure(el, avail) {
+      var rg = document.createRange(), lines = {}, ks;
+      rg.selectNodeContents(el);
+      Array.prototype.forEach.call(rg.getClientRects(), function (q) {
+        if (q.width < 1) return;
+        var k = Math.round(q.top / 6);
+        var o = lines[k] || (lines[k] = { l: q.left, r: q.right });
+        o.l = Math.min(o.l, q.left); o.r = Math.max(o.r, q.right);
+      });
+      ks = Object.keys(lines).map(Number).sort(function (a, b) { return a - b; });
+      var last = lines[ks[ks.length - 1]];
+      // count the words that sit on the last line
+      var words = 0, w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), node;
+      while ((node = w.nextNode())) {
+        var re = /\S+/g, mt, t = node.nodeValue;
+        while ((mt = re.exec(t))) {
+          var r2 = document.createRange();
+          r2.setStart(node, mt.index); r2.setEnd(node, mt.index + 1);
+          var q2 = r2.getClientRects()[0];
+          if (q2 && Math.round(q2.top / 6) === ks[ks.length - 1]) words++;
+        }
+      }
+      return { n: ks.length, frac: (last.r - last.l) / avail, words: words };
+    }
+    function good(m) { return m.words >= 3 && m.frac >= 0.3; }
+    for (i = 0; i < els.length; i++) els[i].style.paddingRight = "";
+    for (i = 0; i < els.length; i++) {
+      li = els[i];
+      var cs = getComputedStyle(li);
+      var W = li.clientWidth - parseFloat(cs.paddingLeft);
+      var base = measure(li, W);
+      if (base.n < 2 || good(base)) continue;
+      var pr, found = false;
+      for (pr = 4; pr <= W * 0.3; pr += 3) {
+        li.style.paddingRight = pr + "px";
+        var m = measure(li, W - pr);
+        if (m.n === base.n && good(m)) { found = true; break; }
+        if (m.n > base.n) break;
+      }
+      if (!found) li.style.paddingRight = "";
+    }
+    info.hidden = hi; rules.hidden = hr;
+  }
+  var polishTimer;
+  function polishSoon() { clearTimeout(polishTimer); polishTimer = setTimeout(polishBullets, 80); }
+  window.addEventListener("resize", polishSoon);
+  window.addEventListener("orientationchange", polishSoon);
+  window.addEventListener("load", polishBullets);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(polishBullets);
+  polishBullets();
 })();

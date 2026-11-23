@@ -546,30 +546,17 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 @media (min-width:760px){.brk-dots{display:none}}
 @media (prefers-reduced-motion:reduce){.brk-wrap{scroll-behavior:auto}}
 
-/* ===== v80: fuller lines on Info + Rules, quieter payment section ========
-   Bullets wrap normally (no early breaks that leave empty space on the
-   right). Payment area: lighter fee box, smaller amounts, calmer button
-   and notice. */
+/* ===== v82: bullets wrap normally (script balances awkward last lines);
+   payment section keeps its original colors, just smaller ============== */
 #tab-info .pts li,#tab-rules .pts li,#tab-info .rule-intro,#tab-rules .rule-intro{text-wrap:wrap}
 
-.tagline.big{margin:0 0 12px}
-.tagline.big .kick{font:500 13px/1.3 var(--cond);letter-spacing:.1em;color:#6b6a52}
-.tagline.big .punch{font:500 clamp(17px,5vw,20px)/1.25 var(--cond);letter-spacing:.07em;color:var(--felt)}
-.tagline.big .punch em{color:var(--felt)}
-
-.fee{background:var(--well);border:1px solid var(--rule);border-radius:6px;padding:2px 14px;color:var(--ink);box-shadow:none}
-.fee-row{font-size:15px;letter-spacing:.06em}
-.fee-row + .fee-row{border-top:1px solid var(--rule)}
-.fee-row span:last-child{color:var(--ink);font-weight:500}
-.fee-row:not(.fee-sum) span:last-child{font-size:19px}
-.fee-sum{font:500 15px/1 var(--cond);color:var(--ink);text-shadow:none}
-.fee-sum span:first-child{font-size:15px;color:var(--ink)}
-.fee-sum span:last-child{font-size:26px;font-weight:600;color:var(--felt)}
-
-.venmo{box-shadow:none;margin-bottom:0}
-.btn.venmo{min-height:48px;font-size:16px;letter-spacing:.07em;font-weight:600}
-
-.warn{background:transparent;border-left:3px solid var(--rule);border-radius:0;padding:4px 0 4px 12px;color:#5b5a45;font-size:14.5px;line-height:1.4}
-.warn strong{font-weight:600;color:var(--ink)}
-#fee-each,.pay-each{font:500 19px/1 var(--cond);color:var(--ink)}
-.fee-row:not(.fee-sum) span:first-child{font-weight:500}
+.tagline.big .kick{font-size:clamp(13px,3.6vw,15px)}
+.tagline.big .punch{font-size:clamp(18px,5vw,21px)}
+.fee-row{padding:8px 0}
+.fee-row:not(.fee-sum){font-size:15px}
+.fee-row:not(.fee-sum) span:last-child,#fee-each,.pay-each{font-size:21px}
+.fee-sum{font-size:30px}
+.fee-sum span:first-child{font-size:16px}
+.fee-sum span:last-child{font-size:30px}
+.btn.venmo{min-height:50px;font-size:17px}
+.warn{font-size:14.5px;padding:9px 12px;border-left-width:4px}
