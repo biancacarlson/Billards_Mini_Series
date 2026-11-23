@@ -502,17 +502,46 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
   #tab-info .card,#tab-rules .card{padding-left:12px;padding-right:12px}
 }
 
-/* ===== v73: Info + Rules - one line per bullet, as big as fits ===========
-   Same body font as the rest of the site. script.js sets --bsz to the
-   largest size (14-17px) at which the longest bullet on Info and Rules
-   still fits on one line on this phone. Corner dots removed. */
+/* ===== v79: Info + Rules - readable sentences, natural wrapping ==========
+   Full sentences in the site body font at a steady size (no shrinking).
+   Wrapping is left to the browser (pretty); the last words of each bullet
+   are glued together in the HTML so no line ends on one or two stray words.
+   Bold lead-ins make labels easy to scan. Corner dots removed. */
+#tab-info .card::before,#tab-rules .card::before{display:none}
 #tab-info .pts li,#tab-rules .pts li,#tab-info .rule-intro,#tab-rules .rule-intro{
   font-family:var(--body);font-weight:400;letter-spacing:0;
-  font-size:var(--bsz,15px);line-height:1.4;
+  font-size:16px;line-height:1.45;text-wrap:pretty;hyphens:none;overflow-wrap:break-word;
 }
-#tab-info .pts li,#tab-rules .pts li{padding:8px 0 8px 18px}
-#tab-info .pts li::before,#tab-rules .pts li::before{left:2px;top:16px;width:7px;height:7px}
-@media (max-width:600px){
-  #tab-info .card,#tab-rules .card{padding-left:14px;padding-right:14px}
+#tab-info .pts li b,#tab-rules .pts li b{font-weight:600;color:var(--felt)}
+#tab-info .pts li,#tab-rules .pts li{padding:9px 0 9px 22px}
+#tab-info .pts li::before,#tab-rules .pts li::before{left:3px;top:calc(9px + .725em - 3.5px);width:7px;height:7px}
+#tab-info .rule-intro,#tab-rules .rule-intro{font-weight:500}
+#tab-info .card.sec,#tab-rules .card.rule{padding-left:16px;padding-right:16px}
+#tab-info .pts,#tab-rules .pts{margin:0}
+@media (min-width:430px){
+  #tab-info .pts li,#tab-rules .pts li,#tab-info .rule-intro,#tab-rules .rule-intro{font-size:17px}
+  #tab-info .pts li::before,#tab-rules .pts li::before{top:calc(9px + .725em - 3.5px)}
 }
-#tab-info .card::before,#tab-rules .card::before{display:none}
+@media (min-width:760px){
+  #tab-info .card.sec,#tab-rules .card.rule{padding-left:22px;padding-right:22px}
+}
+
+/* ===== v78: seamless bracket swiping =====================================
+   - rounds settle neatly into place (mandatory snap), smooth jumps, no
+     page rubber-band at the ends, no scrollbar
+   - soft felt-colored fades on the edges show when there is more to see
+   - three dots replace the hint text: they show the round and are tappable */
+.brk-frame{position:relative}
+.brk-wrap{scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.brk-wrap::-webkit-scrollbar{display:none}
+.rcol{scroll-snap-stop:normal}
+.brk-frame::before,.brk-frame::after{content:"";position:absolute;top:0;bottom:0;width:30px;z-index:3;pointer-events:none;opacity:0;transition:opacity .25s ease}
+.brk-frame::before{left:0;border-radius:8px 0 0 8px;background:linear-gradient(90deg,var(--felt) 0%,rgba(11,61,44,0) 100%)}
+.brk-frame::after{right:0;border-radius:0 8px 8px 0;background:linear-gradient(270deg,var(--felt) 0%,rgba(11,61,44,0) 100%)}
+.brk-frame.can-l::before,.brk-frame.can-r::after{opacity:1}
+.brk-dots{display:flex;justify-content:center;gap:2px;margin-top:4px}
+.brk-dot{width:32px;height:32px;padding:0;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent;display:flex;align-items:center;justify-content:center}
+.brk-dot::before{content:"";width:8px;height:8px;border-radius:99px;background:rgba(107,106,82,.35);transition:width .25s ease,background-color .25s ease}
+.brk-dot.on::before{width:22px;background:var(--felt)}
+@media (min-width:760px){.brk-dots{display:none}}
+@media (prefers-reduced-motion:reduce){.brk-wrap{scroll-behavior:auto}}

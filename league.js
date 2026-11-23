@@ -136,14 +136,48 @@
   function renderBracket() {
     var m = B.m;
     var third = '<div class="third"><div class="rh">3rd Place<small>1 game</small></div>' + card(B.third) + "</div>";
-    var h = '<div class="brk-wrap"><div class="brk">' +
+    var h = '<div class="brk-frame"><div class="brk-wrap"><div class="brk">' +
       col("Quarterfinals<small>1 game</small>", "c1", slot(card(m[0])) + slot(card(m[1])) + slot(card(m[2])) + slot(card(m[3]))) +
       col("Semifinals<small>Best of 3</small>", "c2", slot(card(m[4])) + slot(card(m[5]))) +
       col("Championship<small>Best of 3</small>", "c3", slot(card(B.fin, "&#127942; Championship", "fin")) + third) +
-      '</div></div><p class="brk-hint">Swipe sideways to see every round</p>';
+      '</div></div></div><div class="brk-dots" role="tablist" aria-label="Rounds">' +
+      '<button type="button" class="brk-dot" data-i="0" aria-label="Quarterfinals"></button>' +
+      '<button type="button" class="brk-dot" data-i="1" aria-label="Semifinals"></button>' +
+      '<button type="button" class="brk-dot" data-i="2" aria-label="Championship"></button></div>';
     var champ = B.fin.out.w;
     if (champ) h = '<div class="champ"><span>&#127942;</span><b>' + esc(champ.name) + "</b><small>Champions</small></div>" + h;
     $("bracket").innerHTML = h;
+    bindBracket();
+  }
+  // Bracket swiping: edge fades show where there is more, dots show/jump to the round
+  function bindBracket() {
+    var frame = document.querySelector("#bracket .brk-frame");
+    if (!frame) return;
+    var wrap = frame.querySelector(".brk-wrap");
+    var cols = wrap.querySelectorAll(".rcol");
+    var dots = document.querySelectorAll("#bracket .brk-dot");
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var max = wrap.scrollWidth - wrap.clientWidth, x = wrap.scrollLeft;
+      frame.classList.toggle("can-l", x > 4);
+      frame.classList.toggle("can-r", x < max - 4);
+      var best = 0, bd = 1e9, i;
+      for (i = 0; i < cols.length; i++) {
+        var d = Math.abs(cols[i].offsetLeft - 14 - x);
+        if (d < bd) { bd = d; best = i; }
+      }
+      if (max > 0 && x >= max - 4) best = cols.length - 1;
+      for (i = 0; i < dots.length; i++) dots[i].classList.toggle("on", i === best);
+    }
+    wrap.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    window.addEventListener("resize", update);
+    Array.prototype.forEach.call(dots, function (d, i) {
+      d.addEventListener("click", function () {
+        wrap.scrollTo({ left: Math.max(0, cols[i].offsetLeft - 14), behavior: "smooth" });
+      });
+    });
+    update();
   }
 
   /* ---------- schedule ---------- */
