@@ -154,6 +154,12 @@
     var info = $("tab-info"), rules = $("tab-rules");
     var hi = info.hidden, hr = rules.hidden;
     info.hidden = false; rules.hidden = false;
+    // lines set by hand (.fit): shrink the text just enough that each line stays on one line
+    Array.prototype.forEach.call(document.querySelectorAll("li.fit"), function (f) {
+      f.style.fontSize = "";
+      var sz = parseFloat(getComputedStyle(f).fontSize);
+      while (f.scrollWidth > f.clientWidth + 0.5 && sz > 10) { sz -= 0.25; f.style.fontSize = sz + "px"; }
+    });
     var els = document.querySelectorAll("#tab-info .pts li, #tab-rules .pts li");
     var i, li;
     function measure(el, avail) {

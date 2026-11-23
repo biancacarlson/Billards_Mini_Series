@@ -569,3 +569,23 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 .tile:nth-child(3) .pct{font-size:24px}
 .tile:nth-child(3) .medal{font-size:20px}
 @media (max-width:340px){.tile{min-width:0}.tile .pl{font-size:11.5px;letter-spacing:.03em}}
+
+/* ===== v88: Register form tightened (less empty space) ===== */
+#signup{padding-top:16px;padding-bottom:16px}
+#signup .group + .group{padding-top:24px;margin-top:10px}
+#signup .group + .group::before{top:6px;height:10px}
+#signup .group > h3{margin-bottom:6px}
+#signup label{margin:0 0 6px;font-size:15px}
+#signup .row{gap:10px}
+#signup input:not([type=checkbox]){margin-top:3px;padding:9px 10px}
+#signup #g0 + label input{margin-top:0}
+#signup .tagline.big{margin-bottom:8px}
+#signup .note{margin-top:6px}
+#signup .btn.venmo{margin-top:10px}
+#signup .warn{margin:10px 0 4px}
+#signup .check{min-height:40px}
+#signup .error{margin:8px 0}
+#signup .btn.go{margin-top:8px}
+
+/* hand-set line breaks stay as written (script.js shrinks the text to fit) */
+#tab-info .pts li.fit,#tab-rules .pts li.fit{white-space:nowrap;text-wrap:nowrap}
