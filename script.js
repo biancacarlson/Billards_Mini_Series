@@ -184,6 +184,7 @@
     for (i = 0; i < els.length; i++) els[i].style.paddingRight = "";
     for (i = 0; i < els.length; i++) {
       li = els[i];
+      if (li.hasAttribute("data-keep")) continue;
       var cs = getComputedStyle(li);
       var W = li.clientWidth - parseFloat(cs.paddingLeft);
       var base = measure(li, W);

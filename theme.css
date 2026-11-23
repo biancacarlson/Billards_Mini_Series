@@ -564,3 +564,8 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 /* ===== v84: no corner dots on cards; rules intro line not bold ===== */
 .card::before{display:none}
 #tab-rules .rule-intro{font-weight:400}
+
+/* ===== v86: podium text scales with the prize share (50 > 30 > 20) ===== */
+.tile:nth-child(3) .pct{font-size:24px}
+.tile:nth-child(3) .medal{font-size:20px}
+@media (max-width:340px){.tile{min-width:0}.tile .pl{font-size:11.5px;letter-spacing:.03em}}
