@@ -595,3 +595,20 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 .podium .tile:nth-child(1){height:180px;padding-top:14px;padding-bottom:8px}
 .podium .tile:nth-child(2){height:108px}
 .podium .tile:nth-child(3){height:72px;padding-top:6px;padding-bottom:4px}
+
+/* ===== v93: podium redesigned. Labels sit above each bar (never clipped); bar heights are exactly 50 : 30 : 20 ===== */
+.podium{padding:18px 10px 0;gap:8px;margin-top:14px;position:relative;overflow:hidden}
+.podium .tile{height:auto !important;padding:0 !important;background:none !important;box-shadow:none !important;border-radius:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px;color:var(--ivory)}
+.podium .tile::after{content:"";display:block;width:100%;margin-top:8px;border-radius:6px 6px 0 0}
+.podium .tile:nth-child(1)::after{height:150px;background:linear-gradient(#f3d98a,#c9a24a 55%,#a07c2a);box-shadow:0 0 0 2px rgba(243,217,138,.9),0 0 16px rgba(243,217,138,.35)}
+.podium .tile:nth-child(2)::after{height:90px;background:linear-gradient(#f1f2f2,#b9bdc0 60%,#8e9396)}
+.podium .tile:nth-child(3)::after{height:60px;background:linear-gradient(#e0a878,#b87333 60%,#8a5222)}
+.podium .tile .medal{font-size:24px;line-height:1.1}
+.podium .tile .pl{color:var(--ivory);font-size:12.5px;letter-spacing:.1em;white-space:nowrap}
+.podium .tile .pct{color:var(--brass);text-shadow:0 2px 0 rgba(0,0,0,.45);font-size:28px}
+.podium .tile:nth-child(1) .pct{font-size:38px}
+.podium .tile:nth-child(1) .medal{font-size:28px}
+.podium .tile:nth-child(3) .pct{font-size:26px}
+.podium::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(#5a3b20,#3a2415)}
+@media (max-width:350px){.podium{padding-left:6px;padding-right:6px;gap:5px}.podium .tile .pl{font-size:10.5px;letter-spacing:.04em}.podium .tile .pct{font-size:24px}.podium .tile:nth-child(1) .pct{font-size:32px}.podium .tile:nth-child(3) .pct{font-size:22px}}
