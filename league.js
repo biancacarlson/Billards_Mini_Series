@@ -204,7 +204,7 @@
     });
     return slots.map(function (s) {
       return '<div class="slot"><h3 class="time">' + s.t + "</h3>" + s.items.map(function (m) {
-        return '<div class="mrow tap" role="button" tabindex="0" aria-expanded="false"><span class="tb">Table ' + m.table + "</span><div class=\"vs\">" +
+        return '<div class="mrow tap t' + m.table + '" role="button" tabindex="0" aria-expanded="false"><span class="sr">Table ' + m.table + "</span><div class=\"vs\">" +
           teamLine(m.a, m.win) + '<div class="vsl">vs.</div>' + teamLine(m.b, m.win) + "</div>" +
           (m.score ? '<span class="rs">' + esc(m.score) + "</span>" : "") +
           resPanel(esc(nm(m.a)), esc(nm(m.b)), m.a, m.b, m.win, m.score) + "</div>";
@@ -220,7 +220,7 @@
       return '<div class="tl ' + cls + '"><span class="tn">' + nameTxt + (win && win === t.no ? '&nbsp;<span class="ck">&#10003;</span>' : "") + "</span></div>";
     }
     function tname(t, ph) { return !t ? esc(ph) : (t.name === null ? "#" + t.seed + " Seed" : esc(t.name)); }
-    return '<div class="mrow tap" role="button" tabindex="0" aria-expanded="false"><span class="tb">Table ' + table + '</span><div class="vs"><div class="lbl">' + label + "</div>" +
+    return '<div class="mrow tap t' + table + '" role="button" tabindex="0" aria-expanded="false"><span class="sr">Table ' + table + '</span><div class="vs"><div class="lbl">' + label + "</div>" +
       line(x.a, x.aPh) + '<div class="vsl">vs.</div>' + line(x.b, x.bPh) + "</div>" +
       (x.res && x.res.score ? '<span class="rs">' + esc(x.res.score) + "</span>" : "") +
       resPanel(tname(x.a, x.aPh), tname(x.b, x.bPh), x.a && x.a.no, x.b && x.b.no, win, x.res && x.res.score) + "</div>";
