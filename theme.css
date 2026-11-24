@@ -709,3 +709,49 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 .c3 .rbody::after{content:"";position:absolute;left:50%;top:calc(50% - 54px - 34px);height:34px;width:2px;margin-left:-1px;background:linear-gradient(rgba(243,217,138,0),var(--brass))}
 .brk{padding-right:4px}
 .brk-wrap{padding-bottom:26px}
+
+/* ===== v104: bracket tab matches the dark-felt schedule ===== */
+#tab-bracket .card{background:linear-gradient(var(--felt),var(--felt-deep));color:var(--ivory);border-color:#000;box-shadow:0 2px 0 rgba(0,0,0,.4),0 14px 26px rgba(0,0,0,.35),inset 0 0 0 3px var(--felt),inset 0 0 0 4px var(--brass)}
+#tab-bracket .card h2{color:var(--ivory)}
+#tab-bracket .stand{width:100%;background:rgba(0,0,0,.28);border:1px solid rgba(201,162,74,.5);border-radius:6px;box-shadow:inset 0 0 14px rgba(0,0,0,.35)}
+#tab-bracket .stand th{background:linear-gradient(#0f4a35,#0a3526);border-bottom:1px solid rgba(201,162,74,.5)}
+#tab-bracket .stand td{color:var(--ivory);border-top:1px solid rgba(201,162,74,.22)}
+#tab-bracket .stand tbody tr:first-child td{border-top:0}
+#tab-bracket .stand tr.in td{background:rgba(201,162,74,.08)}
+#tab-bracket .stand tr.in td:first-child{box-shadow:inset 4px 0 0 var(--brass)}
+#tab-bracket .stand tr.in .rk{color:var(--brass)}
+#tab-bracket .stand .sw{color:#8fdcab}
+#tab-bracket .stand .sl{color:#e69a8c}
+#tab-bracket .stand tr.cut td{background:none;border:0}
+#tab-bracket .stand tr.cut span{background:rgba(0,0,0,.35);color:var(--brass);border-top:1px solid rgba(201,162,74,.45);border-bottom:1px solid rgba(201,162,74,.45)}
+#tab-bracket .brk-wrap{background-color:#06231a;box-shadow:inset 0 3px 12px rgba(0,0,0,.55),0 0 0 1px rgba(201,162,74,.5)}
+#tab-bracket .brk-frame::before{background:linear-gradient(90deg,#06231a,rgba(6,35,26,0))}
+#tab-bracket .brk-frame::after{background:linear-gradient(270deg,#06231a,rgba(6,35,26,0))}
+#tab-bracket .brk-dot::before{background:rgba(247,241,225,.28)}
+#tab-bracket .brk-dot.on::before{background:var(--brass)}
+#tab-bracket .stand-note,#tab-bracket .brk-hint{color:rgba(247,241,225,.7)}
+#tab-schedule .chip{background:rgba(0,0,0,.3);border:1px solid rgba(201,162,74,.45);border-bottom:3px solid rgba(201,162,74,.45);box-shadow:inset 0 0 8px rgba(0,0,0,.35)}
+#tab-schedule .chip b{color:var(--ivory)}
+#tab-schedule .chip span{color:rgba(247,241,225,.65)}
+#tab-schedule .chip.on{background:linear-gradient(#14684a,#0d4733);border-color:var(--brass);border-bottom-color:var(--brass);box-shadow:inset 0 0 0 1px rgba(201,162,74,.35),0 2px 0 rgba(0,0,0,.3)}
+#tab-schedule .chip.on b{color:var(--ivory)}
+#tab-schedule .chip.on span{color:var(--brass)}
+#tab-schedule .slot .mres,#tab-schedule .slot .mres *{color:rgba(247,241,225,.8)}
+#tab-schedule .slot .mres{border-top-color:rgba(201,162,74,.4)}
+/* bracket match boxes: dark like the schedule slots */
+#tab-bracket .bm{background:rgba(0,0,0,.3);border:1px solid rgba(201,162,74,.5);box-shadow:0 2px 0 rgba(0,0,0,.5),0 4px 10px rgba(0,0,0,.4)}
+#tab-bracket .bh{background:linear-gradient(#0f4a35,#0a3526);color:var(--brass);border-bottom:1px solid rgba(201,162,74,.4)}
+#tab-bracket .bh span{color:var(--ivory)}
+#tab-bracket .side{background:rgba(0,0,0,.22);color:var(--ivory);border-top:1px solid rgba(201,162,74,.22)}
+#tab-bracket .side .seed{background:#14684a;box-shadow:inset 0 0 0 1.5px rgba(201,162,74,.75);color:var(--ivory)}
+#tab-bracket .side.ph .seed{background:rgba(0,0,0,.35);box-shadow:inset 0 0 0 1.5px rgba(201,162,74,.45);color:var(--brass)}
+#tab-bracket .side.ph .tn{color:rgba(247,241,225,.6)}
+#tab-bracket .side.win{background:rgba(143,220,171,.16);box-shadow:inset 3px 0 0 #8fdcab}
+#tab-bracket .side.win .tn{color:var(--ivory)}
+#tab-bracket .side .ck{color:#8fdcab}
+#tab-bracket .side.lose{color:rgba(247,241,225,.5)}
+#tab-bracket .side.lose .seed{background:rgba(0,0,0,.35);color:rgba(247,241,225,.6)}
+#tab-bracket .bm.fin{border-color:var(--brass)}
+#tab-bracket .bm.fin .bh{background:linear-gradient(#f3d98a,#c9a24a);color:#1b1608;border-bottom:0}
+#tab-bracket .bm.fin .side.win{background:rgba(243,217,138,.18);box-shadow:inset 3px 0 0 var(--brass)}
+#tab-bracket .bm.fin .side.win .ck{color:var(--brass)}
