@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=128">
-  <link rel="stylesheet" href="theme.css?v=128">
+  <link rel="stylesheet" href="style.css?v=129">
+  <link rel="stylesheet" href="theme.css?v=129">
   <style>
     /* v121: lives in the page itself so a cached theme.css can't hide it */
     #tab-signup #signup .group > h3#g0,
@@ -39,7 +39,6 @@
     .tkey{display:flex;justify-content:center;gap:22px;margin:2px 0 14px;font:500 12px/1 var(--cond);letter-spacing:.16em;text-transform:uppercase;color:rgba(248,246,240,.7)}
     .tkey .k{display:inline-flex;align-items:center;gap:8px}
     .tkey i{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.9),rgba(255,255,255,0) 42%),radial-gradient(circle at 70% 80%,rgba(110,100,135,.28),rgba(110,100,135,0) 60%),var(--c);box-shadow:0 1px 2px rgba(0,0,0,.55)}
-    #tab-schedule .slot .mrow.t1,#tab-schedule .slot .mrow.t2{border-left:6px solid var(--c) !important;background-image:linear-gradient(90deg,var(--tint),rgba(0,0,0,0) 60%)}
     /* v126: pearl-white fill-in boxes (soft cool sheen, clearly whiter than before) */
     input:not([type=checkbox]):not(:focus){background:linear-gradient(135deg,#ffffff 0%,#faf8f8 30%,#f1eef4 68%,#fcfaf8 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -10px 14px -8px rgba(160,150,190,.28)}
     /* v128: much less gold on the schedule tab (borders are soft pearl lines; gold kept for times + selected date) */
@@ -49,6 +48,12 @@
     #tab-schedule .chip.on{border-color:rgba(248,246,240,.42);border-bottom-color:rgba(248,246,240,.42)}
     #tab-schedule .slot{border-color:rgba(248,246,240,.14)}
     #tab-schedule .slot h3.time{border-bottom-color:rgba(248,246,240,.14)}
+    /* v129: simpler schedule list (no boxes per time slot; a ball dot shows the table) */
+    #tab-schedule .slot{background:none;border:0;border-radius:0;box-shadow:none;overflow:visible;margin:0 0 6px}
+    #tab-schedule .slot h3.time{background:none;padding:12px 4px 8px;font-size:15px;letter-spacing:.22em;border:0 !important;border-bottom:1px solid rgba(248,246,240,.16) !important}
+    #tab-schedule .slot .mrow{position:relative;background:none !important;padding-left:34px}
+    #tab-schedule .slot .mrow.open{background:rgba(255,255,255,.05) !important;border-radius:6px}
+    #tab-schedule .slot .mrow.t1::before,#tab-schedule .slot .mrow.t2::before{content:"";position:absolute;left:10px;top:17px;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.9),rgba(255,255,255,0) 42%),radial-gradient(circle at 70% 80%,rgba(110,100,135,.28),rgba(110,100,135,0) 60%),var(--c);box-shadow:0 1px 2px rgba(0,0,0,.55)}
   </style>
 </head>
 <body>
@@ -353,11 +358,11 @@
     </div>
   </main>
 
-  <footer class="ver">v128</footer>
+  <footer class="ver">v129</footer>
 
-  <script src="config.js?v=128"></script>
-  <script src="league-data.js?v=128"></script>
-  <script src="league.js?v=128"></script>
-  <script src="script.js?v=128"></script>
+  <script src="config.js?v=129"></script>
+  <script src="league-data.js?v=129"></script>
+  <script src="league.js?v=129"></script>
+  <script src="script.js?v=129"></script>
 </body>
 </html>
