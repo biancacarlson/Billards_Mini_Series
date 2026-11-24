@@ -675,3 +675,6 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 /* ===== v100: Register By plaque on top, then the Teams / When / Where box ===== */
 #tab-info .glance-card .deadline,#tab-info .deadline{margin:0 0 14px}
 #tab-info .glance{padding:0}
+
+/* ===== v101: Info-tab Register By bar in felt green (no brown) ===== */
+#tab-info .deadline{background:linear-gradient(#06231a,#0b3426);border:1px solid rgba(201,162,74,.75);box-shadow:inset 0 2px 8px rgba(0,0,0,.5)}
