@@ -809,5 +809,5 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 .group > h3{gap:9px}
 
 /* ===== v118: gold section titles on the form, quieter version badge ===== */
-#g0,#g1,#g2{color:var(--brass)}
+#tab-signup #signup .group > h3#g0,#tab-signup #signup .group > h3#g1,#tab-signup #signup .group > h3#g2{color:var(--brass)}
 .ver{font-size:10px;color:rgba(245,245,239,.18)}
