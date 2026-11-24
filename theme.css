@@ -807,3 +807,7 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 /* ===== v116: smaller chalk cube icons ===== */
 #g0::before,#g1::before,#g2::before{width:26px;height:29px}
 .group > h3{gap:9px}
+
+/* ===== v118: gold section titles on the form, quieter version badge ===== */
+#g0,#g1,#g2{color:var(--brass)}
+.ver{font-size:10px;color:rgba(245,245,239,.18)}
