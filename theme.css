@@ -642,3 +642,17 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 #tab-info .glance .g-reg{grid-column:1 / -1;justify-content:center;gap:10px;margin-top:2px;padding:9px 12px 8px;border-radius:5px;background:linear-gradient(#e6c566,#c9a24a 55%,#a98332);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 0 rgba(0,0,0,.35)}
 #tab-info .glance .g-reg dt{color:#3a2a08;font-size:12px;letter-spacing:.16em}
 #tab-info .glance .g-reg dd{color:#1d1503;font-weight:700;font-size:16px}
+
+/* ===== v98: calmer podium bars; Register By is plain text, not a button ===== */
+.podium .tile::after{
+  --grain:repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 4px);
+  --sheen:linear-gradient(115deg,transparent 0 30%,rgba(255,255,255,.16) 40%,transparent 50%);
+  filter:saturate(.6) brightness(.82);
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.3),inset 0 -12px 16px rgba(0,0,0,.25) !important;
+}
+.podium .tile:nth-child(1)::after{box-shadow:inset 0 2px 0 rgba(255,255,255,.3),inset 0 -12px 16px rgba(0,0,0,.25) !important}
+.podium .tile:nth-child(1) .pct{font-size:34px}
+.podium .tile .pct{color:#d8bd78}
+#tab-info .glance .g-reg{background:none;box-shadow:none;border-radius:0;margin-top:0;padding:10px 0 0;border-top:1px solid rgba(201,162,74,.35)}
+#tab-info .glance .g-reg dt{color:var(--brass);font-size:11px;letter-spacing:.2em}
+#tab-info .glance .g-reg dd{color:var(--ivory);font-weight:600;font-size:15px}
