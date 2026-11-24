@@ -3,7 +3,7 @@
   --felt:#0b3d2c;--felt-hi:#14684a;--felt-deep:#072a1e;
   --walnut:#3a2415;--walnut-hi:#6b4528;
   --paper:#f7f1e1;--well:#efe7d2;--rule:#cdbf98;--ink:#1a211c;
-  --chalk:#c9a24a;--chalk-dark:#8f6f22;--brass:#c9a24a;--ivory:#f7f1e1;
+  --chalk:#c9a24a;--chalk-dark:#8f6f22;--brass:#c9a24a;--ivory:#ece4cf;
   --display:"Alfa Slab One","Barlow Condensed",Georgia,serif;
   --cond:"Oswald","Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --dia:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M7 1l5 6-5 6-5-6z' fill='%23c9a24a'/%3E%3C/svg%3E");
@@ -755,3 +755,18 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-bracket .bm.fin .bh{background:linear-gradient(#f3d98a,#c9a24a);color:#1b1608;border-bottom:0}
 #tab-bracket .bm.fin .side.win{background:rgba(243,217,138,.18);box-shadow:inset 3px 0 0 var(--brass)}
 #tab-bracket .bm.fin .side.win .ck{color:var(--brass)}
+
+/* ===== v106: Register / Info / Rules tabs match the dark-felt look ===== */
+:is(#tab-signup,#tab-info,#tab-rules) .card{background:linear-gradient(var(--felt),var(--felt-deep));color:var(--ivory);border-color:#000;box-shadow:0 2px 0 rgba(0,0,0,.4),0 14px 26px rgba(0,0,0,.35),inset 0 0 0 3px var(--felt),inset 0 0 0 4px var(--brass)}
+:is(#tab-signup,#tab-info,#tab-rules) .card :is(h2,h3,.rule-head h3,label,legend,.pts li,.rule-intro,.txt,p,dd,summary){color:var(--ivory)}
+:is(#tab-signup,#tab-info,#tab-rules) .pts li{border-color:rgba(201,162,74,.3)}
+:is(#tab-signup,#tab-info,#tab-rules) .card :is(.note,.hint){color:rgba(236,228,207,.72)}
+/* register tab details on dark */
+.deadline{background:linear-gradient(#06231a,#0b3426);border:1px solid rgba(201,162,74,.75);box-shadow:inset 0 2px 8px rgba(0,0,0,.5)}
+#tab-signup .tagline .kick{color:rgba(236,228,207,.8)}
+#tab-signup .card .warn{background:rgba(201,162,74,.12);border-left:3px solid var(--brass);color:var(--ivory)}
+#tab-signup .card .warn strong{color:#f1dfa6}
+#tab-signup .card .check span,#tab-signup .card .check{color:var(--ivory)}
+#tab-signup .card summary,#tab-signup .card .paylink{color:var(--brass)}
+#tab-signup .card .error{background:rgba(180,60,45,.18);color:#f3b5a8;border-color:rgba(230,154,140,.6)}
+#tab-signup .tagline .punch,#tab-signup .tagline .punch em{color:#d9b95e}
