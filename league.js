@@ -185,9 +185,7 @@
     var body;
     if (win) {
       var wn = win === aNo ? an : bn, ln = win === aNo ? bn : an;
-      body = '<div class="rline w"><b>Winner</b><span>' + wn + "</span></div>" +
-        '<div class="rline l"><b>Loser</b><span>' + ln + "</span></div>" +
-        (score ? '<div class="rline s"><b>Score</b><span>' + esc(score) + "</span></div>" : "");
+      body = '<div class="rline w"><b>Winner</b><span>' + wn + "</span></div>";
     } else {
       body = '<div class="rline n">Not played</div>';
     }
