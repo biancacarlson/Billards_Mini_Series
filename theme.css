@@ -811,3 +811,39 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 /* ===== v118: gold section titles on the form, quieter version badge ===== */
 #tab-signup #signup .group > h3#g0,#tab-signup #signup .group > h3#g1,#tab-signup #signup .group > h3#g2{color:var(--brass)}
 .ver{font-size:10px;color:rgba(248,246,240,.18)}
+
+/* ===== v128: schedule glow-up (time headers, match cards, table balls, winners) ===== */
+#tab-schedule #week-body .slot{margin:0 0 16px;border-radius:12px;border:1px solid rgba(248,246,240,.16);background:linear-gradient(rgba(0,0,0,.22),rgba(0,0,0,.34));box-shadow:0 6px 14px rgba(0,0,0,.32),inset 0 1px 0 rgba(248,246,240,.06);padding-bottom:8px}
+#tab-schedule #week-body .slot h3.time{display:flex;align-items:center;gap:10px;padding:10px 14px;margin:0 0 8px;font:500 20px/1 var(--cond);letter-spacing:.12em;color:var(--ivory);background:linear-gradient(rgba(248,246,240,.09),rgba(248,246,240,.03));border-bottom:1px solid rgba(248,246,240,.12)}
+#tab-schedule #week-body .slot h3.time::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 3px rgba(201,162,74,.22),0 0 10px rgba(201,162,74,.55)}
+#tab-schedule #week-body .slot h3.time::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(248,246,240,.22),transparent)}
+/* each match is its own rounded card */
+#tab-schedule #week-body .slot .mrow{margin:0 8px 8px;padding:12px 12px 12px 14px;border:1px solid rgba(248,246,240,.1) !important;border-left:0 !important;border-radius:10px;background:linear-gradient(rgba(248,246,240,.08),rgba(248,246,240,.03));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(248,246,240,.07);position:relative;overflow:hidden;transition:background .15s,transform .1s}
+#tab-schedule #week-body .slot .mrow:last-child{margin-bottom:0}
+#tab-schedule #week-body .slot .mrow:active{transform:scale(.985)}
+/* table color bar */
+#tab-schedule #week-body .slot .mrow::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c);box-shadow:2px 0 10px -2px var(--c)}
+#tab-schedule #week-body .slot .mrow.t2::before{background:linear-gradient(#a8703f,#7a4a26)}
+#tab-schedule #week-body .slot .mrow.t1::before{background:linear-gradient(#e6c566,#b38a2e)}
+#tab-schedule #week-body .slot .mrow.open{background:linear-gradient(rgba(248,246,240,.13),rgba(248,246,240,.06));border-color:rgba(248,246,240,.22) !important}
+/* team name pills + vs badge */
+#tab-schedule #week-body .slot .vs{column-gap:8px;padding-left:4px}
+#tab-schedule #week-body .slot .vs .tl{padding:9px 6px;border-radius:8px;background:rgba(0,0,0,.26);box-shadow:inset 0 1px 3px rgba(0,0,0,.4);font-size:15px;letter-spacing:.04em}
+#tab-schedule #week-body .slot .vs .vsl{display:grid;place-items:center;width:26px;height:26px;padding:0 !important;border-radius:50% !important;background:radial-gradient(circle at 35% 30%,#fff,#e9e5da 60%,#bdb8a8) !important;color:#1a211c !important;font:700 10px/1 var(--cond) !important;letter-spacing:0;text-transform:lowercase;box-shadow:0 2px 4px rgba(0,0,0,.5)}
+#tab-schedule #week-body .slot .vs .lbl{padding-left:2px;margin-bottom:2px;color:var(--brass);font-size:12px;letter-spacing:.14em}
+/* winners / losers once results are in */
+#tab-schedule #week-body .slot .vs .tl.win{background:linear-gradient(rgba(159,212,92,.26),rgba(159,212,92,.12));box-shadow:inset 0 0 0 1px rgba(159,212,92,.55)}
+#tab-schedule #week-body .slot .vs .tl.lose{opacity:.55}
+/* chevron sits in the corner, tidy */
+#tab-schedule #week-body .slot .mrow.tap::after{top:50%;bottom:auto;right:10px;margin-top:-7px;opacity:.5}
+#tab-schedule #week-body .slot .mrow.tap.open::after{top:20px;margin-top:0;opacity:.8}
+/* result panel */
+#tab-schedule #week-body .slot .mrow .mres{margin-top:8px;padding:8px 0 0 !important;border-top:1px dashed rgba(248,246,240,.18) !important}
+/* week title + table key */
+#tab-schedule .card.sched .wt{text-align:center;margin-bottom:6px}
+#tab-schedule .tkey{padding:8px 12px;margin:0 auto 14px;width:max-content;max-width:100%;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid rgba(248,246,240,.14)}
+#tab-schedule .tkey .t2 i{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),rgba(255,255,255,0) 45%),linear-gradient(#a8703f,#7a4a26)}
+/* week chips */
+#tab-schedule .chip{border-radius:10px;border-bottom-width:3px}
+#tab-schedule .chip.on{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.4),inset 0 0 0 1px rgba(201,162,74,.35)}
+#tab-schedule #week-body .slot .mrow{padding-right:30px}
