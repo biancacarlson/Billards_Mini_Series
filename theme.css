@@ -671,3 +671,7 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 .podium .tile:nth-child(2)::after{background:var(--sheen),var(--grain),linear-gradient(180deg,#eef0f2 0%,#c4c9ce 40%,#9ca3aa 75%,#7a8188 100%)}
 .podium .tile:nth-child(3)::after{background:var(--sheen),var(--grain),linear-gradient(180deg,#e8b080 0%,#c98245 40%,#a5622c 75%,#80461a 100%)}
 .podium .tile .pct{color:var(--brass)}
+
+/* ===== v100: Register By plaque on top, then the Teams / When / Where box ===== */
+#tab-info .glance-card .deadline,#tab-info .deadline{margin:0 0 14px}
+#tab-info .glance{padding:0}
