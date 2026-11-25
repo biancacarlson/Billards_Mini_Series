@@ -167,6 +167,12 @@
       };
       while (!fits() && sz > 10) { sz -= 0.25; f.style.fontSize = sz + "px"; }
     });
+    // lists marked .uniform: every hand-set line in the list ends up the same size (the smallest one needed)
+    Array.prototype.forEach.call(document.querySelectorAll("ul.uniform"), function (ul) {
+      var items = ul.querySelectorAll("li.fit"), min = 99;
+      Array.prototype.forEach.call(items, function (f) { min = Math.min(min, parseFloat(getComputedStyle(f).fontSize)); });
+      Array.prototype.forEach.call(items, function (f) { f.style.fontSize = min + "px"; });
+    });
     var els = document.querySelectorAll("#tab-info .pts li, #tab-rules .pts li");
     var i, li;
     function measure(el, avail) {
