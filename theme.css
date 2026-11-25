@@ -258,6 +258,7 @@ h3{font-size:17px}
 #tab-info .sec:nth-of-type(4) h2{--c:#cf2a1e}
 #tab-info .sec:nth-of-type(5) h2{--c:#5b2a86}
 #tab-info .sec:nth-of-type(6) h2{--c:#ee7a14}
+#tab-info .sec:nth-of-type(7) h2{--c:#13803f}
 .b1,.b9{--c:#f2c200}.b2,.b10{--c:#1f4fa3}.b3,.b11{--c:#cf2a1e}.b4,.b12{--c:#5b2a86}
 .b5{--c:#ee7a14}.b6{--c:#13803f}.b7{--c:#7a1a22}.b8{--c:#0d0d0d}
 #tab-info .sec h2::before,.num{
