@@ -878,3 +878,15 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule .tkey{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:auto;max-width:none;margin:0 0 14px;padding:0;border:0;border-radius:0;background:none;font:500 15px/1 var(--cond);letter-spacing:.16em;color:var(--ivory)}
 #tab-schedule .tkey .k{position:relative;display:flex;justify-content:center;align-items:center;gap:0;padding:13px 10px 13px 18px;overflow:hidden;border-radius:10px;background:linear-gradient(rgba(248,246,240,.1),rgba(248,246,240,.04));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(248,246,240,.07)}
 #tab-schedule .tkey .k i{position:absolute;left:0;top:0;bottom:0;width:7px;height:auto;border-radius:0}
+
+/* v135: table key reads as a legend: small caption + mini match-card samples */
+#tab-schedule .tkey{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;margin:0 0 16px;padding:0;font:500 14px/1 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:rgba(248,246,240,.82)}
+#tab-schedule .tkey::before{content:"Table key";flex:0 0 100%;text-align:center;font:500 11px/1 var(--cond);letter-spacing:.3em;color:rgba(248,246,240,.45)}
+#tab-schedule .tkey .k{position:static;display:inline-flex;align-items:center;gap:10px;padding:0;overflow:visible;border-radius:0;background:none;box-shadow:none}
+#tab-schedule .tkey .k i{position:relative;flex:none;display:block;width:38px;height:22px;overflow:hidden;border-radius:6px;background:linear-gradient(rgba(248,246,240,.14),rgba(248,246,240,.06));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 0 0 1px rgba(248,246,240,.1)}
+#tab-schedule .tkey .k i::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px}
+#tab-schedule .tkey .t1 i::before{background:linear-gradient(90deg,rgba(255,255,255,.6) 0,rgba(255,255,255,0) 50%,rgba(60,40,0,.3) 100%),linear-gradient(#d9b45a,#b38a2e)}
+#tab-schedule .tkey .t2 i::before{background:linear-gradient(90deg,rgba(255,255,255,.5) 0,rgba(255,255,255,0) 50%,rgba(0,0,0,.3) 100%),linear-gradient(#a8703f,#7a4a26)}
+#tab-schedule .tkey .k i::after{content:"";position:absolute;left:14px;right:6px;top:7px;bottom:7px;border-radius:3px;background:rgba(0,0,0,.3)}
+#tab-schedule .tkey .t1 i,#tab-schedule .tkey .t2 i{background-color:transparent}
+#tab-schedule .tkey::before{display:none}
