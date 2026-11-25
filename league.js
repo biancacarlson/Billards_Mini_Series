@@ -228,13 +228,13 @@
   function champWeek() {
     var m = B.m;
     var slots = [
-      { t: "6:00 PM", rows: [[m[0], 1, "Quarterfinal &middot; Match 1 &middot; 1 game"], [m[1], 2, "Quarterfinal &middot; Match 2 &middot; 1 game"]] },
-      { t: "6:20 PM", rows: [[m[2], 1, "Quarterfinal &middot; Match 3 &middot; 1 game"], [m[3], 2, "Quarterfinal &middot; Match 4 &middot; 1 game"]] },
-      { t: "6:40 PM", rows: [[m[4], 1, "Semifinal &middot; Match 5 &middot; Best of 3"], [m[5], 2, "Semifinal &middot; Match 6 &middot; Best of 3"]] },
-      { t: "7:40 PM", rows: [[B.fin, 1, "Championship &middot; Best of 3"], [B.third, 2, "3rd-Place Match &middot; 1 game"]] }
+      { t: "6:00 PM", rd: "Quarterfinals &middot; 1 game", rows: [[m[0], 1, "Match 1"], [m[1], 2, "Match 2"]] },
+      { t: "6:20 PM", rd: "Quarterfinals &middot; 1 game", rows: [[m[2], 1, "Match 3"], [m[3], 2, "Match 4"]] },
+      { t: "6:40 PM", rd: "Semifinals &middot; Best of 3", rows: [[m[4], 1, "Match 5"], [m[5], 2, "Match 6"]] },
+      { t: "7:40 PM", rd: "Finals", rows: [[B.fin, 1, "Championship &middot; Best of 3"], [B.third, 2, "3rd place &middot; 1 game"]] }
     ];
     return slots.map(function (s) {
-      return '<div class="slot"><h3 class="time">' + s.t + "</h3>" + s.rows.map(function (r) { return champRow(r[0], r[1], r[2]); }).join("") + "</div>";
+      return '<div class="slot"><h3 class="time">' + s.t + '<span class="rd">' + s.rd + "</span></h3>" + s.rows.map(function (r) { return champRow(r[0], r[1], r[2]); }).join("") + "</div>";
     }).join("");
   }
 
