@@ -944,3 +944,19 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-rules .rules-intro .tagline{padding:10px 8px;font:500 clamp(16px,5.2vw,21px)/1.35 var(--cond);letter-spacing:.06em;text-wrap:balance}
 #tab-rules .rules-intro .tagline::first-line{color:var(--brass);font-weight:600;font-size:15px;letter-spacing:.14em}
 #tab-rules .rules-intro .tagline{font-size:clamp(14px,4.5vw,18px);text-wrap:nowrap}
+
+/* ===== v151: one type system across all 5 tabs =====
+   Oswald = titles, labels, numbers. Barlow = reading text.
+   Same size/weight/spacing for the same job on every tab. */
+#tab-signup .group > h3,
+#tab-info h2,#tab-schedule h2,#tab-bracket h2,
+#tab-rules .rule-head h3{
+  font-family:var(--cond) !important;
+  font-size:20px !important;
+  font-weight:600 !important;
+  letter-spacing:.04em !important;
+  line-height:1.1 !important;
+  text-transform:uppercase !important;
+}
+#tab-info .rule-intro,#tab-rules .rule-intro{font-weight:500 !important}
+#tab-info .glance dt{font-size:13px !important}
