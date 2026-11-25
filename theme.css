@@ -91,7 +91,7 @@ input:not([type=checkbox]):focus{background:#fff;border-bottom-color:var(--felt)
 
 /* info */
 #tab-info{counter-reset:s}
-#tab-info > .card:first-child{background:linear-gradient(var(--felt),var(--felt-deep));color:var(--ivory);border-color:#000;box-shadow:0 2px 0 rgba(0,0,0,.4),0 14px 26px rgba(0,0,0,.35),inset 0 0 0 3px var(--felt),inset 0 0 0 4px var(--brass)}
+#tab-info > section.card:first-of-type{background:linear-gradient(var(--felt),var(--felt-deep));color:var(--ivory);border-color:#000;box-shadow:0 2px 0 rgba(0,0,0,.4),0 14px 26px rgba(0,0,0,.35),inset 0 0 0 3px var(--felt),inset 0 0 0 4px var(--brass)}
 #tab-info .glance div{border-top:1px solid rgba(201,162,74,.55)}
 #tab-info .glance dt{color:var(--brass);font:500 15px/1.3 var(--cond);letter-spacing:.14em;text-transform:uppercase}
 #tab-info .glance dd{color:var(--ivory)}
@@ -673,7 +673,7 @@ h1,h2,h3,.tagline,.tagline span,.deadline span,.deadline b,
 .podium .tile .pct{color:var(--brass)}
 
 /* ===== v100: Register By plaque on top, then the Teams / When / Where box ===== */
-#tab-info .glance-card .deadline,#tab-info .deadline{margin:0 0 14px}
+#tab-info .glance-card .deadline,#tab-info .deadline{margin:0 0 12px}
 #tab-info .glance{padding:0}
 
 /* ===== v101: Info-tab Register By bar in felt green (no brown) ===== */
