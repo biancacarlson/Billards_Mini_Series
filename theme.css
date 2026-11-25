@@ -928,3 +928,6 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule .card.sched .wt{font-size:14px;letter-spacing:.12em}
 #tab-schedule .slot .rline,#tab-schedule .slot .mrow .mres .rline,#tab-schedule .slot .mrow .mres .rline.w span,#tab-schedule .slot .mrow .mres .rline.w em.sc{font-size:13px}
 #tab-schedule .slot .mrow .mres .rline.n,#tab-schedule .slot .mrow .mres .rline.w b{font-size:12px}
+
+/* v144: every Table 2 brown (bars, key sample, text) is the same darker brown */
+#tab-schedule #week-body .slot .mrow.t2::before,#tab-schedule .tkey .t2 i::before{background:linear-gradient(90deg,rgba(255,255,255,.22) 0,rgba(255,255,255,0) 50%,rgba(0,0,0,.25) 100%),linear-gradient(#7d4f2d,#6a4125)}
