@@ -960,3 +960,20 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 }
 #tab-info .rule-intro,#tab-rules .rule-intro{font-weight:500 !important}
 #tab-info .glance dt{font-size:13px !important}
+
+/* v152: Table 2 team names sit on a walnut-brown pill (same brown as the tab bar) with ivory text:
+   readable, and unmistakably different from Table 1's gold-on-dark pills */
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl{color:var(--ivory);background:linear-gradient(var(--walnut-hi),var(--walnut));box-shadow:inset 0 1px 0 rgba(248,246,240,.14),0 1px 2px rgba(0,0,0,.4)}
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl.win{background:linear-gradient(rgba(159,212,92,.26),rgba(159,212,92,.12));box-shadow:inset 0 0 0 1px rgba(159,212,92,.55)}
+#tab-schedule .tkey .t2{color:var(--ivory)}
+
+/* v154: not-yet-decided teams (Winner M1, Winner M2...) look like every other team box,
+   in their table's colors, with a faint dashed outline instead of grey */
+#tab-schedule #week-body .slot .vs .tl.ph .tn{color:inherit;font-weight:600;font-style:normal;opacity:1}
+#tab-schedule #week-body .slot .vs .tl.ph{outline:1px dashed rgba(248,246,240,.3);outline-offset:-4px}
+
+/* v155: quieter Table 2 boxes: flat, softly brown-tinted, warm cream text (no gloss) */
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl{color:#eadcc8;background:linear-gradient(rgba(125,79,45,.38),rgba(106,65,37,.30));box-shadow:inset 0 1px 3px rgba(0,0,0,.4)}
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl.win{background:linear-gradient(rgba(159,212,92,.26),rgba(159,212,92,.12));box-shadow:inset 0 0 0 1px rgba(159,212,92,.55)}
+#tab-schedule #week-body .slot .vs .tl.ph{outline-color:rgba(248,246,240,.22)}
+#tab-schedule .tkey .t2{color:#eadcc8}
