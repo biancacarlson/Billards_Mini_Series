@@ -917,3 +917,14 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 
 /* v142: Table 2 text is the tab-bar brown (font color only, nothing else changed) */
 #tab-schedule #week-body .slot .mrow.t2 .vs .tl,#tab-schedule .tkey .t2{color:#8b5a32}
+
+/* v143: darker Table 2 brown; bottom section text sized to match the top section (14 / 13 / 12px) */
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl,#tab-schedule .tkey .t2{color:#74492a}
+#tab-schedule #week-body .slot h3.time{font:500 14px/1 var(--cond);letter-spacing:.12em;padding:9px 14px}
+#tab-schedule #week-body .slot .vs .tl{font-size:14px;letter-spacing:.04em;padding:8px 6px}
+#tab-schedule #week-body .slot .vs .vsl{font-size:12px !important}
+#tab-schedule #week-body .slot .vs .lbl{font-size:12px}
+#tab-schedule .tkey{font-size:13px}
+#tab-schedule .card.sched .wt{font-size:14px;letter-spacing:.12em}
+#tab-schedule .slot .rline,#tab-schedule .slot .mrow .mres .rline,#tab-schedule .slot .mrow .mres .rline.w span,#tab-schedule .slot .mrow .mres .rline.w em.sc{font-size:13px}
+#tab-schedule .slot .mrow .mres .rline.n,#tab-schedule .slot .mrow .mres .rline.w b{font-size:12px}
