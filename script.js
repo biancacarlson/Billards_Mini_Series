@@ -158,7 +158,14 @@
     Array.prototype.forEach.call(document.querySelectorAll("li.fit"), function (f) {
       f.style.fontSize = "";
       var sz = parseFloat(getComputedStyle(f).fontSize);
-      while (f.scrollWidth > f.clientWidth + 0.5 && sz > 10) { sz -= 0.25; f.style.fontSize = sz + "px"; }
+      // keep ~10px of breathing room before the card edge so hand-set lines never touch the border
+      var fits = function () {
+        var rg = document.createRange(), far = 0;
+        rg.selectNodeContents(f);
+        Array.prototype.forEach.call(rg.getClientRects(), function (q) { if (q.width > 0) far = Math.max(far, q.right); });
+        return far <= f.getBoundingClientRect().right - 10 + 0.5;
+      };
+      while (!fits() && sz > 10) { sz -= 0.25; f.style.fontSize = sz + "px"; }
     });
     var els = document.querySelectorAll("#tab-info .pts li, #tab-rules .pts li");
     var i, li;
