@@ -871,3 +871,10 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
   background:radial-gradient(circle at 34% 28%,#ffffff 0,#fbfaf6 28%,#e4e0d4 62%,#b3ae9e 100%) !important;
   box-shadow:inset -3px -4px 6px rgba(70,60,40,.38),inset 2px 2px 3px rgba(255,255,255,.9),0 3px 5px rgba(0,0,0,.55)}
 #tab-schedule #week-body .slot .vs .vsl::after{content:"";position:absolute;left:6px;top:4px;width:9px;height:5px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.95),rgba(255,255,255,0) 75%);transform:rotate(-30deg);pointer-events:none}
+
+/* v134: bigger cue ball; table key becomes two mini cards that mirror the match cards */
+#tab-schedule #week-body .slot .vs .vsl{width:38px;height:38px;font:700 14px/1 var(--cond) !important;letter-spacing:.01em}
+#tab-schedule #week-body .slot .vs .vsl::after{left:8px;top:5px;width:12px;height:6px}
+#tab-schedule .tkey{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:auto;max-width:none;margin:0 0 14px;padding:0;border:0;border-radius:0;background:none;font:500 15px/1 var(--cond);letter-spacing:.16em;color:var(--ivory)}
+#tab-schedule .tkey .k{position:relative;display:flex;justify-content:center;align-items:center;gap:0;padding:13px 10px 13px 18px;overflow:hidden;border-radius:10px;background:linear-gradient(rgba(248,246,240,.1),rgba(248,246,240,.04));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(248,246,240,.07)}
+#tab-schedule .tkey .k i{position:absolute;left:0;top:0;bottom:0;width:7px;height:auto;border-radius:0}
