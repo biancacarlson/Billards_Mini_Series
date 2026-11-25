@@ -1002,15 +1002,15 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 
 
 
-/* ===== v173: schedule matchups match the rest of the site; quieter standings names; rule subsection =====
-   Same language as Standings/Info: flat dark panel, thin hairlines, white text, 4px edge bar (like the top-8 marker). */
-#tab-schedule #week-body .slot{margin:0 0 12px;padding-bottom:0;overflow:hidden;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.2);border-radius:6px;box-shadow:inset 0 0 14px rgba(0,0,0,.35)}
-#tab-schedule #week-body .slot h3.time{margin:0;padding:10px 14px;border-radius:0;background:linear-gradient(#0f4a35,#0a3526);border-bottom:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);font:500 14px/1 var(--cond);letter-spacing:.14em}
+/* ===== v173/v185: schedule matchups styled like the week buttons; quieter standings names; rule subsection ===== */
+#tab-schedule #week-body .slot{margin:0 0 16px;padding:0;overflow:visible;background:none;border:0;border-radius:0;box-shadow:none}
+#tab-schedule #week-body .slot h3.time{margin:0 0 8px;padding:0 2px;border:0;border-radius:0;background:none;color:#fff;font:600 14px/1 var(--cond);letter-spacing:.14em}
+/* each match is a tile built like the week buttons above: dark inset fill, thin gold edge, 3px gold bottom edge, 10px corners */
 #tab-schedule #week-body .slot .mrow,
-#tab-schedule #week-body .slot .mrow.open{margin:0;padding:12px 30px 12px 28px;border:0 !important;border-top:1px solid rgba(255,255,255,.1) !important;border-radius:0;background:none;box-shadow:none !important;overflow:visible}
-#tab-schedule #week-body .slot .time + .mrow,
-#tab-schedule #week-body .slot .time + .mrow.open{border-top:0 !important}
-#tab-schedule #week-body .slot .mrow.open{background:rgba(255,255,255,.05)}
+#tab-schedule #week-body .slot .mrow.open{margin:0 0 8px;padding:12px 30px 12px 28px;border:1px solid rgba(201,162,74,.45) !important;border-bottom:3px solid rgba(201,162,74,.45) !important;border-radius:10px;background:rgba(0,0,0,.3);box-shadow:inset 0 0 8px rgba(0,0,0,.35) !important;overflow:visible}
+#tab-schedule #week-body .slot .mrow:last-child{margin-bottom:0}
+/* open match = the selected-week look (green fill, brass edge) */
+#tab-schedule #week-body .slot .mrow.open{background:linear-gradient(#14684a,#0d4733);border-color:var(--brass) !important;box-shadow:inset 0 0 0 1px rgba(201,162,74,.35),0 2px 0 rgba(0,0,0,.3) !important}
 #tab-schedule #week-body .slot .mrow:active{transform:none}
 /* table marker: flat 4px edge bar, same idea as the top-8 marker in Standings */
 #tab-schedule #week-body .slot .mrow::before{left:9px;top:10px;bottom:10px;width:7px;border-radius:4px;box-shadow:none}
@@ -1020,7 +1020,7 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule #week-body .slot .vs{padding-left:0}
 #tab-schedule #week-body .slot .vs .tl,
 #tab-schedule #week-body .slot .mrow.t1 .vs .tl,
-#tab-schedule #week-body .slot .mrow.t2 .vs .tl{padding:4px 0;border-radius:0;background:none;box-shadow:none;outline:0;color:rgba(255,255,255,.88);font:400 15px/1.25 var(--cond);letter-spacing:.03em}
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl{padding:4px 0;border-radius:0;background:none;box-shadow:none;outline:0;color:rgba(255,255,255,.88);font:600 15px/1.25 var(--cond);letter-spacing:.03em}
 #tab-schedule #week-body .slot .vs .tl.win,
 #tab-schedule #week-body .slot .mrow.t1 .vs .tl.win,
 #tab-schedule #week-body .slot .mrow.t2 .vs .tl.win{background:none;box-shadow:none;color:#9fd45c;font-weight:500}
