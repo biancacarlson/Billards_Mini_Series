@@ -851,7 +851,9 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 /* v128b: no outline around each match card (table color bar on the left stays) */
 #tab-schedule #week-body .slot .mrow,#tab-schedule #week-body .slot .mrow.open{border:0 !important;box-shadow:0 2px 0 rgba(0,0,0,.28)}
 
-/* v128c: table bars use the key's colors */
-#tab-schedule #week-body .slot .mrow.t1::before{background:#c9a24a}
-#tab-schedule #week-body .slot .mrow.t2::before{background:linear-gradient(#a8703f,#7a4a26)}
+/* v128c: table bars look like the key balls (glossy gradient), no gold glow beside them */
+#tab-schedule #week-body .slot .mrow::before{box-shadow:none;width:7px}
+#tab-schedule #week-body .slot .mrow.t1::before{background:linear-gradient(90deg,rgba(255,255,255,.6) 0,rgba(255,255,255,0) 50%,rgba(60,40,0,.3) 100%),linear-gradient(#d9b45a,#b38a2e)}
+#tab-schedule #week-body .slot .mrow.t2::before{background:linear-gradient(90deg,rgba(255,255,255,.5) 0,rgba(255,255,255,0) 50%,rgba(0,0,0,.3) 100%),linear-gradient(#a8703f,#7a4a26)}
+#tab-schedule .tkey .t1 i{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.7),rgba(255,255,255,0) 45%),linear-gradient(#d9b45a,#b38a2e)}
 #tab-schedule .tkey .t2 i{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),rgba(255,255,255,0) 45%),linear-gradient(#a8703f,#7a4a26)}
