@@ -857,3 +857,17 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule #week-body .slot .mrow.t2::before{background:linear-gradient(90deg,rgba(255,255,255,.5) 0,rgba(255,255,255,0) 50%,rgba(0,0,0,.3) 100%),linear-gradient(#a8703f,#7a4a26)}
 #tab-schedule .tkey .t1 i{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.7),rgba(255,255,255,0) 45%),linear-gradient(#d9b45a,#b38a2e)}
 #tab-schedule .tkey .t2 i{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),rgba(255,255,255,0) 45%),linear-gradient(#a8703f,#7a4a26)}
+
+/* v131: key swatches are bars, same look as the bars on the match cards */
+#tab-schedule .tkey i{width:7px;height:20px;border-radius:2px;box-shadow:none}
+#tab-schedule .tkey .t1 i{background:linear-gradient(90deg,rgba(255,255,255,.6) 0,rgba(255,255,255,0) 50%,rgba(60,40,0,.3) 100%),linear-gradient(#d9b45a,#b38a2e)}
+#tab-schedule .tkey .t2 i{background:linear-gradient(90deg,rgba(255,255,255,.5) 0,rgba(255,255,255,0) 50%,rgba(0,0,0,.3) 100%),linear-gradient(#a8703f,#7a4a26)}
+
+/* v132: no dot before each time */
+#tab-schedule #week-body .slot h3.time::before{display:none}
+
+/* v133: "vs." circle is a glossy cue ball */
+#tab-schedule #week-body .slot .vs .vsl{position:relative;width:30px;height:30px;overflow:hidden;color:#1a211c !important;
+  background:radial-gradient(circle at 34% 28%,#ffffff 0,#fbfaf6 28%,#e4e0d4 62%,#b3ae9e 100%) !important;
+  box-shadow:inset -3px -4px 6px rgba(70,60,40,.38),inset 2px 2px 3px rgba(255,255,255,.9),0 3px 5px rgba(0,0,0,.55)}
+#tab-schedule #week-body .slot .vs .vsl::after{content:"";position:absolute;left:6px;top:4px;width:9px;height:5px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.95),rgba(255,255,255,0) 75%);transform:rotate(-30deg);pointer-events:none}
