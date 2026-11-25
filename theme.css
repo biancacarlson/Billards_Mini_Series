@@ -356,8 +356,7 @@ h3{font-size:17px}
 .slot .tb{padding-right:28px}
 
 /* ===== v61: wider match cells on phones ===== */
-.card.sched{padding-left:10px;padding-right:10px}
-.card.sched .wt{padding-left:6px}
+/* v184: matchup card uses the same side padding as the top Schedule card, so both line up */
 .slot .mrow{padding-left:12px;padding-right:12px}
 .slot .vs .tl{font-size:15px}
 @media (max-width:375px){.slot .vs .tl{font-size:14px;letter-spacing:.01em}.slot .vs{column-gap:6px}.slot .vs .vsl{font-size:10px;padding:4px 6px}}
@@ -1058,3 +1057,15 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule .tkey .k.t1 i,#tab-schedule .tkey .k.t2 i{background:var(--brass);border-radius:4px;width:7px}
 #tab-schedule .tkey .k.t2 i{background:var(--walnut-hi)}
 #tab-schedule .tkey .k.t1 i::before,#tab-schedule .tkey .k.t2 i::before{display:none}
+
+/* ===== v182: straight white text (no off-white / translucent white) in Schedule and Standings ===== */
+#tab-schedule #week-body .slot h3.time,
+#tab-schedule .tkey .k,#tab-schedule .tkey .t1,#tab-schedule .tkey .t2{color:#fff}
+#tab-schedule #week-body .slot .vs .tl:not(.win),
+#tab-schedule #week-body .slot .mrow.t1 .vs .tl:not(.win),
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl:not(.win),
+#tab-schedule #week-body .slot .vs .tl.ph .tn{color:#fff}
+#tab-schedule #week-body .slot .vs .vsl{color:#fff !important}
+#tab-schedule .slot .mres,#tab-schedule .slot .mres *{color:#fff}
+#tab-bracket .stand td.tn{color:#fff !important}
+#tab-signup .card .warn strong{color:#fff}
