@@ -931,3 +931,6 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 
 /* v144: every Table 2 brown (bars, key sample, text) is the same darker brown */
 #tab-schedule #week-body .slot .mrow.t2::before,#tab-schedule .tkey .t2 i::before{background:linear-gradient(90deg,rgba(255,255,255,.22) 0,rgba(255,255,255,0) 50%,rgba(0,0,0,.25) 100%),linear-gradient(#7d4f2d,#6a4125)}
+
+/* v145: championship round labels (Quarterfinal, Semifinal...) are white */
+#tab-schedule #week-body .slot .vs .lbl{color:var(--ivory)}
