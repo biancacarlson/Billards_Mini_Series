@@ -3,7 +3,7 @@
   --felt:#0b3d2c;--felt-hi:#14684a;--felt-deep:#072a1e;
   --walnut:#3a2415;--walnut-hi:#6b4528;
   --paper:#f8f6f0;--well:#f8f6f0;--rule:#c9c39f;--ink:#1a211c;
-  --chalk:#c9a24a;--chalk-dark:#8f6f22;--brass:#c9a24a;--ivory:#f8f6f0;
+  --chalk:#c9a24a;--chalk-dark:#8f6f22;--brass:#c9a24a;--ivory:#ffffff;
   --display:"Alfa Slab One","Barlow Condensed",Georgia,serif;
   --cond:"Oswald","Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --dia:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Cpath d='M7 1l5 6-5 6-5-6z' fill='%23c9a24a'/%3E%3C/svg%3E");
@@ -52,7 +52,7 @@ h1{
       #0e0e0e 98% 100%)
 }
 .tabs{background:linear-gradient(var(--walnut-hi),var(--walnut));border:1px solid #1f1209;border-radius:6px;padding:4px;gap:2px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 3px 8px rgba(0,0,0,.35)}
-.tab{flex:1 1 auto;min-width:0;font:500 13px/1 var(--cond);letter-spacing:.04em;text-transform:uppercase;padding:0 3px;border-radius:4px;color:rgba(248,246,240,.85);transition:background .15s,color .15s}
+.tab{flex:1 1 auto;min-width:0;font:500 13px/1 var(--cond);letter-spacing:.04em;text-transform:uppercase;padding:0 3px;border-radius:4px;color:rgba(255,255,255,.85);transition:background .15s,color .15s}
 .tab:hover{background:rgba(255,255,255,.1);color:#fff}
 .tab.on{background:linear-gradient(var(--felt-hi),var(--felt));color:var(--ivory);box-shadow:inset 0 0 0 1px var(--brass),0 2px 0 rgba(0,0,0,.4)}
 .tab:focus-visible{outline-color:var(--brass)}
@@ -214,7 +214,7 @@ h2,h3,.tagline{text-wrap:balance}
 .mrow.tap::after{content:"";position:absolute;right:12px;bottom:7px;width:7px;height:7px;border-right:2px solid var(--chalk-dark);border-bottom:2px solid var(--chalk-dark);transform:rotate(45deg);transition:transform .15s}
 .mrow.tap.open::after{transform:rotate(225deg);bottom:5px}
 /* version badge */
-.ver{display:block;text-align:center;padding:4px 0 calc(22px + env(safe-area-inset-bottom,0px));font:500 11px/1 var(--cond);letter-spacing:.18em;color:rgba(248,246,240,.35)}
+.ver{display:block;text-align:center;padding:4px 0 calc(22px + env(safe-area-inset-bottom,0px));font:500 11px/1 var(--cond);letter-spacing:.18em;color:rgba(255,255,255,.35)}
 
 /* two-line sign (Entry Fee) */
 .tagline.big{text-align:center;margin:0 0 14px}
@@ -264,7 +264,7 @@ h3{font-size:17px}
   width:38px;height:38px;border-radius:50%;color:#111;font:700 13px/1 var(--cond);letter-spacing:0;
   background:
     radial-gradient(circle at 31% 25%,rgba(255,255,255,.95) 0 5%,rgba(255,255,255,.35) 11%,rgba(255,255,255,0) 22%),
-    radial-gradient(circle 10.5px at 50% 50%,#f8f6f0 0 9.8px,rgba(248,246,240,0) 10.5px),
+    radial-gradient(circle 10.5px at 50% 50%,#f8f6f0 0 9.8px,rgba(255,255,255,0) 10.5px),
     radial-gradient(circle at 36% 30%,rgba(255,255,255,.22) 0,rgba(255,255,255,0) 42%,rgba(0,0,0,.5) 100%),
     var(--c,#f2c200);
   box-shadow:inset -2px -3px 5px rgba(0,0,0,.35),0 3px 4px rgba(0,0,0,.45);
@@ -274,7 +274,7 @@ h3{font-size:17px}
   font-size:11px;letter-spacing:-.02em;
   background:
     radial-gradient(circle at 31% 25%,rgba(255,255,255,.95) 0 5%,rgba(255,255,255,.35) 11%,rgba(255,255,255,0) 22%),
-    radial-gradient(circle 10.5px at 50% 50%,#f8f6f0 0 9.8px,rgba(248,246,240,0) 10.5px),
+    radial-gradient(circle 10.5px at 50% 50%,#f8f6f0 0 9.8px,rgba(255,255,255,0) 10.5px),
     radial-gradient(circle at 36% 30%,rgba(255,255,255,.18) 0,rgba(255,255,255,0) 42%,rgba(0,0,0,.4) 100%),
     linear-gradient(#f8f6f0 0 22%,var(--c) 22% 78%,#f8f6f0 78% 100%);
 }
@@ -374,7 +374,7 @@ h3{font-size:17px}
   --gy:20px;       /* vertical gap between first-round boxes */
   --slot:calc(var(--bhgt) + var(--gy));
   --gx:36px;       /* horizontal gap between rounds (connectors live here) */
-  --line:rgba(248,246,240,.6);
+  --line:rgba(255,255,255,.6);
   background-color:var(--felt);
   background-image:radial-gradient(120% 60% at 50% 0%,var(--felt-hi) 0%,rgba(20,104,74,0) 75%);
   border-radius:8px;box-shadow:inset 0 3px 12px rgba(0,0,0,.4);
@@ -687,14 +687,14 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 /* schedule */
 #tab-schedule .card{background:linear-gradient(var(--felt),var(--felt-deep));color:var(--ivory);border-color:#000;box-shadow:0 2px 0 rgba(0,0,0,.4),0 14px 26px rgba(0,0,0,.35),inset 0 0 0 3px var(--felt),inset 0 0 0 4px var(--brass)}
 #tab-schedule .card h2,#tab-schedule .card .wt{color:var(--ivory)}
-#tab-schedule .hint{color:rgba(248,246,240,.7)}
+#tab-schedule .hint{color:rgba(255,255,255,.7)}
 #tab-schedule .slot{background:rgba(0,0,0,.28);border:1px solid rgba(201,162,74,.5);box-shadow:inset 0 0 14px rgba(0,0,0,.35)}
 #tab-schedule .slot h3.time{background:linear-gradient(#0f4a35,#0a3526);color:var(--brass);border-bottom:1px solid rgba(201,162,74,.5)}
 #tab-schedule .slot .mrow{border-top:1px dashed rgba(201,162,74,.3);color:var(--ivory)}
 #tab-schedule .slot .mrow:first-of-type,#tab-schedule .slot .time + .mrow{border-top:0}
 #tab-schedule .slot .tb{color:var(--brass)}
 #tab-schedule .slot .vs .tl{color:var(--ivory)}
-#tab-schedule .slot .vs .lbl{color:rgba(248,246,240,.7)}
+#tab-schedule .slot .vs .lbl{color:rgba(255,255,255,.7)}
 #tab-schedule .slot .vs .vsl{border-color:rgba(201,162,74,.6);color:var(--brass);background:rgba(0,0,0,.25)}
 #tab-schedule .slot .mrow.open{background:rgba(255,255,255,.07)}
 #tab-schedule .slot .mrow.tap::after{border-color:var(--brass)}
@@ -727,16 +727,16 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-bracket .brk-wrap{background-color:#06231a;box-shadow:inset 0 3px 12px rgba(0,0,0,.55),0 0 0 1px rgba(201,162,74,.5)}
 #tab-bracket .brk-frame::before{background:linear-gradient(90deg,#06231a,rgba(6,35,26,0))}
 #tab-bracket .brk-frame::after{background:linear-gradient(270deg,#06231a,rgba(6,35,26,0))}
-#tab-bracket .brk-dot::before{background:rgba(248,246,240,.28)}
+#tab-bracket .brk-dot::before{background:rgba(255,255,255,.28)}
 #tab-bracket .brk-dot.on::before{background:var(--brass)}
-#tab-bracket .stand-note,#tab-bracket .brk-hint{color:rgba(248,246,240,.7)}
+#tab-bracket .stand-note,#tab-bracket .brk-hint{color:rgba(255,255,255,.7)}
 #tab-schedule .chip{background:rgba(0,0,0,.3);border:1px solid rgba(201,162,74,.45);border-bottom:3px solid rgba(201,162,74,.45);box-shadow:inset 0 0 8px rgba(0,0,0,.35)}
 #tab-schedule .chip b{color:var(--ivory)}
-#tab-schedule .chip span{color:rgba(248,246,240,.65)}
+#tab-schedule .chip span{color:rgba(255,255,255,.65)}
 #tab-schedule .chip.on{background:linear-gradient(#14684a,#0d4733);border-color:var(--brass);border-bottom-color:var(--brass);box-shadow:inset 0 0 0 1px rgba(201,162,74,.35),0 2px 0 rgba(0,0,0,.3)}
 #tab-schedule .chip.on b{color:var(--ivory)}
 #tab-schedule .chip.on span{color:var(--brass)}
-#tab-schedule .slot .mres,#tab-schedule .slot .mres *{color:rgba(248,246,240,.8)}
+#tab-schedule .slot .mres,#tab-schedule .slot .mres *{color:rgba(255,255,255,.8)}
 #tab-schedule .slot .mres{border-top-color:rgba(201,162,74,.4)}
 /* bracket match boxes: dark like the schedule slots */
 #tab-bracket .bm{background:rgba(0,0,0,.3);border:1px solid rgba(201,162,74,.5);box-shadow:0 2px 0 rgba(0,0,0,.5),0 4px 10px rgba(0,0,0,.4)}
@@ -745,12 +745,12 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-bracket .side{background:rgba(0,0,0,.22);color:var(--ivory);border-top:1px solid rgba(201,162,74,.22)}
 #tab-bracket .side .seed{background:#14684a;box-shadow:inset 0 0 0 1.5px rgba(201,162,74,.75);color:var(--ivory)}
 #tab-bracket .side.ph .seed{background:rgba(0,0,0,.35);box-shadow:inset 0 0 0 1.5px rgba(201,162,74,.45);color:var(--brass)}
-#tab-bracket .side.ph .tn{color:rgba(248,246,240,.6)}
+#tab-bracket .side.ph .tn{color:rgba(255,255,255,.6)}
 #tab-bracket .side.win{background:rgba(143,220,171,.16);box-shadow:inset 3px 0 0 #8fdcab}
 #tab-bracket .side.win .tn{color:var(--ivory)}
 #tab-bracket .side .ck{color:#8fdcab}
-#tab-bracket .side.lose{color:rgba(248,246,240,.5)}
-#tab-bracket .side.lose .seed{background:rgba(0,0,0,.35);color:rgba(248,246,240,.6)}
+#tab-bracket .side.lose{color:rgba(255,255,255,.5)}
+#tab-bracket .side.lose .seed{background:rgba(0,0,0,.35);color:rgba(255,255,255,.6)}
 #tab-bracket .bm.fin{border-color:var(--brass)}
 #tab-bracket .bm.fin .bh{background:linear-gradient(#f3d98a,#c9a24a);color:#1b1608;border-bottom:0}
 #tab-bracket .bm.fin .side.win{background:rgba(243,217,138,.18);box-shadow:inset 3px 0 0 var(--brass)}
@@ -760,10 +760,10 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 :is(#tab-signup,#tab-info,#tab-rules) .card{background:linear-gradient(var(--felt),var(--felt-deep));color:var(--ivory);border-color:#000;box-shadow:0 2px 0 rgba(0,0,0,.4),0 14px 26px rgba(0,0,0,.35),inset 0 0 0 3px var(--felt),inset 0 0 0 4px var(--brass)}
 :is(#tab-signup,#tab-info,#tab-rules) .card :is(h2,h3,.rule-head h3,label,legend,.pts li,.rule-intro,.txt,p,dd,summary){color:var(--ivory)}
 :is(#tab-signup,#tab-info,#tab-rules) .pts li{border-color:rgba(201,162,74,.3)}
-:is(#tab-signup,#tab-info,#tab-rules) .card :is(.note,.hint){color:rgba(248,246,240,.72)}
+:is(#tab-signup,#tab-info,#tab-rules) .card :is(.note,.hint){color:rgba(255,255,255,.72)}
 /* register tab details on dark */
 .deadline{background:linear-gradient(#06231a,#0b3426);border:1px solid rgba(201,162,74,.75);box-shadow:inset 0 2px 8px rgba(0,0,0,.5)}
-#tab-signup .tagline .kick{color:rgba(248,246,240,.8)}
+#tab-signup .tagline .kick{color:rgba(255,255,255,.8)}
 #tab-signup .card .warn{background:rgba(201,162,74,.12);border-left:3px solid var(--brass);color:var(--ivory)}
 #tab-signup .card .warn strong{color:#f1dfa6}
 #tab-signup .card .check span,#tab-signup .card .check{color:var(--ivory)}
@@ -778,27 +778,27 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 
 /* ===== v112: much less gold in schedule results + bracket (gold kept for the championship only) ===== */
 /* schedule: result panel */
-#tab-schedule .rline.w b{background:linear-gradient(#1f8a5f,#14684a);color:#f8f6f0;box-shadow:none}
-#tab-schedule .rline.l b{background:rgba(248,246,240,.14);color:rgba(248,246,240,.7)}
+#tab-schedule .rline.w b{background:linear-gradient(#1f8a5f,#14684a);color:#fff;box-shadow:none}
+#tab-schedule .rline.l b{background:rgba(255,255,255,.14);color:rgba(255,255,255,.7)}
 #tab-schedule .rline.s b{background:rgba(0,0,0,.35);color:var(--ivory)}
 #tab-schedule .tl .ck{color:#9fd45c}
-#tab-schedule .slot .mrow,#tab-schedule .slot .mres{border-top-color:rgba(248,246,240,.14)}
+#tab-schedule .slot .mrow,#tab-schedule .slot .mres{border-top-color:rgba(255,255,255,.14)}
 /* bracket: standings + match boxes go neutral */
-#tab-bracket .stand{border-color:rgba(248,246,240,.2)}
-#tab-bracket .stand th{color:rgba(248,246,240,.75);border-bottom-color:rgba(248,246,240,.15)}
-#tab-bracket .stand td{border-top-color:rgba(248,246,240,.1)}
-#tab-bracket .stand tr.in td{background:rgba(248,246,240,.05)}
+#tab-bracket .stand{border-color:rgba(255,255,255,.2)}
+#tab-bracket .stand th{color:rgba(255,255,255,.75);border-bottom-color:rgba(255,255,255,.15)}
+#tab-bracket .stand td{border-top-color:rgba(255,255,255,.1)}
+#tab-bracket .stand tr.in td{background:rgba(255,255,255,.05)}
 #tab-bracket .stand tr.in td:first-child{box-shadow:inset 4px 0 0 #9fd45c}
 #tab-bracket .stand tr.in .rk{color:var(--ivory)}
-#tab-bracket .stand tr.cut span{color:rgba(248,246,240,.75);border-top-color:rgba(248,246,240,.2);border-bottom-color:rgba(248,246,240,.2)}
-#tab-bracket .brk-wrap{box-shadow:inset 0 3px 12px rgba(0,0,0,.55),0 0 0 1px rgba(248,246,240,.16)}
-#tab-bracket .rh{color:rgba(248,246,240,.85)}
-#tab-bracket .bm{border-color:rgba(248,246,240,.2)}
-#tab-bracket .bh{color:var(--ivory);border-bottom-color:rgba(248,246,240,.14)}
-#tab-bracket .side{border-top-color:rgba(248,246,240,.1)}
-#tab-bracket .side .seed{box-shadow:inset 0 0 0 1.5px rgba(248,246,240,.4);color:var(--ivory)}
-#tab-bracket .side.ph .seed{box-shadow:inset 0 0 0 1.5px rgba(248,246,240,.22);color:rgba(248,246,240,.6)}
-#tab-bracket .brk-dot.on::before{background:rgba(248,246,240,.85)}
+#tab-bracket .stand tr.cut span{color:rgba(255,255,255,.75);border-top-color:rgba(255,255,255,.2);border-bottom-color:rgba(255,255,255,.2)}
+#tab-bracket .brk-wrap{box-shadow:inset 0 3px 12px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.16)}
+#tab-bracket .rh{color:rgba(255,255,255,.85)}
+#tab-bracket .bm{border-color:rgba(255,255,255,.2)}
+#tab-bracket .bh{color:var(--ivory);border-bottom-color:rgba(255,255,255,.14)}
+#tab-bracket .side{border-top-color:rgba(255,255,255,.1)}
+#tab-bracket .side .seed{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4);color:var(--ivory)}
+#tab-bracket .side.ph .seed{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.22);color:rgba(255,255,255,.6)}
+#tab-bracket .brk-dot.on::before{background:rgba(255,255,255,.85)}
 /* the championship stays the one gold moment, but softer */
 #tab-bracket .bm.fin{border-color:rgba(201,162,74,.7)}
 #tab-bracket .bm.fin .bh{background:linear-gradient(#d9bb6a,#b8913f)}
@@ -810,22 +810,22 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 
 /* ===== v118: gold section titles on the form, quieter version badge ===== */
 #tab-signup #signup .group > h3#g0,#tab-signup #signup .group > h3#g1,#tab-signup #signup .group > h3#g2{color:var(--brass)}
-.ver{font-size:10px;color:rgba(248,246,240,.18)}
+.ver{font-size:10px;color:rgba(255,255,255,.18)}
 
 /* ===== v128: schedule glow-up (time headers, match cards, table balls, winners) ===== */
-#tab-schedule #week-body .slot{margin:0 0 16px;border-radius:12px;border:1px solid rgba(248,246,240,.16);background:linear-gradient(rgba(0,0,0,.22),rgba(0,0,0,.34));box-shadow:0 6px 14px rgba(0,0,0,.32),inset 0 1px 0 rgba(248,246,240,.06);padding-bottom:8px}
-#tab-schedule #week-body .slot h3.time{display:flex;align-items:center;gap:10px;padding:10px 14px;margin:0 0 8px;font:500 20px/1 var(--cond);letter-spacing:.12em;color:var(--ivory);background:linear-gradient(rgba(248,246,240,.09),rgba(248,246,240,.03));border-bottom:1px solid rgba(248,246,240,.12)}
+#tab-schedule #week-body .slot{margin:0 0 16px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(rgba(0,0,0,.22),rgba(0,0,0,.34));box-shadow:0 6px 14px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.06);padding-bottom:8px}
+#tab-schedule #week-body .slot h3.time{display:flex;align-items:center;gap:10px;padding:10px 14px;margin:0 0 8px;font:500 20px/1 var(--cond);letter-spacing:.12em;color:var(--ivory);background:linear-gradient(rgba(255,255,255,.09),rgba(255,255,255,.03));border-bottom:1px solid rgba(255,255,255,.12)}
 #tab-schedule #week-body .slot h3.time::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 3px rgba(201,162,74,.22),0 0 10px rgba(201,162,74,.55)}
-#tab-schedule #week-body .slot h3.time::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(248,246,240,.22),transparent)}
+#tab-schedule #week-body .slot h3.time::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.22),transparent)}
 /* each match is its own rounded card */
-#tab-schedule #week-body .slot .mrow{margin:0 8px 8px;padding:12px 12px 12px 14px;border:1px solid rgba(248,246,240,.1) !important;border-left:0 !important;border-radius:10px;background:linear-gradient(rgba(248,246,240,.08),rgba(248,246,240,.03));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(248,246,240,.07);position:relative;overflow:hidden;transition:background .15s,transform .1s}
+#tab-schedule #week-body .slot .mrow{margin:0 8px 8px;padding:12px 12px 12px 14px;border:1px solid rgba(255,255,255,.1) !important;border-left:0 !important;border-radius:10px;background:linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.03));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.07);position:relative;overflow:hidden;transition:background .15s,transform .1s}
 #tab-schedule #week-body .slot .mrow:last-child{margin-bottom:0}
 #tab-schedule #week-body .slot .mrow:active{transform:scale(.985)}
 /* table color bar */
 #tab-schedule #week-body .slot .mrow::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c);box-shadow:2px 0 10px -2px var(--c)}
 #tab-schedule #week-body .slot .mrow.t2::before{background:linear-gradient(#a8703f,#7a4a26)}
 #tab-schedule #week-body .slot .mrow.t1::before{background:linear-gradient(#e6c566,#b38a2e)}
-#tab-schedule #week-body .slot .mrow.open{background:linear-gradient(rgba(248,246,240,.13),rgba(248,246,240,.06));border-color:rgba(248,246,240,.22) !important}
+#tab-schedule #week-body .slot .mrow.open{background:linear-gradient(rgba(255,255,255,.13),rgba(255,255,255,.06));border-color:rgba(255,255,255,.22) !important}
 /* team name pills + vs badge */
 #tab-schedule #week-body .slot .vs{column-gap:8px;padding-left:4px}
 #tab-schedule #week-body .slot .vs .tl{padding:9px 6px;border-radius:8px;background:rgba(0,0,0,.26);box-shadow:inset 0 1px 3px rgba(0,0,0,.4);font-size:15px;letter-spacing:.04em}
@@ -838,10 +838,10 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule #week-body .slot .mrow.tap::after{top:50%;bottom:auto;right:10px;margin-top:-7px;opacity:.5}
 #tab-schedule #week-body .slot .mrow.tap.open::after{top:20px;margin-top:0;opacity:.8}
 /* result panel */
-#tab-schedule #week-body .slot .mrow .mres{margin-top:8px;padding:8px 0 0 !important;border-top:1px dashed rgba(248,246,240,.18) !important}
+#tab-schedule #week-body .slot .mrow .mres{margin-top:8px;padding:8px 0 0 !important;border-top:1px dashed rgba(255,255,255,.18) !important}
 /* week title + table key */
 #tab-schedule .card.sched .wt{text-align:center;margin-bottom:6px}
-#tab-schedule .tkey{padding:8px 12px;margin:0 auto 14px;width:max-content;max-width:100%;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid rgba(248,246,240,.14)}
+#tab-schedule .tkey{padding:8px 12px;margin:0 auto 14px;width:max-content;max-width:100%;border-radius:999px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.14)}
 #tab-schedule .tkey .t2 i{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),rgba(255,255,255,0) 45%),linear-gradient(#a8703f,#7a4a26)}
 /* week chips */
 #tab-schedule .chip{border-radius:10px;border-bottom-width:3px}
@@ -876,14 +876,14 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule #week-body .slot .vs .vsl{width:38px;height:38px;font:700 14px/1 var(--cond) !important;letter-spacing:.01em}
 #tab-schedule #week-body .slot .vs .vsl::after{left:8px;top:5px;width:12px;height:6px}
 #tab-schedule .tkey{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:auto;max-width:none;margin:0 0 14px;padding:0;border:0;border-radius:0;background:none;font:500 15px/1 var(--cond);letter-spacing:.16em;color:var(--ivory)}
-#tab-schedule .tkey .k{position:relative;display:flex;justify-content:center;align-items:center;gap:0;padding:13px 10px 13px 18px;overflow:hidden;border-radius:10px;background:linear-gradient(rgba(248,246,240,.1),rgba(248,246,240,.04));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(248,246,240,.07)}
+#tab-schedule .tkey .k{position:relative;display:flex;justify-content:center;align-items:center;gap:0;padding:13px 10px 13px 18px;overflow:hidden;border-radius:10px;background:linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,.04));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.07)}
 #tab-schedule .tkey .k i{position:absolute;left:0;top:0;bottom:0;width:7px;height:auto;border-radius:0}
 
 /* v135: table key reads as a legend: small caption + mini match-card samples */
-#tab-schedule .tkey{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;margin:0 0 16px;padding:0;font:500 14px/1 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:rgba(248,246,240,.82)}
-#tab-schedule .tkey::before{content:"Table key";flex:0 0 100%;text-align:center;font:500 11px/1 var(--cond);letter-spacing:.3em;color:rgba(248,246,240,.45)}
+#tab-schedule .tkey{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 26px;margin:0 0 16px;padding:0;font:500 14px/1 var(--cond);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+#tab-schedule .tkey::before{content:"Table key";flex:0 0 100%;text-align:center;font:500 11px/1 var(--cond);letter-spacing:.3em;color:rgba(255,255,255,.45)}
 #tab-schedule .tkey .k{position:static;display:inline-flex;align-items:center;gap:10px;padding:0;overflow:visible;border-radius:0;background:none;box-shadow:none}
-#tab-schedule .tkey .k i{position:relative;flex:none;display:block;width:38px;height:22px;overflow:hidden;border-radius:6px;background:linear-gradient(rgba(248,246,240,.14),rgba(248,246,240,.06));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 0 0 1px rgba(248,246,240,.1)}
+#tab-schedule .tkey .k i{position:relative;flex:none;display:block;width:38px;height:22px;overflow:hidden;border-radius:6px;background:linear-gradient(rgba(255,255,255,.14),rgba(255,255,255,.06));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 0 0 1px rgba(255,255,255,.1)}
 #tab-schedule .tkey .k i::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px}
 #tab-schedule .tkey .t1 i::before{background:linear-gradient(90deg,rgba(255,255,255,.6) 0,rgba(255,255,255,0) 50%,rgba(60,40,0,.3) 100%),linear-gradient(#d9b45a,#b38a2e)}
 #tab-schedule .tkey .t2 i::before{background:linear-gradient(90deg,rgba(255,255,255,.5) 0,rgba(255,255,255,0) 50%,rgba(0,0,0,.3) 100%),linear-gradient(#a8703f,#7a4a26)}
@@ -898,7 +898,7 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule #week-body .slot .vs .vsl::after{left:6px;top:4px;width:8px;height:4px;opacity:.55}
 
 /* v137: no cue balls; "vs." is plain quiet text */
-#tab-schedule #week-body .slot .vs .vsl{width:auto;height:auto;overflow:visible;border-radius:0 !important;background:none !important;box-shadow:none;color:rgba(248,246,240,.5) !important;font:500 13px/1 var(--cond) !important;letter-spacing:.12em;text-transform:uppercase}
+#tab-schedule #week-body .slot .vs .vsl{width:auto;height:auto;overflow:visible;border-radius:0 !important;background:none !important;box-shadow:none;color:rgba(255,255,255,.5) !important;font:500 13px/1 var(--cond) !important;letter-spacing:.12em;text-transform:uppercase}
 #tab-schedule #week-body .slot .vs .vsl::after{display:none}
 
 /* v138: no line after the time; time gets its own color (brass, not the team-name ivory) */
@@ -963,22 +963,36 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 
 /* v152: Table 2 team names sit on a walnut-brown pill (same brown as the tab bar) with ivory text:
    readable, and unmistakably different from Table 1's gold-on-dark pills */
-#tab-schedule #week-body .slot .mrow.t2 .vs .tl{color:var(--ivory);background:linear-gradient(var(--walnut-hi),var(--walnut));box-shadow:inset 0 1px 0 rgba(248,246,240,.14),0 1px 2px rgba(0,0,0,.4)}
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl{color:var(--ivory);background:linear-gradient(var(--walnut-hi),var(--walnut));box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 1px 2px rgba(0,0,0,.4)}
 #tab-schedule #week-body .slot .mrow.t2 .vs .tl.win{background:linear-gradient(rgba(159,212,92,.26),rgba(159,212,92,.12));box-shadow:inset 0 0 0 1px rgba(159,212,92,.55)}
 #tab-schedule .tkey .t2{color:var(--ivory)}
 
 /* v154: not-yet-decided teams (Winner M1, Winner M2...) look like every other team box,
    in their table's colors, with a faint dashed outline instead of grey */
 #tab-schedule #week-body .slot .vs .tl.ph .tn{color:inherit;font-weight:600;font-style:normal;opacity:1}
-#tab-schedule #week-body .slot .vs .tl.ph{outline:1px dashed rgba(248,246,240,.3);outline-offset:-4px}
+#tab-schedule #week-body .slot .vs .tl.ph{outline:1px dashed rgba(255,255,255,.3);outline-offset:-4px}
 
 /* v155: quieter Table 2 boxes: flat, softly brown-tinted, warm cream text (no gloss) */
 #tab-schedule #week-body .slot .mrow.t2 .vs .tl{color:#eadcc8;background:linear-gradient(rgba(125,79,45,.38),rgba(106,65,37,.30));box-shadow:inset 0 1px 3px rgba(0,0,0,.4)}
 #tab-schedule #week-body .slot .mrow.t2 .vs .tl.win{background:linear-gradient(rgba(159,212,92,.26),rgba(159,212,92,.12));box-shadow:inset 0 0 0 1px rgba(159,212,92,.55)}
-#tab-schedule #week-body .slot .vs .tl.ph{outline-color:rgba(248,246,240,.22)}
+#tab-schedule #week-body .slot .vs .tl.ph{outline-color:rgba(255,255,255,.22)}
 #tab-schedule .tkey .t2{color:#eadcc8}
 
 /* v156: Table 2 boxes are the same dark box as Table 1 (no brown fill); only the text color differs: ivory vs gold */
 #tab-schedule #week-body .slot .mrow.t2 .vs .tl{color:var(--ivory);background:rgba(0,0,0,.26);box-shadow:inset 0 1px 3px rgba(0,0,0,.4)}
 #tab-schedule #week-body .slot .mrow.t2 .vs .tl.win{background:linear-gradient(rgba(159,212,92,.26),rgba(159,212,92,.12));box-shadow:inset 0 0 0 1px rgba(159,212,92,.55)}
 #tab-schedule .tkey .t2{color:var(--ivory)}
+
+/* v157: light text is pure white, fully opaque (no pearl / faded white).
+   Only the small "vs." connector and the version tag stay quiet. */
+.tab:not(.on),.kick,.chip span,#tab-schedule .hint,
+#tab-bracket th,#tab-bracket .rh,#tab-bracket .seed,#tab-bracket .tn{color:#fff !important}
+
+/* v158: table key = two tiles built exactly like a match row (same fill, edge, side bar, text color) */
+#tab-schedule .tkey{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:auto;max-width:none;margin:0 0 14px;padding:0;border:0;border-radius:0;background:none;font:600 14px/1 var(--cond);letter-spacing:.16em;text-transform:uppercase}
+#tab-schedule .tkey .k{position:relative;display:flex;align-items:center;justify-content:center;gap:0;padding:12px 10px 12px 17px;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-left:0;border-radius:10px;background:linear-gradient(rgba(255,255,255,.08),rgba(255,255,255,.03));box-shadow:0 2px 0 rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.07)}
+#tab-schedule .tkey .k i{position:absolute;left:0;top:0;bottom:0;width:7px;height:auto;border-radius:0;box-shadow:none;background:none;overflow:visible}
+#tab-schedule .tkey .k i::after{display:none}
+#tab-schedule .tkey .k i::before{left:0;top:0;bottom:0;width:7px}
+#tab-schedule .tkey .t1{color:#e0bc62}
+#tab-schedule .tkey .t2{color:#fff}
