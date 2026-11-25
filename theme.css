@@ -847,3 +847,11 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule .chip{border-radius:10px;border-bottom-width:3px}
 #tab-schedule .chip.on{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.4),inset 0 0 0 1px rgba(201,162,74,.35)}
 #tab-schedule #week-body .slot .mrow{padding-right:30px}
+
+/* v128b: no outline around each match card (table color bar on the left stays) */
+#tab-schedule #week-body .slot .mrow,#tab-schedule #week-body .slot .mrow.open{border:0 !important;box-shadow:0 2px 0 rgba(0,0,0,.28)}
+
+/* v128c: table bars use the key's colors */
+#tab-schedule #week-body .slot .mrow.t1::before{background:#c9a24a}
+#tab-schedule #week-body .slot .mrow.t2::before{background:linear-gradient(#a8703f,#7a4a26)}
+#tab-schedule .tkey .t2 i{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.6),rgba(255,255,255,0) 45%),linear-gradient(#a8703f,#7a4a26)}
