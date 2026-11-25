@@ -1016,7 +1016,7 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 /* table marker: flat 4px edge bar, same idea as the top-8 marker in Standings */
 #tab-schedule #week-body .slot .mrow::before{left:9px;top:10px;bottom:10px;width:7px;border-radius:4px;box-shadow:none}
 #tab-schedule #week-body .slot .mrow.t1::before{background:var(--brass)}
-#tab-schedule #week-body .slot .mrow.t2::before{background:#a8703f}
+#tab-schedule #week-body .slot .mrow.t2::before{background:var(--walnut-hi)}
 /* team names: plain text like the Standings rows, no pills, no per-table text colors */
 #tab-schedule #week-body .slot .vs{padding-left:0}
 #tab-schedule #week-body .slot .vs .tl,
@@ -1036,7 +1036,7 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 #tab-schedule .tkey .k i{left:0;top:0;bottom:0;width:7px;height:auto}
 #tab-schedule .tkey .k i::before{width:7px;border-radius:4px}
 #tab-schedule .tkey .t1 i::before{background:var(--brass)}
-#tab-schedule .tkey .t2 i::before{background:#a8703f}
+#tab-schedule .tkey .t2 i::before{background:var(--walnut-hi)}
 
 /* standings: team names a notch smaller and softer (numbers stay as they are) */
 #tab-bracket .stand td.tn{color:rgba(255,255,255,.82) !important;font-size:15px;font-weight:400;letter-spacing:.03em}
