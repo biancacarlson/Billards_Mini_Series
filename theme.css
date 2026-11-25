@@ -914,3 +914,14 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 
 /* v140: browner Table 2 text */
 #tab-schedule #week-body .slot .mrow.t2 .vs .tl,#tab-schedule .tkey .t2{color:#c27d45}
+
+/* v141: Table 2 brown = the walnut of the tab bar. Brown is too dark to read as text, so team names sit on filled pills in their table's color */
+#tab-schedule #week-body .slot .mrow.t1 .vs .tl{background:linear-gradient(#d9b45a,#b38a2e);color:#1b1608;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 1px 2px rgba(0,0,0,.4)}
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl{background:linear-gradient(var(--walnut-hi),var(--walnut));color:var(--ivory);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 1px 2px rgba(0,0,0,.4)}
+#tab-schedule #week-body .slot .mrow.t1 .vs .tl.win{background:linear-gradient(#d9b45a,#b38a2e);box-shadow:inset 0 0 0 2px #9fd45c}
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl.win{background:linear-gradient(var(--walnut-hi),var(--walnut));box-shadow:inset 0 0 0 2px #9fd45c}
+#tab-schedule #week-body .slot .mrow.t2::before,#tab-schedule .tkey .t2 i::before{background:linear-gradient(90deg,rgba(255,255,255,.3) 0,rgba(255,255,255,0) 50%,rgba(0,0,0,.3) 100%),linear-gradient(var(--walnut-hi),var(--walnut))}
+#tab-schedule .tkey .k{padding:6px 12px;border-radius:6px}
+#tab-schedule .tkey .t1{background:linear-gradient(#d9b45a,#b38a2e);color:#1b1608}
+#tab-schedule .tkey .t2{background:linear-gradient(var(--walnut-hi),var(--walnut));color:var(--ivory)}
+#tab-schedule .tkey .k i{display:none}
