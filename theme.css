@@ -1074,3 +1074,6 @@ main{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
 /* v186: championship week quieter — round + format live in the time header; per-match label is a small muted tag */
 #tab-schedule #week-body .slot h3.time .rd{margin-left:12px;color:rgba(255,255,255,.55);font:500 12px/1 var(--cond);letter-spacing:.14em;text-transform:uppercase}
 #tab-schedule #week-body .slot .vs .lbl{color:rgba(255,255,255,.5);font:500 11px/1.2 var(--cond);letter-spacing:.14em;text-transform:uppercase}
+
+/* v188: schedule match panels use the same dark green as the week-toggle card at the top */
+#tab-schedule #week-body .slot{background:linear-gradient(#0b3d2c,#072a1e);box-shadow:none}
