@@ -1000,3 +1000,6 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 /* v159: no tinted glow on the white title; Bracket round notes fully opaque; hint line is gold */
 #tab-bracket small{opacity:1 !important;color:#fff !important}
 #tab-schedule .hint{color:#e0bc62 !important}
+
+/* v165: substitute-fee bullet keeps its three set lines (scales down a touch on narrow phones instead of wrapping) */
+#tab-info .pts li.subfee{white-space:nowrap;font-size:min(16px,4vw);letter-spacing:-.01em}
