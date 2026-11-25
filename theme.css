@@ -900,3 +900,7 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 /* v137: no cue balls; "vs." is plain quiet text */
 #tab-schedule #week-body .slot .vs .vsl{width:auto;height:auto;overflow:visible;border-radius:0 !important;background:none !important;box-shadow:none;color:rgba(248,246,240,.5) !important;font:500 13px/1 var(--cond) !important;letter-spacing:.12em;text-transform:uppercase}
 #tab-schedule #week-body .slot .vs .vsl::after{display:none}
+
+/* v138: no line after the time; time gets its own color (brass, not the team-name ivory) */
+#tab-schedule #week-body .slot h3.time::after{display:none}
+#tab-schedule #week-body .slot h3.time{color:var(--brass)}
