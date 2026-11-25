@@ -220,18 +220,23 @@
       return '<div class="tl ' + cls + '"><span class="tn">' + nameTxt + (win && win === t.no ? '&nbsp;<span class="ck">&#10003;</span>' : "") + "</span></div>";
     }
     function tname(t, ph) { return !t ? esc(ph) : (t.name === null ? "#" + t.seed + " Seed" : esc(t.name)); }
-    return '<div class="mrow tap t' + table + '" role="button" tabindex="0" aria-expanded="false"><span class="sr">Table ' + table + '</span><div class="vs"><div class="lbl">' + label + "</div>" +
+    return '<div class="mrow tap t' + table + '" role="button" tabindex="0" aria-expanded="false"><span class="sr">Table ' + table + '</span><div class="vs">' + (label ? '<div class="lbl">' + label + "</div>" : "") +
       line(x.a, x.aPh) + '<div class="vsl">vs.</div>' + line(x.b, x.bPh) + "</div>" +
       (x.res && x.res.score ? '<span class="rs">' + esc(x.res.score) + "</span>" : "") +
       resPanel(tname(x.a, x.aPh), tname(x.b, x.bPh), x.a && x.a.no, x.b && x.b.no, win, x.res && x.res.score) + "</div>";
   }
+  function withPh(x, a, b) { var o = {}; for (var k in x) o[k] = x[k]; o.aPh = a; o.bPh = b; return o; }
   function champWeek() {
     var m = B.m;
+    var sf1 = withPh(m[4], "Winner 1/8", "Winner 4/5");
+    var sf2 = withPh(m[5], "Winner 2/7", "Winner 3/6");
+    var fin = withPh(B.fin, "SF1 winner", "SF2 winner");
+    var third = withPh(B.third, "SF1 loser", "SF2 loser");
     var slots = [
-      { t: "6:00 PM", rd: "Quarterfinals &middot; 1 game", rows: [[m[0], 1, "Match 1"], [m[1], 2, "Match 2"]] },
-      { t: "6:20 PM", rd: "Quarterfinals &middot; 1 game", rows: [[m[2], 1, "Match 3"], [m[3], 2, "Match 4"]] },
-      { t: "6:40 PM", rd: "Semifinals &middot; Best of 3", rows: [[m[4], 1, "Match 5"], [m[5], 2, "Match 6"]] },
-      { t: "7:40 PM", rd: "Finals", rows: [[B.fin, 1, "Championship &middot; Best of 3"], [B.third, 2, "3rd place &middot; 1 game"]] }
+      { t: "6:00 PM", rd: "Quarterfinals &middot; 1 game", rows: [[m[0], 1, ""], [m[1], 2, ""]] },
+      { t: "6:20 PM", rd: "Quarterfinals &middot; 1 game", rows: [[m[2], 1, ""], [m[3], 2, ""]] },
+      { t: "6:40 PM", rd: "Semifinals &middot; Best of 3", rows: [[sf1, 1, ""], [sf2, 2, ""]] },
+      { t: "7:40 PM", rd: "Finals", rows: [[fin, 1, "Championship &middot; Best of 3"], [third, 2, "3rd place &middot; 1 game"]] }
     ];
     return slots.map(function (s) {
       return '<div class="slot"><h3 class="time">' + s.t + '<span class="rd">' + s.rd + "</span></h3>" + s.rows.map(function (r) { return champRow(r[0], r[1], r[2]); }).join("") + "</div>";
