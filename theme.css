@@ -904,3 +904,10 @@ main{padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
 /* v138: no line after the time; time gets its own color (brass, not the team-name ivory) */
 #tab-schedule #week-body .slot h3.time::after{display:none}
 #tab-schedule #week-body .slot h3.time{color:var(--brass)}
+
+/* v139: times white; team names + key labels take their table's color */
+#tab-schedule #week-body .slot h3.time{color:var(--ivory)}
+#tab-schedule #week-body .slot .mrow.t1 .vs .tl{color:#e0bc62}
+#tab-schedule #week-body .slot .mrow.t2 .vs .tl{color:#d49f68}
+#tab-schedule .tkey .t1{color:#e0bc62}
+#tab-schedule .tkey .t2{color:#d49f68}
